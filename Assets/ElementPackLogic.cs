@@ -14,6 +14,6 @@ public class ElementPackLogic : MonoBehaviour
 
     public void UpdateText()
     {
-        elementCardUI.GetComponent<ElementCardUI>().SetData(elements[Random.Range(0, elements.Length)].elementType);
+        elementCardUI.GetComponent<ElementCardUI>().SetData(elements[Random.Range(0, elements.Length)].elementType.ToString());
     }
 }
