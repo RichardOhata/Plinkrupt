@@ -52,4 +52,9 @@ public class ElementCardUI : MonoBehaviour
             }
         }
     }
+
+    public void HandleUseButton()
+    {
+        element.IncrementMult();
+    }
 }
