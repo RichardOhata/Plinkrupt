@@ -9,6 +9,6 @@ public class ElementPack : ScriptableObject
     public void IncrementMult()
     {
        Debug.Log(elementType.ToString());
-       // To Do
+       ElementMultiplierManager.Instance.OnMultiplierAddedEvent(elementType, multiplierInc);
     }
 }

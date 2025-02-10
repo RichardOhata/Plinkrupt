@@ -50,10 +50,22 @@ public class ElementMultiplierManager: MonoBehaviour
 
     public void OnMultiplierAddedEvent(ScoringClass.ElementType elementType, float multiplier)
     {
-        ElementMultiplier element = new ElementMultiplier(elementType, multiplier);
-        premanentMultipliers.Add(element);
-        Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
-        MultiplierAddedEvent?.Invoke(element);
+        ElementMultiplier existingElement = premanentMultipliers.Find(e => e.elementType == elementType);
+
+        if (existingElement != null)
+        {
+            existingElement.multiplier += multiplier;
+            Debug.Log($"Updated Element Multiplier {existingElement.ElementBuffName}: New Multiplier = {existingElement.multiplier}");
+        }
+        else
+        {
+            ElementMultiplier newElement = new ElementMultiplier(elementType, multiplier);
+            premanentMultipliers.Add(newElement);
+            Debug.Log($"Element Multiplier {newElement.ElementBuffName} added to the list of permanent multipliers");
+        }
+
+        // Invoke event if needed
+        MultiplierAddedEvent?.Invoke(existingElement ?? premanentMultipliers[^1]);
     }
     
 /// <summary>
