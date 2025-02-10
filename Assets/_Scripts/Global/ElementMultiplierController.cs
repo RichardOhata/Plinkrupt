@@ -47,6 +47,14 @@ public class ElementMultiplierManager: MonoBehaviour
         Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
         MultiplierAddedEvent?.Invoke(element);
     }
+
+    public void OnMultiplierAddedEvent(ScoringClass.ElementType elementType, float multiplier)
+    {
+        ElementMultiplier element = new ElementMultiplier(elementType, multiplier);
+        premanentMultipliers.Add(element);
+        Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
+        MultiplierAddedEvent?.Invoke(element);
+    }
     
 /// <summary>
 /// Removes the specified element multiplier from the list of permanent multipliers 
@@ -55,6 +63,14 @@ public class ElementMultiplierManager: MonoBehaviour
 /// <param name="element">The element multiplier to be removed.</param>
     public void OnMultiplierRemovedEvent(ElementMultiplier element)
     {
+        premanentMultipliers.Remove(element);
+        Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
+        MultiplierRemovedEvent?.Invoke(element);
+    }
+
+    public void OnMultiplierRemovedEvent(ScoringClass.ElementType elementType, float multiplier)
+    {
+        ElementMultiplier element = new ElementMultiplier(elementType, multiplier);
         premanentMultipliers.Remove(element);
         Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
         MultiplierRemovedEvent?.Invoke(element);

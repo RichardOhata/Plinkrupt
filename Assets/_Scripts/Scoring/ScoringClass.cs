@@ -40,7 +40,7 @@ public class ElementMultiplier{
     
     //optional name the keep track of buffs and debuffs
     //should be useful for Debug/UI purposes
-    public String ElementBuffName;
+    [HideInInspector]public String ElementBuffName;
 
     /// <summary>
     /// Constructor for ElementMultiplier
