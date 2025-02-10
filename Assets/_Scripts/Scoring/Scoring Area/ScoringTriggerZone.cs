@@ -1,21 +1,34 @@
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 {
 
-    public ScoringAreaConfigSO scoringAreaConfigSo;
-    private ScoringClass.ElementType ObjectElement;
-    private float BaseMultiplier;
+
+
+    //cached game manager references
+    private GameManager _currentGameManager;
+
+    //configs
+    [SerializeField]private ScoringAreaConfigSO _scoringAreaConfigSo;
+    private ScoringClass.ElementType _objectElement;
+    private float _baseMultiplier;
     
+
     void Start()
     {
-        if(!scoringAreaConfigSo){
+        if(!_scoringAreaConfigSo){
             Debug.LogWarning("Scoring Trigger So is not set!");
             return;
         }
-        ObjectElement = scoringAreaConfigSo.elementType;
-        BaseMultiplier = scoringAreaConfigSo.baseScoreMultiplier;
+        if(!GameManager.instance){
+            Debug.LogWarning("Game Manager is not set!");
+            return;
+        }
+        _currentGameManager = GameManager.instance;
+        _objectElement = _scoringAreaConfigSo.elementType;
+        _baseMultiplier = _scoringAreaConfigSo.baseScoreMultiplier;
     }
 
     // Update is called once per frame
@@ -24,21 +37,45 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         
     }
 
+    /// <summary>
+    /// Handles the trigger enter event. When a collision occurs, it checks if the colliding object 
+    /// implements the IElementScoreInteraction interface. If so, calculates the score using the 
+    /// element multiplier and updates the game manager with the new score.
+    /// </summary>
+    /// <param name="collision">The collider object that triggered the event.</param>
+
     public void OnTriggerEnter(Collider collision){
         Debug.Log("Triggered");
         if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction elementScoreInteraction)){
-            float multiplier = GameManager.instance.elementMultiplierTable.GetMultiplier(ObjectElement, elementScoreInteraction.getElementType());
-            Debug.Log($"Score Area: {ObjectElement}, Target Element: {elementScoreInteraction.getElementType()}, Multiplier: {multiplier}");
+            float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, elementScoreInteraction.getElementType());
+            Debug.Log($"Score Area: {_objectElement}, Target Element: {elementScoreInteraction.getElementType()}, Multiplier: {multiplier}");
+
+            float bid = elementScoreInteraction.getCurrentBid();
+            float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, multiplier);
+            
         }
     }
 
     public float getBaseMutiplier()
     {
-        return BaseMultiplier;
+        return _baseMultiplier;
     }
 
     public ScoringClass.ElementType getElementType()
     {
-        return ObjectElement;
+        return _objectElement;
+    }
+
+
+    //not implemented
+
+    public float getCurrentBid()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public float setCurrentBid(float bidValue)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -4,17 +4,29 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 {
     public BallConfigSO ballConfig;
 
-    private ScoringClass.ElementType ObjectElement;
-    private float BaseMultiplier;
+    private ScoringClass.ElementType _objectElement;
+    private float _baseMultiplier;
+
+    private float _currentBidValue;
 
     public float getBaseMutiplier()
     {
-        return BaseMultiplier;
+        return _baseMultiplier;
+    }
+
+    public float getCurrentBid()
+    {
+        return _currentBidValue;
+    }
+    public float setCurrentBid(float bidValue)
+    {
+        _currentBidValue = bidValue;
+        return _currentBidValue;
     }
 
     public ScoringClass.ElementType getElementType()
     {
-        return ObjectElement;
+        return _objectElement;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,8 +37,8 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             return;
         }
 
-        ObjectElement = ballConfig.elementType;
-        BaseMultiplier = ballConfig.baseScoreMultiplier;
+        _objectElement = ballConfig.elementType;
+        _baseMultiplier = ballConfig.baseScoreMultiplier;
     }
 
     // Update is called once per frame
