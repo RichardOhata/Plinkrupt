@@ -37,6 +37,10 @@ public class ElementTable{
 public class ElementMultiplier{
     public ScoringClass.ElementType elementType;
     public float multiplier;
+    
+    //optional name the keep track of buffs and debuffs
+    //should be useful for Debug/UI purposes
+    public String ElementBuffName;
 
     /// <summary>
     /// Constructor for ElementMultiplier
@@ -46,6 +50,7 @@ public class ElementMultiplier{
     public ElementMultiplier(ScoringClass.ElementType elementType, float multiplier){
         this.elementType = elementType;
         this.multiplier = multiplier;
+        ElementBuffName = elementType.ToString();
     }
 }
 
