@@ -54,7 +54,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 
             float bid = BallElement.getCurrentBid();
             //update the score
-            float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, multiplier);
+            float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, _baseMultiplier * multiplier);
             
         }
     }
