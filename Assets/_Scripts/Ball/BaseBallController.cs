@@ -9,6 +9,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 
     private float _currentBidValue;
 
+    // Implementing the interface methods
     public float getBaseMutiplier()
     {
         return _baseMultiplier;
@@ -29,7 +30,8 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
         return _objectElement;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //
+    // Load Ball Config SO
     void Start()
     {
         if(!ballConfig){

@@ -7,7 +7,7 @@ public class ElementMultiplierTable : ScriptableObject
     
     public ElementTable[] elementTables = new ElementTable[0];
     /// <summary>
-    /// Returns the multiplier for scoring the given target element relative to the given main element.
+    /// Returns the multiplier for scoring the given target element relative to the given main element from the lookup table
     /// </summary>
     /// <param name="mainElement">The type of element that was used to score the target element.</param>
     /// <param name="targetElement">The type of element that was scored.</param>

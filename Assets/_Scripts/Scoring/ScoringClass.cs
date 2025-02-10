@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ScoringClass
 {
+    //Element types
     public enum ElementType
     {
         Air,
@@ -13,6 +14,7 @@ public class ScoringClass
     }
 }
 
+//Lookup table for scoring multipliers
 [Serializable]
 public class ElementTable{
     public ScoringClass.ElementType mainElement;
@@ -36,6 +38,11 @@ public class ElementMultiplier{
     public ScoringClass.ElementType elementType;
     public float multiplier;
 
+    /// <summary>
+    /// Constructor for ElementMultiplier
+    /// </summary>
+    /// <param name="elementType">The element type to have the given multiplier</param>
+    /// <param name="multiplier">The value to multiply the score by when the main element of the table is used to score the target element.</param>
     public ElementMultiplier(ScoringClass.ElementType elementType, float multiplier){
         this.elementType = elementType;
         this.multiplier = multiplier;

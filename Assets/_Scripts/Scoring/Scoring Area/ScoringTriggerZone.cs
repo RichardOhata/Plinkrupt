@@ -46,16 +46,20 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 
     public void OnTriggerEnter(Collider collision){
         Debug.Log("Triggered");
-        if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction elementScoreInteraction)){
-            float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, elementScoreInteraction.getElementType());
-            Debug.Log($"Score Area: {_objectElement}, Target Element: {elementScoreInteraction.getElementType()}, Multiplier: {multiplier}");
+        if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction BallElement)){
 
-            float bid = elementScoreInteraction.getCurrentBid();
+            //get the multiplier from the lookup table
+            float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
+            Debug.Log($"Score Area: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
+
+            float bid = BallElement.getCurrentBid();
+            //update the score
             float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, multiplier);
             
         }
     }
 
+    //implementing the interface methods
     public float getBaseMutiplier()
     {
         return _baseMultiplier;
