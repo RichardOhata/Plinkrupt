@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HexMountainGenerator : MonoBehaviour
 {
-    public GameObject[] hexPrefabs; // Array to hold 6 different hex prefabs
+    public GameObject[] hexPrefabs; // Array of 6 prefabs
     public int baseSize = 5;  // Width of the base hex layer
     public int height = 5;     // Number of layers
     public float hexSize = 1f; // Size of each hex block
-    public float roughnessFactor = 0.3f; // Higher = more irregular shape
+    public float roughnessFactor = 0.3f; // How chaotic the shape is (0 = smooth, 1 = very rough)
     public float heightVariation = 0.2f; // Random height offsets
-    private Dictionary<Vector2Int, int> regionMap = new Dictionary<Vector2Int, int>(); // Stores prefab choices
+    private Dictionary<Vector2Int, int> prefabMap = new Dictionary<Vector2Int, int>(); // Stores prefab types
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class HexMountainGenerator : MonoBehaviour
             foreach (Vector2Int pos in hexPositions)
             {
                 Vector3 worldPos = HexToWorldPosition(pos.x, pos.y, y);
-                GameObject selectedPrefab = SelectPrefab(pos);
+                GameObject selectedPrefab = SelectClusteredPrefab(pos);
                 Instantiate(selectedPrefab, worldPos, Quaternion.identity, transform);
             }
         }
@@ -63,40 +63,47 @@ public class HexMountainGenerator : MonoBehaviour
         return new Vector3(x, elevation, z);
     }
 
-    GameObject SelectPrefab(Vector2Int pos)
+    GameObject SelectClusteredPrefab(Vector2Int pos)
     {
-        // Check if a nearby hex already has a prefab assigned
+        // Check neighboring hexes to determine the most common nearby prefab
         List<Vector2Int> neighbors = new List<Vector2Int>
         {
-            pos + new Vector2Int(1, 0),
-            pos + new Vector2Int(-1, 0),
-            pos + new Vector2Int(0, 1),
-            pos + new Vector2Int(0, -1),
-            pos + new Vector2Int(1, -1),
-            pos + new Vector2Int(-1, 1)
+            new Vector2Int(pos.x + 1, pos.y), new Vector2Int(pos.x - 1, pos.y),
+            new Vector2Int(pos.x, pos.y + 1), new Vector2Int(pos.x, pos.y - 1),
+            new Vector2Int(pos.x + 1, pos.y - 1), new Vector2Int(pos.x - 1, pos.y + 1)
         };
 
-        List<int> nearbyPrefabIndices = new List<int>();
-
-        foreach (Vector2Int neighbor in neighbors)
+        Dictionary<int, int> prefabCount = new Dictionary<int, int>();
+        foreach (var neighbor in neighbors)
         {
-            if (regionMap.ContainsKey(neighbor))
+            if (prefabMap.TryGetValue(neighbor, out int neighborPrefab))
             {
-                nearbyPrefabIndices.Add(regionMap[neighbor]);
+                if (!prefabCount.ContainsKey(neighborPrefab))
+                    prefabCount[neighborPrefab] = 0;
+                prefabCount[neighborPrefab]++;
             }
         }
 
-        int selectedIndex;
-        if (nearbyPrefabIndices.Count > 0 && Random.value > 0.5f) // 50% chance to pick a similar type
+        int selectedPrefabIndex;
+        if (prefabCount.Count > 0 && Random.value > 0.3f) // 70% chance to match neighbors
         {
-            selectedIndex = nearbyPrefabIndices[Random.Range(0, nearbyPrefabIndices.Count)];
+            int mostCommonPrefab = -1, maxCount = 0;
+            foreach (var kvp in prefabCount)
+            {
+                if (kvp.Value > maxCount)
+                {
+                    maxCount = kvp.Value;
+                    mostCommonPrefab = kvp.Key;
+                }
+            }
+            selectedPrefabIndex = mostCommonPrefab;
         }
         else
         {
-            selectedIndex = Random.Range(0, hexPrefabs.Length);
+            selectedPrefabIndex = Random.Range(0, hexPrefabs.Length);
         }
 
-        regionMap[pos] = selectedIndex; // Store the chosen prefab for future reference
-        return hexPrefabs[selectedIndex];
+        prefabMap[pos] = selectedPrefabIndex; // Store assigned prefab
+        return hexPrefabs[selectedPrefabIndex];
     }
 }
