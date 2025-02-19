@@ -48,6 +48,14 @@ public class GameManager : MonoBehaviour
         OnScoreUpdatedEvent?.Invoke(this.currentMoney);
     }
 
+    public void ModifyBid(float bid){
+        currentBid += bid;
+
+        if (currentBid <= 0){
+            currentBid = 10;
+        }
+    }
+
     /// <summary>
     /// Updates the current money by applying a multiplier to the given bid and returns the calculated amount.
     /// </summary>

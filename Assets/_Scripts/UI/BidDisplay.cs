@@ -14,8 +14,8 @@ public class BidDisplay : MonoBehaviour
             bidText = GetComponent<TMP_Text>();
         }
     }
-    void Start(){
-        bidText.text = GameManager.Instance.currentBid.ToString();
+    void Update(){
+        bidText.text = "$" + GameManager.Instance.currentBid.ToString();
     }
 
 

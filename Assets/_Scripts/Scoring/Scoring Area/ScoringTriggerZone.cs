@@ -56,6 +56,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
             //update the score
             float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, _baseMultiplier * multiplier);
             
+            Destroy(collision.gameObject);
         }
     }
 
