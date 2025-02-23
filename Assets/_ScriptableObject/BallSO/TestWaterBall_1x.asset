@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: 3
   baseScoreMultiplier: 1
+  tailParticle: {fileID: 6136002747739749652, guid: 8c6dd8943f04db749a61af693119fe0d, type: 3}
+  hitVFX: {fileID: 8926484042661614526, guid: 25600892f02083943ae883fbc821969d, type: 3}
