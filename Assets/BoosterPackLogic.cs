@@ -3,27 +3,42 @@ using UnityEngine;
 
 public class BoosterPackLogic : MonoBehaviour
 {
-    public GameObject useButton;
-    public Animator animator;
+    private GameObject shopWindow;
+    private Animator animator;
     public Transform parentCanvas;
     public GameObject elementalCard;
-
     public ElementPack[] elements;
-    public void HandleTap()
+    private void Start()
     {
-        useButton.SetActive(!useButton.activeSelf);
+        DragDropManager.AddObject(GetComponent<ObjectSettings>());
+        shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+        animator =shopWindow.GetComponent<Animator>();
+        
     }
 
-    public void HandleUseButton()
+    public void HandleUse()
     {
         animator.SetTrigger("WindowDown");
         ShowElementalCards();
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void ShowUsePanel()
+    {
+        shopWindow.GetComponent<ShopWindow>().ShowUsePanel();
+    }
+
+    public void HideUsePanel()
+    {
+        shopWindow.GetComponent<ShopWindow>().HideUsePanel();
+        
     }
 
     private void ShowElementalCards()
     {
+        DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
         GameObject card = Instantiate(elementalCard, parentCanvas);
         card.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)]);
+        Destroy(gameObject);
     }
 }

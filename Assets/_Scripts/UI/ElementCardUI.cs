@@ -7,23 +7,17 @@ using UnityEngine.UI;
 
 public class ElementCardUI : MonoBehaviour
 {
+    private GameObject shopWindow;
+    private Animator animator;
     public TextMeshProUGUI elementText;
     public GameObject useButton;
     public ElementPack element;
-    public Animator animator;
 
     private void Start()
     {
-        animator = GameObject.FindGameObjectWithTag("ShopWindow").GetComponent<Animator>();
-    }
-    private void OnEnable()
-    {
-            //InputManager.instance.OnTap += HandleTap;
-    }
-
-    private void OnDisable()
-    {
-            //InputManager.instance.OnTap -= HandleTap;
+        DragDropManager.AddObject(GetComponent<ObjectSettings>());
+        shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+        animator = shopWindow.GetComponent<Animator>();
     }
 
     public void SetData(ElementPack element)
@@ -33,15 +27,22 @@ public class ElementCardUI : MonoBehaviour
 
     }
 
-    public void HandleTap()
+    public void ShowUsePanel()
     {
-                useButton.SetActive(!useButton.activeSelf);
+        shopWindow.GetComponent<ShopWindow>().ShowUsePanel();
     }
 
-    public void HandleUseButton()
+    public void HideUsePanel()
+    {
+        shopWindow.GetComponent<ShopWindow>().HideUsePanel();
+
+    }
+
+    public void HandleUse()
     {
         element.IncrementMult();
         animator.SetTrigger("WindowUp");
+        DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
         Destroy(gameObject);
     }
 }
