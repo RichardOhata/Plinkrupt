@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+
 public class BoosterPackLogic : MonoBehaviour
 {
     private GameObject shopWindow;
@@ -12,9 +13,9 @@ public class BoosterPackLogic : MonoBehaviour
     {
         DragDropManager.AddObject(GetComponent<ObjectSettings>());
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
-        animator =shopWindow.GetComponent<Animator>();
-        
+        animator = shopWindow.GetComponent<Animator>();
     }
+
 
     public void HandleUse()
     {
@@ -29,9 +30,8 @@ public class BoosterPackLogic : MonoBehaviour
     }
 
     public void HideUsePanel()
-    {
+    {   
         shopWindow.GetComponent<ShopWindow>().HideUsePanel();
-        
     }
 
     private void ShowElementalCards()
