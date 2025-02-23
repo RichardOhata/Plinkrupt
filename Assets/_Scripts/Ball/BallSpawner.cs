@@ -9,14 +9,14 @@ public class BallSpawner : MonoBehaviour
     public void SpawnBall()
     {
         //place a bid
-        GameManager.instance.PlaceBid(GameManager.instance.currentBid);
+        GameManager.Instance.PlaceBid(GameManager.Instance.currentBid);
 
         //spawn a ball
         GameObject ball = Instantiate(ballPrefab[Random.Range(0, ballPrefab.Length)], transform.position, Quaternion.identity);
 
         //set the current bid value to the ball
         IElementScoreInteraction elementScoreInteraction = ball.GetComponent<IElementScoreInteraction>();
-        elementScoreInteraction.setCurrentBid(GameManager.instance.currentBid);
+        elementScoreInteraction.setCurrentBid(GameManager.Instance.currentBid);
 
     }
 }

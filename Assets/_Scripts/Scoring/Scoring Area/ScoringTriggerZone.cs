@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -16,25 +18,23 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     private float _baseMultiplier;
     
 
+
     void Start()
     {
         if(!_scoringAreaConfigSo){
             Debug.LogWarning("Scoring Trigger So is not set!");
             return;
         }
-        if(!GameManager.instance){
+        if(!GameManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.instance;
+        _currentGameManager = GameManager.Instance;
         _objectElement = _scoringAreaConfigSo.elementType;
         _baseMultiplier = _scoringAreaConfigSo.baseScoreMultiplier;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
+        ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
 
     /// <summary>
@@ -59,6 +59,22 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         }
     }
 
+    //methods to add and remove element multipliers
+    public void AddElementMultiplier(ElementMultiplier elementMultiplier){
+        if (elementMultiplier.elementType != _objectElement)
+        {
+            _baseMultiplier += elementMultiplier.multiplier;
+        }
+       
+    }
+    //method to remove an element multiplier
+    public void RemoveElementMultiplier(ElementMultiplier elementMultiplier){
+        if (elementMultiplier.elementType != _objectElement)
+        {
+            _baseMultiplier -= elementMultiplier.multiplier;
+        }
+    }
+    
     //implementing the interface methods
     public float getBaseMutiplier()
     {
@@ -69,8 +85,6 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     {
         return _objectElement;
     }
-
-
     //not implemented
 
     public float getCurrentBid()

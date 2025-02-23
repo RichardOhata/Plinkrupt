@@ -3,7 +3,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     //player default preset if there is no saving data.
     [SerializeField] private PlayerDefaultPreset _playerDefaultPreset;
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public event System.Action<float> OnScoreUpdatedEvent;
 
     void OnEnable(){
-        if(instance == null){
-            instance = this;
+        if(Instance == null){
+            Instance = this;
         }else{
             Debug.LogWarning("Game Manager instance already exists, destroying this one.");
             Destroy(this.gameObject);
@@ -31,11 +31,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if(_playerDefaultPreset != null){
-            loadDefaultPreset();
+            LoadDefaultPreset();
         }
     }
 
-    void loadDefaultPreset(){
+    void LoadDefaultPreset(){
         this.currentMoney = _playerDefaultPreset.playerStartingMoney;
     }
 
@@ -61,11 +61,5 @@ public class GameManager : MonoBehaviour
         this.currentMoney += money;
         OnScoreUpdatedEvent?.Invoke(this.currentMoney);
         return money;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

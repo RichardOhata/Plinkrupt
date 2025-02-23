@@ -11,6 +11,7 @@ public class ElementCardUI : MonoBehaviour
     public GameObject useButton;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
+    public ElementPack element;
 
     private void Awake()
     {
@@ -28,9 +29,11 @@ public class ElementCardUI : MonoBehaviour
             InputManager.instance.OnTap -= HandleTap;
     }
 
-    public void SetData(string elementName)
+    public void SetData(ElementPack element)
     {
-        elementText.text = elementName;
+        this.element = element;
+        elementText.text = element.elementType.ToString();
+
     }
 
     private void HandleTap(Vector2 screenPos)
@@ -48,5 +51,10 @@ public class ElementCardUI : MonoBehaviour
                 useButton.SetActive(!useButton.activeSelf);
             }
         }
+    }
+
+    public void HandleUseButton()
+    {
+        element.IncrementMult();
     }
 }
