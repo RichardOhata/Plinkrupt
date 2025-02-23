@@ -6,7 +6,7 @@ public class BidDisplay : MonoBehaviour
     public TMP_Text bidText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake(){
-        if(GameManager.instance == null){
+        if(GameManager.Instance == null){
             Debug.LogWarning("Game Manager instance is not set !");
             return;
         }
@@ -15,7 +15,7 @@ public class BidDisplay : MonoBehaviour
         }
     }
     void Start(){
-        bidText.text = GameManager.instance.currentBid.ToString();
+        bidText.text = GameManager.Instance.currentBid.ToString();
     }
 
 
