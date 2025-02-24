@@ -974,10 +974,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3436215854788473242, guid: afbf183fae177814a870060515535900, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5155447200077539478, guid: afbf183fae177814a870060515535900, type: 3}
       propertyPath: m_Name
       value: ShopUI

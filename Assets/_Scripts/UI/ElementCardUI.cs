@@ -11,7 +11,7 @@ public class ElementCardUI : MonoBehaviour
     private Animator animator;
     public TextMeshProUGUI elementText;
     public ElementPack element;
-
+    private int index;
     private void Start()
     {
         DragDropManager.AddObject(GetComponent<ObjectSettings>());
@@ -19,8 +19,9 @@ public class ElementCardUI : MonoBehaviour
         animator = shopWindow.GetComponent<Animator>();
     }
 
-    public void SetData(ElementPack element)
+    public void SetData(ElementPack element, int index)
     {
+        this.index = index;
         this.element = element;
         elementText.text = element.elementType.ToString();
         GetComponent<Image>().color = element.color;
@@ -33,7 +34,9 @@ public class ElementCardUI : MonoBehaviour
 
     public void HideUsePanel()
     {
+            
         shopWindow.GetComponent<ShopWindow>().HideUsePanel();
+        shopWindow.GetComponent<ShopWindow>().ResetPosition(transform, index);
 
     }
 

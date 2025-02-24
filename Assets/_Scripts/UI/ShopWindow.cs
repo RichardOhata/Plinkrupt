@@ -21,8 +21,17 @@ public class ShopWindow : MonoBehaviour
     {
         for (int index = 0; index < 3; index++) { 
         GameObject card = Instantiate(elementalCardPrefab, cardHorizontalLayout);
-        card.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)]);
+        card.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)], index);
         }
+    }
+
+    public void ResetPosition(Transform elementalCard, int index)
+    {
+        if (elementalCard.transform.parent != cardHorizontalLayout)
+        {
+            elementalCard.transform.SetParent(cardHorizontalLayout);
+        }
+            elementalCard.SetSiblingIndex(index);
     }
 
     public void HandleElementCardUse(ElementPack element)
