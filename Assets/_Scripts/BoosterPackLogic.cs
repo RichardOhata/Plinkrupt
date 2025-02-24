@@ -6,9 +6,6 @@ public class BoosterPackLogic : MonoBehaviour
 {
     private GameObject shopWindow;
     private Animator animator;
-    public Transform parentCanvas;
-    public GameObject elementalCard;
-    public ElementPack[] elements;
     private void Start()
     {
         DragDropManager.AddObject(GetComponent<ObjectSettings>());
@@ -20,8 +17,9 @@ public class BoosterPackLogic : MonoBehaviour
     public void HandleUse()
     {
         animator.SetTrigger("WindowDown");
-        ShowElementalCards();
-        gameObject.SetActive(false);
+        shopWindow.GetComponent<ShopWindow>().ShowElementalCards();
+        DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
+        Destroy(gameObject);
     }
 
     public void ShowUsePanel()
@@ -34,11 +32,5 @@ public class BoosterPackLogic : MonoBehaviour
         shopWindow.GetComponent<ShopWindow>().HideUsePanel();
     }
 
-    private void ShowElementalCards()
-    {
-        DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
-        GameObject card = Instantiate(elementalCard, parentCanvas);
-        card.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)]);
-        Destroy(gameObject);
-    }
+   
 }

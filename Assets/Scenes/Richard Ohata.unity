@@ -894,10 +894,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 736194725}
     m_Modifications:
-    - target: {fileID: 2511504345284110929, guid: afbf183fae177814a870060515535900, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 2902506283413544346, guid: afbf183fae177814a870060515535900, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -978,14 +974,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3778833896818700497, guid: afbf183fae177814a870060515535900, type: 3}
-      propertyPath: parentCanvas
-      value: 
-      objectReference: {fileID: 899297918}
-    - target: {fileID: 4435010733659621458, guid: afbf183fae177814a870060515535900, type: 3}
-      propertyPath: parentCanvas
-      value: 
-      objectReference: {fileID: 899297918}
+    - target: {fileID: 3436215854788473242, guid: afbf183fae177814a870060515535900, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5155447200077539478, guid: afbf183fae177814a870060515535900, type: 3}
       propertyPath: m_Name
       value: ShopUI

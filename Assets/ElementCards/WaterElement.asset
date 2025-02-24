@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: 3
   multiplierInc: 0.2
+  color: {r: 0.004494493, g: 0.20000798, b: 0.9528302, a: 1}

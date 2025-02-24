@@ -10,7 +10,6 @@ public class ElementCardUI : MonoBehaviour
     private GameObject shopWindow;
     private Animator animator;
     public TextMeshProUGUI elementText;
-    public GameObject useButton;
     public ElementPack element;
 
     private void Start()
@@ -24,7 +23,7 @@ public class ElementCardUI : MonoBehaviour
     {
         this.element = element;
         elementText.text = element.elementType.ToString();
-
+        GetComponent<Image>().color = element.color;
     }
 
     public void ShowUsePanel()
@@ -40,8 +39,8 @@ public class ElementCardUI : MonoBehaviour
 
     public void HandleUse()
     {
-        element.IncrementMult();
         animator.SetTrigger("WindowUp");
+        shopWindow.GetComponent<ShopWindow>().HandleElementCardUse(element);
         DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
         Destroy(gameObject);
     }
