@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6a7e59382463498337002d659f9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetPlatform: 0
+  TargetPlatform: 1
   AllPanels:
   - {fileID: 0}
   AllObjects: []

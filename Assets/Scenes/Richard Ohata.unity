@@ -829,10 +829,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 531695907}
     - target: {fileID: 114000010203804414, guid: 4a8bf6bd85a09374591ebbeb96e4e6cb, type: 3}
-      propertyPath: TargetPlatform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010203804414, guid: 4a8bf6bd85a09374591ebbeb96e4e6cb, type: 3}
       propertyPath: 'AllPanels.Array.data[0]'
       value: 
       objectReference: {fileID: 911143345}
