@@ -521,8 +521,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790804875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18823414, y: -0.64944893, z: 0.170536, w: 0.7167297}
-  m_LocalPosition: {x: 20.423794, y: 11.577544, z: -2.0162702}
+  m_LocalRotation: {x: 0.18665248, y: -0.6518475, z: 0.17012317, w: 0.71506214}
+  m_LocalPosition: {x: 17.37438, y: 9.774394, z: -1.6100272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -691,10 +691,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2338473674912112427, guid: 248a5374534a1f047bd6bef231ea4ef9, type: 3}
+      propertyPath: m_TagString
+      value: ball
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4495296397869526480, guid: 248a5374534a1f047bd6bef231ea4ef9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2338473674912112427, guid: 248a5374534a1f047bd6bef231ea4ef9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2108680318}
   m_SourcePrefab: {fileID: 100100000, guid: 248a5374534a1f047bd6bef231ea4ef9, type: 3}
 --- !u!4 &1861937676 stripped
 Transform:
@@ -706,6 +714,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4804366225115193469, guid: 88324e1fa8b1c424bb710d826a465e15, type: 3}
   m_PrefabInstance: {fileID: 8818657293053755126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2108680317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2338473674912112427, guid: 248a5374534a1f047bd6bef231ea4ef9, type: 3}
+  m_PrefabInstance: {fileID: 1446131162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2108680318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108680317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83cdb0f0f70647d798cbc53d96d06d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinForce: 5
 --- !u!1001 &2994303449861441092
 PrefabInstance:
   m_ObjectHideFlags: 0
