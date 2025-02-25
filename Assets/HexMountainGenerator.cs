@@ -26,6 +26,12 @@ public class HexMountainGenerator : MonoBehaviour
 
             List<Vector2Int> hexPositions = GenerateHexGrid(layerSize, y);
 
+            // Ensure the top layer has a center block
+            if (y == height - 1 && !hexPositions.Contains(Vector2Int.zero))
+            {
+                hexPositions.Add(Vector2Int.zero);
+            }
+
             foreach (Vector2Int pos in hexPositions)
             {
                 Vector3 worldPos = HexToWorldPosition(pos.x, pos.y, y);
@@ -59,7 +65,15 @@ public class HexMountainGenerator : MonoBehaviour
     {
         float x = hexSize * 1.5f * q;
         float z = hexSize * Mathf.Sqrt(3) * (r + q / 2f);
+        
         float elevation = (y * hexSize * 1.1f) + Random.Range(-heightVariation, heightVariation);
+
+        // Ensure the topmost center is at least as tall as surrounding blocks
+        if (y == height - 1 && q == 0 && r == 0) 
+        {
+            elevation += hexSize * 0.3f; // Raise or keep it level with surroundings
+        }
+
         return new Vector3(x, elevation, z);
     }
 
