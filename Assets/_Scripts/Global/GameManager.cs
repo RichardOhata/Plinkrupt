@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     //TODO: current bid should/may refector to a different class
     public float currentBid = 100;
 
+    //TODO: May refactor to a different class
+    [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
 
     //Events
     public event System.Action<float> OnScoreUpdatedEvent;
