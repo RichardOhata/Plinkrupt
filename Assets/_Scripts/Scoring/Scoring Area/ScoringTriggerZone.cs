@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -52,10 +53,12 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
             float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
             Debug.Log($"Score Area: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
 
-            float bid = BallElement.getCurrentBid();
             //update the score
-            float score = _currentGameManager.UpdateMoneyWithMultiplier(bid, _baseMultiplier * multiplier);
-            
+            float score = _currentGameManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier);
+
+            FindFirstObjectByType<ScoringWindow>().AddScore(score);
+
+            Destroy(collision.gameObject);
         }
     }
 
