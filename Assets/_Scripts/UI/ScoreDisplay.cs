@@ -27,4 +27,10 @@ public class ScoreDisplay : MonoBehaviour
     {
         scoreText.text = $"${money}";
     }
+
+    // Updates money in real time
+    private void Update()
+    {
+        scoreText.text = $"${GameManager.Instance.currentMoney}";
+    }
 }

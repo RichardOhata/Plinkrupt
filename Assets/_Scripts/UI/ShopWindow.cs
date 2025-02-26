@@ -9,6 +9,7 @@ public class ShopWindow : MonoBehaviour
     public GameObject elementalCardPrefab;
     public GameObject boosterPackPrefab;
     public ElementPack[] elements;
+    public int rerollPrice = 3;
 
     private readonly float[] xPositions = { -630f, 0f, 630.54f }; // for demo purposes
     private const float yPosition = 543f; // Remove later
@@ -62,5 +63,7 @@ public class ShopWindow : MonoBehaviour
             RectTransform rectTransform = boosterPack.GetComponent<RectTransform>(); // remove later for demo purposes
             rectTransform.anchoredPosition = new Vector2(x, yPosition);
         }
+
+        GameManager.Instance.currentMoney -= 3;
     }
     }
