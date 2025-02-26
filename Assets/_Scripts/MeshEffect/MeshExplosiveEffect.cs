@@ -4,23 +4,27 @@ public class MeshExplosiveEffect : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public float explosionForce = 100f;    // The strength of the explosion
-    public float explosionRadius = 1f;      // The radius of the explosion effect
-    public Vector3 explosionPosition;       // Where the explosion happens
+    [SerializeField]private float explosionForce = 100f;    // The strength of the explosion
+    [SerializeField]private float explosionRadius = 1f;      // The radius of the explosion effect
+    [SerializeField]private float explosionStartTime = 0.05f;   // The time before the explosion happens
+    [SerializeField] private float fragmentsLifeTime = 3f;
 
-    public bool isExplode = false;
+    [SerializeField] private LayerMask layerMask; // The layermask to filter what objects the explosion affects
+    
+    private Vector3 explosionPosition;       // Where the explosion happens
 
     void Start()
     {
-        Invoke("ApplyExplosionForce", 1f);
-
+        Invoke("ApplyExplosionForce", explosionStartTime);
+        Destroy(gameObject, fragmentsLifeTime + explosionStartTime);
+        
     }
 
     void ApplyExplosionForce()
     {
         explosionPosition = transform.position;
         // Find all colliders within the explosion radius
-        Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius, layerMask);
 
         foreach (Collider hit in colliders)
         {
