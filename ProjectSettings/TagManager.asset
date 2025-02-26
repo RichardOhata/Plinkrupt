@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - ShopWindow
+  - UseDropPanel
+  serializedVersion: 3
+  tags:
   - ball
   layers:
   - Default

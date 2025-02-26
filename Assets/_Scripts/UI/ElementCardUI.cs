@@ -7,54 +7,44 @@ using UnityEngine.UI;
 
 public class ElementCardUI : MonoBehaviour
 {
+    private GameObject shopWindow;
+    private Animator animator;
     public TextMeshProUGUI elementText;
-    public GameObject useButton;
-    private GraphicRaycaster raycaster;
-    private EventSystem eventSystem;
     public ElementPack element;
-
-    private void Awake()
+    private int index;
+    private void Start()
     {
-        raycaster = GetComponentInParent<GraphicRaycaster>();
-        eventSystem = EventSystem.current;
+        DragDropManager.AddObject(GetComponent<ObjectSettings>());
+        shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+        animator = shopWindow.GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    public void SetData(ElementPack element, int index)
     {
-            InputManager.instance.OnTap += HandleTap;
-    }
-
-    private void OnDisable()
-    {
-            InputManager.instance.OnTap -= HandleTap;
-    }
-
-    public void SetData(ElementPack element)
-    {
+        this.index = index;
         this.element = element;
         elementText.text = element.elementType.ToString();
+        GetComponent<Image>().color = element.color;
+    }
+
+    public void ShowUsePanel()
+    {
+        shopWindow.GetComponent<ShopWindow>().ShowUsePanel();
+    }
+
+    public void HideUsePanel()
+    {
+            
+        shopWindow.GetComponent<ShopWindow>().HideUsePanel();
+        shopWindow.GetComponent<ShopWindow>().ResetPosition(transform, index);
 
     }
 
-    private void HandleTap(Vector2 screenPos)
+    public void HandleUse()
     {
-        PointerEventData eventData = new PointerEventData(eventSystem);
-        eventData.position = screenPos;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        raycaster.Raycast(eventData, results);
-
-        foreach (RaycastResult result in results)
-        {
-            if (result.gameObject == gameObject)
-            {
-                useButton.SetActive(!useButton.activeSelf);
-            }
-        }
-    }
-
-    public void HandleUseButton()
-    {
-        element.IncrementMult();
+        animator.SetTrigger("WindowUp");
+        shopWindow.GetComponent<ShopWindow>().HandleElementCardUse(element);
+        DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
+        Destroy(gameObject);
     }
 }
