@@ -13,11 +13,11 @@ public class EndOfRoundScoring : MonoBehaviour
 
     void Start()
     {
-        if(!GameManager.instance){
+        if(!GameManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.instance;
+        _currentGameManager = GameManager.Instance;
         bonusScoring = _currentGameManager.bonusScoring;
 
         //TOD0: This data is for testing, remove after
