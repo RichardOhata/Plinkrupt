@@ -12,21 +12,57 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 975cdfbcd87e966479b92705f490e03d, type: 2}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 23.97452
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 23.60959
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 7.735175
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[1].m_Value.x
+      value: 10.69556
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[1].m_Value.y
+      value: 10.519569
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[1].m_Value.z
+      value: 3.1279454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[2].m_Value.x
+      value: 3.8379679
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[2].m_Value.y
+      value: 3.9698112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[2].m_Value.z
+      value: 1.7002776
+      objectReference: {fileID: 0}
     - target: {fileID: 8410646746323803097, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_Name
       value: HolyBall
       objectReference: {fileID: 0}
     - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.984
       objectReference: {fileID: 0}
     - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.26
       objectReference: {fileID: 0}
     - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_LocalRotation.w
