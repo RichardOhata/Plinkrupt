@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BallSpawner : MonoBehaviour
 {
-    int numBalls = 10;
+    public int numBalls = 10;
 
     public GameObject[] ballPrefab;
     private Button dropButton;
@@ -34,6 +34,8 @@ public class BallSpawner : MonoBehaviour
             elementScoreInteraction.setCurrentBid(100);
 
             yield return new WaitForSeconds(0.4f);
+
+            numBalls--;
         }
 
         dropButton.interactable = true;
