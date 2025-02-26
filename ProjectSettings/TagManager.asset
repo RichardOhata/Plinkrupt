@@ -6,9 +6,10 @@ TagManager:
   tags:
   - ShopWindow
   - UseDropPanel
-  serializedVersion: 3
-  tags:
+  - Floor
+  - Projectile
   - ball
+  - ShopMenu
   layers:
   - Default
   - TransparentFX
