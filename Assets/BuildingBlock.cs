@@ -12,7 +12,13 @@ public class BuildingBlock : MonoBehaviour
     public float upwardModifier = 1f; // Upward push effect
     public float contactTimeThreshold = 3f; // Time before self-destruct if ball stays
 
+    [Header("Mesh Explosion")]
+    [SerializeField] private GameObject DestroyedFragments;
+
     private Dictionary<GameObject, float> touchingBalls = new Dictionary<GameObject, float>();
+    void Start()
+    {
+    }
 
     void Update()
     {
@@ -90,6 +96,12 @@ public class BuildingBlock : MonoBehaviour
 
     void SelfDestruct()
     {
+        // Show destroyed fragments
+        if(DestroyedFragments)
+        {
+            GameObject fragments = Instantiate(DestroyedFragments, transform.position, transform.rotation);
+        }
+        
         Destroy(gameObject);
     }
 }

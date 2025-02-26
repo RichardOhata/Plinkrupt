@@ -108,3 +108,4 @@ MonoBehaviour:
   explosionRadius: 0.5
   upwardModifier: 1
   contactTimeThreshold: 3
+  DestroyedFragments: {fileID: 6604647328795154565, guid: e0b4dc683ee44e24eaf27b891a198cfe, type: 3}
