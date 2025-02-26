@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     // global variables
     public float currentMoney = 0;
 
+    //TODO: May refactor to a different class
+    [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
 
     //Events
     public event System.Action<float> OnScoreUpdatedEvent;
