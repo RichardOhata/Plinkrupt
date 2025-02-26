@@ -5,7 +5,7 @@ public class ElementPack : ScriptableObject
 {
     public ScoringClass.ElementType elementType; // Name of element
     public float multiplierInc; // Value to increment the multiplier by
-
+    public Color color;
     public void IncrementMult()
     {
        Debug.Log(elementType.ToString());
