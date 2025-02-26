@@ -5,8 +5,13 @@ public class ShopWindow : MonoBehaviour
 {
     public GameObject useDropPanel;
     public Transform cardHorizontalLayout;
+    public Transform shopContents;
     public GameObject elementalCardPrefab;
+    public GameObject boosterPackPrefab;
     public ElementPack[] elements;
+
+    private readonly float[] xPositions = { -630f, 0f, 630.54f }; // for demo purposes
+    private const float yPosition = 543f; // Remove later
     public void ShowUsePanel()
     {
         useDropPanel.SetActive(true);
@@ -42,4 +47,20 @@ public class ShopWindow : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-}
+
+
+    public void Reroll()
+    {
+        foreach (Transform child in shopContents)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (float x in xPositions)
+        {
+            GameObject boosterPack = Instantiate(boosterPackPrefab, shopContents);
+            RectTransform rectTransform = boosterPack.GetComponent<RectTransform>(); // remove later for demo purposes
+            rectTransform.anchoredPosition = new Vector2(x, yPosition);
+        }
+    }
+    }

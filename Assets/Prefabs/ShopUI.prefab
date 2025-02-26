@@ -238,6 +238,44 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   PanelIdManager: []
+--- !u!1 &1164637069841020498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7680968049794960645}
+  m_Layer: 5
+  m_Name: ShopContents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7680968049794960645
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164637069841020498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7432294245384637305}
+  - {fileID: 1182478509159870651}
+  - {fileID: 1843184303115536440}
+  m_Father: {fileID: 5850072962364028230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3436215854788473242
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,9 +308,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7432294245384637305}
-  - {fileID: 1182478509159870651}
-  - {fileID: 1843184303115536440}
+  - {fileID: 7680968049794960645}
   - {fileID: 2511504345284110929}
   - {fileID: 5623942039492409236}
   - {fileID: 2943562317485288761}
@@ -357,7 +393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useDropPanel: {fileID: 7686579851332099721}
   cardHorizontalLayout: {fileID: 6211547094790648614}
+  shopContents: {fileID: 7680968049794960645}
   elementalCardPrefab: {fileID: 7230286222658970588, guid: 91883d1142080604189c35a35f68e745, type: 3}
+  boosterPackPrefab: {fileID: 2292200185437069180, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
   elements:
   - {fileID: 11400000, guid: 6e425bf3464a0784d855d896b917275e, type: 2}
   - {fileID: 11400000, guid: d792c1e145e217a41aebee6da428388e, type: 2}
@@ -1031,7 +1069,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1814517658365627028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2855105900325066830}
+        m_TargetAssemblyTypeName: ShopWindow, Assembly-CSharp
+        m_MethodName: Reroll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7686579851332099721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1417,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5850072962364028230}
+    m_TransformParent: {fileID: 7680968049794960645}
     m_Modifications:
     - target: {fileID: 448960330625717439, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
       propertyPath: m_Pivot.x
@@ -1431,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448960330625717439, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00000047684
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 448960330625717439, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1469,7 +1519,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5850072962364028230}
+    m_TransformParent: {fileID: 7680968049794960645}
     m_Modifications:
     - target: {fileID: 448960330625717439, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
       propertyPath: m_Pivot.x
@@ -1571,7 +1621,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5850072962364028230}
+    m_TransformParent: {fileID: 7680968049794960645}
     m_Modifications:
     - target: {fileID: 448960330625717439, guid: d815c630bc8a1514292de9a77e5c4174, type: 3}
       propertyPath: m_Pivot.x
