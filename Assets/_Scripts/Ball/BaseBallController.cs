@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BaseBallController : MonoBehaviour, IElementScoreInteraction
@@ -8,6 +9,8 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     private float _baseMultiplier;
 
     private float _currentBidValue;
+
+    public event Action OnBallCollided;
 
     // Implementing the interface methods
     public float getBaseMutiplier()
@@ -48,4 +51,9 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        OnBallCollided?.Invoke();
+    }
+    
 }

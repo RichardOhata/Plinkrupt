@@ -7,9 +7,6 @@ using UnityEngine;
 
 public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 {
-
-
-
     //cached game manager references
     private GameManager _currentGameManager;
 
@@ -57,6 +54,11 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
             float score = _currentGameManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier);
 
             FindFirstObjectByType<ScoringWindow>().AddScore(score);
+
+
+            if(collision.gameObject.TryGetComponent<IElementScoreInteractionVFX>(out IElementScoreInteractionVFX effect)){
+                effect.OnScoreInteractionEffect();
+            }
 
             Destroy(collision.gameObject);
         }
