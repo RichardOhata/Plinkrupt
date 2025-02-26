@@ -37,6 +37,8 @@ public class BallSpawner : MonoBehaviour
         }
 
         dropButton.interactable = true;
+
+        GameObject.Find("GameManager").GetComponent<GameManager>().outOfBalls = true;
     }
 
     public void SetNumBalls(int newNumBalls)

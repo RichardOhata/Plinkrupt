@@ -428,7 +428,7 @@ MonoBehaviour:
   _playerDefaultPreset: {fileID: 11400000, guid: 6c3658f5f3c6015459773a00a42cb3bb, type: 2}
   elementMultiplierTable: {fileID: 11400000, guid: c6611c75bbec85a42bedff4898081cc2, type: 2}
   currentMoney: 0
-  currentBid: 100
+  outOfBalls: 0
 --- !u!4 &1805285397
 Transform:
   m_ObjectHideFlags: 0
@@ -826,6 +826,14 @@ PrefabInstance:
     - target: {fileID: 4108915709192594609, guid: 72ef61ea96af9474d8dd2d3e05b624a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663016280960364352, guid: 72ef61ea96af9474d8dd2d3e05b624a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Richard Ohata
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805779555707239060, guid: 72ef61ea96af9474d8dd2d3e05b624a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Alpha
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

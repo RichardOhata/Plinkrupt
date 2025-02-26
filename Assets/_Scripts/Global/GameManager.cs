@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     // global variables
     public float currentMoney = 0;
+    public bool outOfBalls = false;
 
     //TODO: May refactor to a different class
     [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
@@ -31,6 +33,14 @@ public class GameManager : MonoBehaviour
     {
         if(_playerDefaultPreset != null){
             LoadDefaultPreset();
+        }
+    }
+
+    void Update()
+    {
+        if(outOfBalls && GameObject.FindGameObjectsWithTag("ball").Length == 0)
+        {
+            SceneManager.LoadScene("DiegoEndOfRound");
         }
     }
 

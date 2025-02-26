@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DiegoEndOfRound.unity
     guid: 04c900e1d62e3844eab4dbbe648e5a39
+  - enabled: 1
+    path: Assets/Scenes/Alpha.unity
+    guid: d771c732b78c13142a1445ab74893b25
+  - enabled: 1
+    path: Assets/Scenes/Richard Ohata.unity
+    guid: 7566619b8760f5a47a0de5cab1abdc9b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

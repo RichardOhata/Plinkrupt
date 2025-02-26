@@ -17,6 +17,18 @@ PrefabInstance:
       value: AirBall
       objectReference: {fileID: 0}
     - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613599597000482519, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
