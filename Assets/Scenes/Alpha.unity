@@ -1133,6 +1133,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosiveBase
       objectReference: {fileID: 0}
+    - target: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237988097398258222, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8503879037487008118, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.x
       value: 90
