@@ -1,0 +1,1660 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2439419069602272277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3099539474681140549}
+  m_Layer: 0
+  m_Name: PlinkoMachineGroup_L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3099539474681140549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2439419069602272277}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -28.25, y: 0, z: -17.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1472907690113417486}
+  - {fileID: 65486339294989231}
+  - {fileID: 4511092442298742131}
+  - {fileID: 186914324139180330}
+  - {fileID: 2638790121545061916}
+  - {fileID: 2166883063590377248}
+  - {fileID: 1339861850513822347}
+  - {fileID: 2938042076581036143}
+  - {fileID: 4397420711091557700}
+  - {fileID: 2871450027289489225}
+  m_Father: {fileID: 7009087860886863225}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &3651173770744856495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7009087860886863225}
+  m_Layer: 0
+  m_Name: MachineGroup1 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7009087860886863225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651173770744856495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6331260144336456249}
+  - {fileID: 3099539474681140549}
+  - {fileID: 3638814871792455317}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9076378553302469410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6331260144336456249}
+  m_Layer: 0
+  m_Name: PlinkoMachineGroup_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6331260144336456249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076378553302469410}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3560454699712245527}
+  - {fileID: 2980892996140132133}
+  - {fileID: 2621757256766403882}
+  - {fileID: 7561535446403780904}
+  - {fileID: 7083754363749659578}
+  - {fileID: 4896707805717612154}
+  - {fileID: 989194294370559333}
+  - {fileID: 951947366813566703}
+  - {fileID: 6277169680851251049}
+  - {fileID: 1456615285851983302}
+  m_Father: {fileID: 7009087860886863225}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &365553441633920705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.653333
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &186914324139180330 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 365553441633920705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &532020725589797956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2355554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &65486339294989231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 532020725589797956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &734345696788972174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.986666
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &989194294370559333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 734345696788972174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &774415087874597124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.43111
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &951947366813566703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 774415087874597124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1422106827287554605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &1456615285851983302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 1422106827287554605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1439578208878700261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &1472907690113417486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 1439578208878700261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1518447807789544800
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.986666
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &1339861850513822347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 1518447807789544800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1844481157398278347
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.542221
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2166883063590377248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 1844481157398278347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2329427445253228706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2871450027289489225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 2329427445253228706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2527756199957213687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.097778
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2638790121545061916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 2527756199957213687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2587567750727619265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.208889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2621757256766403882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 2587567750727619265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3374598133699608782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2355554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2980892996140132133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 3374598133699608782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3408306614107563908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.43111
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &2938042076581036143 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 3408306614107563908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3888035455951989118
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7009087860886863225}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+      propertyPath: m_Name
+      value: SlotMachineWall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+--- !u!4 &3638814871792455317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 52b79119ca3374e45a2a08277701c33e, type: 3}
+  m_PrefabInstance: {fileID: 3888035455951989118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3955286175463934204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &3560454699712245527 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 3955286175463934204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4111830240850285208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.208889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &4511092442298742131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 4111830240850285208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4218887327284703919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3099539474681140549}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.875555
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &4397420711091557700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 4218887327284703919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4935418196125753745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.542221
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &4896707805717612154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 4935418196125753745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5806905651120621698
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.875555
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &6277169680851251049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 5806905651120621698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7333043759675249745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.097778
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &7083754363749659578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 7333043759675249745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8026893454306014915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6331260144336456249}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.653333
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+      propertyPath: m_Name
+      value: PlinkoMachine (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+--- !u!4 &7561535446403780904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cddb23e353df30542a0226ae6251e47f, type: 3}
+  m_PrefabInstance: {fileID: 8026893454306014915}
+  m_PrefabAsset: {fileID: 0}
