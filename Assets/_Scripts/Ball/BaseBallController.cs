@@ -41,9 +41,11 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             Debug.LogWarning("Ball Config So is not set!");
             return;
         }
-
-        _objectElement = ballConfig.elementType;
-        _baseMultiplier = ballConfig.baseScoreMultiplier;
+        //set configs
+        if(ballConfig){
+            _objectElement = ballConfig.elementType;
+            _baseMultiplier = ballConfig.baseScoreMultiplier;
+        }
     }
 
     // Update is called once per frame
@@ -55,5 +57,10 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     {
         OnBallCollided?.Invoke();
     }
-    
+    // Load Setting
+    public void LoadSetting(ElementMultiplierConfig elementMultiplierConfig)
+    {
+        _objectElement = elementMultiplierConfig.elementType;
+        _baseMultiplier = elementMultiplierConfig.multiplier;
+    }
 }

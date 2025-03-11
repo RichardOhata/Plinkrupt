@@ -1397,14 +1397,19 @@ MonoBehaviour:
   - {fileID: 2954979261177360667, guid: f031de106e266e94784f03e598394815, type: 3}
   - {fileID: 6929082548652060057, guid: a65aa0bf92f72834eaa48e7b637e82f3, type: 3}
   baseSize: 7
-  height: 13
+  height: 60
   hexSize: 0.5
   roughnessFactor: 0
   heightVariation: 0.2
   scoringAreaPrefab: {fileID: 7368228851100790015, guid: 6a56eb9bdc76d0c418db237c2c3ca50c, type: 3}
   scoringAreaConfigSOs:
+  - {fileID: 11400000, guid: 7c092ce7f8f67df4aa9282acf16c9ee5, type: 2}
+  - {fileID: 11400000, guid: 35a289ff6345a974ab9339a91b8738d2, type: 2}
   - {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
-  numOfScoringAreasPerSide: 2
+  - {fileID: 11400000, guid: c6c32f3554f6d1e449914ef89a1c2579, type: 2}
+  - {fileID: 11400000, guid: a01e74b3b69a9554183b6524fb140f7e, type: 2}
+  numOfScoringAreasPerSide: 4
+  HeightOffset: 6
 --- !u!4 &883416091
 Transform:
   m_ObjectHideFlags: 0
@@ -1998,7 +2003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1190826870
 Transform:
   m_ObjectHideFlags: 0
@@ -2027,6 +2032,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoringAreaConfigSo: {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
+  _objectElement: 0
+  _elementColor: {r: 0, g: 0, b: 0, a: 0}
+  _baseMultiplier: 0
 --- !u!65 &1190826872
 BoxCollider:
   m_ObjectHideFlags: 0

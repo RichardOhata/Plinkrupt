@@ -12,11 +12,18 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 
     //configs
     [SerializeField]private ScoringAreaConfigSO _scoringAreaConfigSo;
-    private ScoringClass.ElementType _objectElement;
-    private float _baseMultiplier;
-    
+    [SerializeField]private ScoringClass.ElementType _objectElement;
+
+    [SerializeField]private Color _elementColor;
+    [SerializeField]private float _baseMultiplier;
+    private bool _isLoaded = false;
 
 
+    public event Action<Color> OnScoreAreaVisualChangeEvent;
+
+    void OnEnable(){
+        _currentGameManager = GameManager.Instance;
+    }
     void Start()
     {
         if(!_scoringAreaConfigSo){
@@ -27,14 +34,25 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.Instance;
-        _objectElement = _scoringAreaConfigSo.elementType;
-        _baseMultiplier = _scoringAreaConfigSo.baseScoreMultiplier;
-        
+        if(_scoringAreaConfigSo != null){
+            _isLoaded = true;
+            LoadSetting(_scoringAreaConfigSo.getScoringAreaConfig());   
+        }
+    }
+
+    public void LoadSetting(ElementMultiplierConfig scoringAreaConfig){
+
+        if(_isLoaded) return;
+        //set configs
+        _isLoaded = true;
+        _objectElement = scoringAreaConfig.elementType;
+        _baseMultiplier = scoringAreaConfig.multiplier;
+        _elementColor = scoringAreaConfig.elementColor;
+
+        OnScoreAreaVisualChangeEvent?.Invoke(_elementColor);
         ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
         ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
-
     /// <summary>
     /// Handles the trigger enter event. When a collision occurs, it checks if the colliding object 
     /// implements the IElementScoreInteraction interface. If so, calculates the score using the 
@@ -43,6 +61,9 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     /// <param name="collision">The collider object that triggered the event.</param>
 
     public void OnTriggerEnter(Collider collision){
+        if(!_isLoaded){
+            return;
+        }
         Debug.Log("Triggered");
         if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction BallElement)){
 

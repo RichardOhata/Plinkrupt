@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8822490629355963049}
   - component: {fileID: 8382379894901414850}
   - component: {fileID: 4886879855971238223}
+  - component: {fileID: 3246691393556378175}
   m_Layer: 0
   m_Name: P_ScoreAreaPlaceholder
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -142,4 +143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df21fa5391a4b714fabfdf06a636939c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoringAreaConfigSo: {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
+  _scoringAreaConfigSo: {fileID: 0}
+  _objectElement: 0
+  _elementColor: {r: 0, g: 0, b: 0, a: 0}
+  _baseMultiplier: 0
+--- !u!114 &3246691393556378175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368228851100790015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c62c4e6db502640bfe1de5669a41a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
