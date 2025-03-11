@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: 2
   baseScoreMultiplier: 1
+  ScoreAreaColor: {r: 1, g: 0, b: 0, a: 0.2509804}
