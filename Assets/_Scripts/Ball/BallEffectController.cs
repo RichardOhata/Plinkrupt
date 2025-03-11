@@ -31,8 +31,10 @@ public class BallEffectController : MonoBehaviour, IElementScoreInteractionVFX
     private void PlayImpactEffect()
     {
         if(_timer <= 0){
+            GameObject impactEffect = Instantiate(_ImpactEffect.gameObject, transform.position, Quaternion.identity);
             _ImpactEffect.Play();
             _timer = _oneShotCooldown;
+            Destroy(impactEffect, 3f);
         }
     }
 

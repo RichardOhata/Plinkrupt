@@ -85,6 +85,9 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615554}
       id: 0
       isStickyNote: 0
+    - model: {fileID: 8926484042661615238}
+      id: 1
+      isStickyNote: 0
   - title: Decal
     position:
       serializedVersion: 2
@@ -6389,7 +6392,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661615179}
     - outputSlot: {fileID: 8926484042661615241}
       inputSlot: {fileID: 8926484042661615180}
-    position: {x: 2437.6804, y: 1043.5201}
+    position: {x: 2414.4, y: 708.8}
     expandedSlots:
     - {fileID: 8926484042661615239}
     expanded: 1
@@ -9858,7 +9861,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615555}
       inputSlot: {fileID: 8926484042661615551}
-    position: {x: 2404.7449, y: 483.28928}
+    position: {x: 2404.8, y: 483.2}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
