@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MeshExplosiveEffect : MonoBehaviour
@@ -26,11 +27,11 @@ public class MeshExplosiveEffect : MonoBehaviour
         explosionPosition = transform.position;
         // Find all colliders within the explosion radius
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, _explosionRadius, layerMask);
-
+        
         foreach (Collider hit in colliders)
         {
+            Debug.Log(hit.gameObject.name);
             Rigidbody rb = hit.GetComponent<Rigidbody>();
-
             // Check if the object has a Rigidbody
             if (rb != null)
             {

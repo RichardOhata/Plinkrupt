@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionForce: 100
-  _explosionRadius: 1
+  _explosionRadius: 1.5
   _explosionStartTime: 0.05
   _fragmentsLifeTime: 4
   layerMask:
