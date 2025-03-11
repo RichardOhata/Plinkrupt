@@ -55,6 +55,10 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //should not collide with itself and the ball
+        if (collision.gameObject.CompareTag(gameObject.tag)){
+            return;
+        }
         OnBallCollided?.Invoke();
     }
     // Load Setting

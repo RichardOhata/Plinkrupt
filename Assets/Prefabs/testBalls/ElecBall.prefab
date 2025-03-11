@@ -13,12 +13,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 4976cf19b32b2724bb7c722f96c22b34, type: 2}
     - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Name
+      value: F_ParticlesLifeTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Name
       value: CrossColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Value.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Value.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
@@ -63,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.z
       value: 3.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740654784184368712, guid: 66b407bc6b90016428812714d31734c7, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Overridden
