@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HexMountainGenerator : MonoBehaviour
 {
+
+    [Header("Hex Grid Generation")]
     public GameObject[] hexPrefabs; // Array of 6 prefabs
     public int baseSize = 5;  // Width of the base hex layer
     public int height = 5;     // Number of layers
@@ -12,9 +14,53 @@ public class HexMountainGenerator : MonoBehaviour
     public float heightVariation = 0.2f; // Random height offsets
     private Dictionary<Vector2Int, int> prefabMap = new Dictionary<Vector2Int, int>(); // Stores prefab types
 
+    [Header("Scoring Area Generation")]
+    public GameObject scoringAreaPrefab; //placeholder prefab
+    public ScoringAreaConfigSO[] scoringAreaConfigSOs; // Array of scoring area configurations
+    public int numOfScoringAreasPerSide = 2; // Number of scoring areas to generate
+
+
+
     private void Start()
     {
         GenerateMountain();
+        GenerateScoringAreas();
+    }
+
+    void GenerateScoringAreas(){
+        if (scoringAreaPrefab == null)
+        {
+            Debug.LogWarning("Scoring Area Prefab is not assigned!");
+            return;
+        }
+
+        
+        float scoreAreaBaseLength = (baseSize + 1) / hexSize;
+        print("Score Area Base Length: " + scoreAreaBaseLength);
+        float scoreAreaSizeOffset = scoreAreaBaseLength / numOfScoringAreasPerSide;
+        print("Score Area Size Offset: " + scoreAreaSizeOffset);
+        List<Vector2Int> hexPositions = GenerateHexGridScoring(scoreAreaBaseLength, scoreAreaSizeOffset);
+
+        foreach (Vector2Int pos in hexPositions){
+            Vector3 worldPos = HexToWorldPosition(pos.x, pos.y, -1);
+            // GameObject selectedPrefab = SelectClusteredPrefab(pos);
+            Instantiate(scoringAreaPrefab, worldPos, Quaternion.identity, transform);
+        }
+    }
+    List<Vector2Int> GenerateHexGridScoring(float radius, float offsets)
+    {
+        List<Vector2Int> hexes = new List<Vector2Int>();
+
+        for (float q = -radius; q <= radius; q += offsets)
+        {
+            float r1 = Mathf.Max(-radius, -q - radius);
+            float r2 = Mathf.Min(radius, -q + radius);
+            for (float r = r1; r <= r2; r++)
+            {
+                hexes.Add(new Vector2Int((int)q, (int)r));
+            }
+        }
+        return hexes;
     }
 
     void GenerateMountain()
