@@ -64,6 +64,6 @@ public class ShopWindow : MonoBehaviour
             rectTransform.anchoredPosition = new Vector2(x, yPosition);
         }
 
-        GameManager.Instance.currentMoney -= 3;
+        GameManager.Instance.UpdateMoney(-rerollPrice);
     }
     }

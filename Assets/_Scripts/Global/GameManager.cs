@@ -1,3 +1,4 @@
+using Esper.ESave;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
     //Events
     public event System.Action<float> OnScoreUpdatedEvent;
 
+    //save
+    public SaveFile saveFile;
+
     void OnEnable(){
         if(Instance == null){
             Instance = this;
@@ -27,12 +31,17 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Game Manager instance already exists, destroying this one.");
             Destroy(this.gameObject);
         }
+        
+    }
+    void Awake()
+    {
+        saveFile = GetComponent<SaveFileSetup>().GetSaveFile();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if(_playerDefaultPreset != null){
-            LoadDefaultPreset();
+            LoadMoneyData();
         }
     }
 
@@ -44,8 +53,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void LoadDefaultPreset(){
-        this.currentMoney = _playerDefaultPreset.playerStartingMoney;
+    void LoadMoneyData(){
+        if(saveFile.HasData("Money")){
+            this.currentMoney = saveFile.GetData<float>("Money");
+        }
+        else{
+            this.currentMoney = _playerDefaultPreset.playerStartingMoney;
+        }
+    }
+    
+    public void SaveMoneyData(){
+        saveFile.AddOrUpdateData("Money", this.currentMoney);
+        saveFile.Save();
+    }
+
+    public void UpdateMoney(float amount){
+        this.currentMoney += amount;
+        SaveMoneyData();
+        OnScoreUpdatedEvent?.Invoke(this.currentMoney);
     }
 
     /// <summary>
@@ -59,6 +84,9 @@ public class GameManager : MonoBehaviour
         float money = 100 * multipliter;
         this.currentMoney += money;
         OnScoreUpdatedEvent?.Invoke(this.currentMoney);
+        SaveMoneyData();
+
         return money;
     }
+
 }
