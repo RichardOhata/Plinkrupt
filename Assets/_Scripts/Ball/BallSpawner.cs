@@ -8,11 +8,15 @@ public class BallSpawner : MonoBehaviour
 
     public GameObject[] ballPrefab;
     private Button dropButton;
+
+    //cached Game Managers
+    private GameManager _gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
         dropButton = GameObject.Find("Drop").GetComponent<Button>();
+        _gameManager = GameManager.Instance;
     }
 
     public void SpawnBall()
@@ -40,7 +44,9 @@ public class BallSpawner : MonoBehaviour
 
         dropButton.interactable = true;
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().outOfBalls = true;
+        //out of balls
+
+        _gameManager.outOfBalls = true;
     }
 
     public void SetNumBalls(int newNumBalls)

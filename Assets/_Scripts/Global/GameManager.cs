@@ -22,20 +22,20 @@ public class GameManager : MonoBehaviour
     public event System.Action<float> OnScoreUpdatedEvent;
 
     //save
-    public SaveFile saveFile;
+    private SaveFile _saveFile;
 
-    void OnEnable(){
+    void Awake()
+    {
         if(Instance == null){
             Instance = this;
+            
         }else{
             Debug.LogWarning("Game Manager instance already exists, destroying this one.");
             Destroy(this.gameObject);
         }
         
-    }
-    void Awake()
-    {
-        saveFile = GetComponent<SaveFileSetup>().GetSaveFile();
+        _saveFile = GetComponent<SaveFileSetup>().GetSaveFile();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
     }
 
     void LoadMoneyData(){
-        if(saveFile.HasData("Money")){
-            this.currentMoney = saveFile.GetData<float>("Money");
+        if(_saveFile.HasData("Money")){
+            this.currentMoney = _saveFile.GetData<float>("Money");
         }
         else{
             this.currentMoney = _playerDefaultPreset.playerStartingMoney;
@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
     }
     
     public void SaveMoneyData(){
-        saveFile.AddOrUpdateData("Money", this.currentMoney);
-        saveFile.Save();
+        _saveFile.AddOrUpdateData("Money", this.currentMoney);
+        _saveFile.Save();
     }
 
     public void UpdateMoney(float amount){
