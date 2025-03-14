@@ -1,4 +1,4 @@
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ScoringTriggerSo", menuName = "Scoring Area/Scoring Area Config")]

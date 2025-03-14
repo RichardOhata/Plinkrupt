@@ -39,6 +39,9 @@ public class ElementMultiplierManager: MonoBehaviour
         
         //load permanent multipliers
         LoadPremanentMultipliters();
+        
+        //save permanent multipliers
+        saveElementMultipliers();
     }
 
     /// <summary>
@@ -46,18 +49,16 @@ public class ElementMultiplierManager: MonoBehaviour
     /// </summary>
     public void LoadPremanentMultipliters()
     {
+
+        //pre-load permanent multipliers
+        premanentMultipliers = new List<ElementMultiplier>();
         if(_saveFile.HasData("PermanentMultipliers")){
             premanentMultipliers = _saveFile.GetData<List<ElementMultiplier>>("PermanentMultipliers");
             foreach (var multipliers in premanentMultipliers)
             {
-                OnMultiplierAddedEvent(multipliers);
+                OnMultiplierAddedEvent(multipliers.elementType, multipliers.multiplier);
             }
         }
-        else{
-            premanentMultipliers = new List<ElementMultiplier>();
-        }
-        
-
     }
 /// <summary>
 /// Adds the given element multiplier to the list of permanent multipliers 
@@ -89,7 +90,10 @@ public class ElementMultiplierManager: MonoBehaviour
 
         // Invoke event if needed
         MultiplierAddedEvent?.Invoke(existingElement ?? premanentMultipliers[^1]);
+    }
 
+    private void saveElementMultipliers()
+    {
         // Save new permanent multipliers
         _saveFile.AddOrUpdateData<List<ElementMultiplier>>("PermanentMultipliers", premanentMultipliers);
         _saveFile.Save();
@@ -104,8 +108,7 @@ public class ElementMultiplierManager: MonoBehaviour
         MultiplierRemovedEvent?.Invoke(element);
         
         //save permanent multipliers
-        _saveFile.AddOrUpdateData<List<ElementMultiplier>>("PermanentMultipliers", premanentMultipliers);
-        _saveFile.Save();
+        saveElementMultipliers();
     }
 
     public void OnMultiplierRemovedEvent(ScoringClass.ElementType elementType, float multiplierModifier)
@@ -119,7 +122,6 @@ public class ElementMultiplierManager: MonoBehaviour
         MultiplierRemovedEvent?.Invoke(element);
 
         //save permanent multipliers
-        _saveFile.AddOrUpdateData<List<ElementMultiplier>>("PermanentMultipliers", premanentMultipliers);
-        _saveFile.Save();
+        saveElementMultipliers();
     }
 }
