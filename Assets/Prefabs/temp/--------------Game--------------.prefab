@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1937780610105739948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3482440555301971773}
+  m_Layer: 0
+  m_Name: --------------Game--------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3482440555301971773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937780610105739948}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.32, y: 3.84, z: 201.35}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1596408683985981707}
+  - {fileID: 827250461851616125}
+  - {fileID: 3273278649678059012}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3526617434813208749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3273278649678059012}
+  - component: {fileID: 7266898511487676791}
+  m_Layer: 0
+  m_Name: BallSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3273278649678059012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526617434813208749}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.824831, y: 21.454174, z: 9.77436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3482440555301971773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7266898511487676791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526617434813208749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9264838584f9414bb8024e7bf2fc8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numBalls: 10
+  ballPrefab:
+  - {fileID: 8400603585948006116, guid: 44e0bc3b4579cfb408989656106b9123, type: 3}
+  - {fileID: 3306850921414698717, guid: 2f26911e8031524429fe7b4c1a0c1f94, type: 3}
+  - {fileID: 6612832653256971231, guid: 7a1525e9367df8d43b52c3977e6667ac, type: 3}
+  - {fileID: 1789168201862144109, guid: b524d14a1bbed2b4d972ca3ee61e444e, type: 3}
+  - {fileID: 9214852913424822234, guid: 75b8ab3f81fd21b448df7d78092b2c29, type: 3}
+--- !u!1 &4856046671014587666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596408683985981707}
+  - component: {fileID: 1114352824432813948}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596408683985981707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856046671014587666}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.824831, y: 11.454174, z: 9.77436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3482440555301971773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &1114352824432813948
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856046671014587666}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 1
+  m_CellSwizzle: 0
+--- !u!1 &8386159785753134442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827250461851616125}
+  - component: {fileID: 439010771220752453}
+  m_Layer: 0
+  m_Name: Board Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &827250461851616125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386159785753134442}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.824831, y: 11.454174, z: 9.77436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3482440555301971773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439010771220752453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386159785753134442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e271e2a8bf0f0f49bceef1d82566d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hexPrefabs:
+  - {fileID: 5325322992737090247, guid: 88324e1fa8b1c424bb710d826a465e15, type: 3}
+  - {fileID: 2438505093014486865, guid: 501dffcabadb8e042b6032fa4e660f7a, type: 3}
+  - {fileID: 2096123654678986867, guid: a7fa1e285fd82404db3bc6011d3a770e, type: 3}
+  - {fileID: 6892334316704599274, guid: e8aefac560b7e404bb14a7c9a78670e0, type: 3}
+  - {fileID: 2954979261177360667, guid: f031de106e266e94784f03e598394815, type: 3}
+  - {fileID: 6929082548652060057, guid: a65aa0bf92f72834eaa48e7b637e82f3, type: 3}
+  baseSize: 7
+  height: 60
+  hexSize: 0.5
+  roughnessFactor: 0
+  heightVariation: 0.2
+  scoringAreaPrefab: {fileID: 7368228851100790015, guid: 6a56eb9bdc76d0c418db237c2c3ca50c, type: 3}
+  scoringAreaConfigSOs:
+  - {fileID: 11400000, guid: 7c092ce7f8f67df4aa9282acf16c9ee5, type: 2}
+  - {fileID: 11400000, guid: 35a289ff6345a974ab9339a91b8738d2, type: 2}
+  - {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
+  - {fileID: 11400000, guid: c6c32f3554f6d1e449914ef89a1c2579, type: 2}
+  - {fileID: 11400000, guid: a01e74b3b69a9554183b6524fb140f7e, type: 2}
+  numOfScoringAreasPerSide: 4
+  HeightOffset: 6
