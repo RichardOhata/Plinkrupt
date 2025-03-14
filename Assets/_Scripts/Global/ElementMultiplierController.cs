@@ -54,10 +54,6 @@ public class ElementMultiplierManager: MonoBehaviour
         premanentMultipliers = new List<ElementMultiplier>();
         if(_saveFile.HasData("PermanentMultipliers")){
             premanentMultipliers = _saveFile.GetData<List<ElementMultiplier>>("PermanentMultipliers");
-            foreach (var multipliers in premanentMultipliers)
-            {
-                OnMultiplierAddedEvent(multipliers.elementType, multipliers.multiplier);
-            }
         }
     }
 /// <summary>
