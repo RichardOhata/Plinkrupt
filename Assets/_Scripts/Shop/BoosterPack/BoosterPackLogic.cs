@@ -1,24 +1,15 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 
-public class ElementCardUI : MonoBehaviour
+public class BoosterPackLogic : MonoBehaviour
 {
     private GameObject shopWindow;
-    private Animator animator;
-    public TextMeshProUGUI elementText;
-    public ElementPack element;
-    private int index;
-    public Collider objectCollider;
     private bool isSelected;
-    
+    public Collider objectCollider;
     private void Start()
     {
-
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
     }
 
@@ -34,14 +25,6 @@ public class ElementCardUI : MonoBehaviour
                 shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null;
             }
         }
-    }
-
-    public void SetData(ElementPack element, int index)
-    {
-        this.index = index;
-        this.element = element;
-        //elementText.text = element.elementType.ToString();
-        //GetComponent<Image>().color = element.color;
     }
 
     public void HandleUse()
@@ -67,4 +50,6 @@ public class ElementCardUI : MonoBehaviour
         screenPosition.z = 0f; // Adjust this if your collider is at a different depth
         return screenPosition;
     }
+
+ 
 }

@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
     {
         if(outOfBalls && GameObject.FindGameObjectsWithTag("ball").Length == 0)
         {
-            SceneManager.LoadScene("DiegoEndOfRound");
+            outOfBalls = false;
+            TransitionManager.instance.OpenEndOfRoundMenu();
         }
     }
 
