@@ -5,6 +5,7 @@ public class ConsumableConfig : MonoBehaviour
 {
 
     public ConsumableType consumableType;
+    public CardPos cardpos;
 
     public void SetConsumableType(ConsumableType type)
     {

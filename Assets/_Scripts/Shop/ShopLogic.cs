@@ -27,6 +27,14 @@ public class ShopLogic : MonoBehaviour
         ElementalCard
     }
 
+    public enum CardPos
+    {
+        LeftPos,
+        MiddlePos,
+        RightPos,
+    }
+
+
     public GameObject currentSelectedCard;
 
     void Start()
@@ -36,12 +44,12 @@ public class ShopLogic : MonoBehaviour
 
     private void InstantiateBoosterPacks()
     {
-        CreateBoosterPack(leftPos);
-        CreateBoosterPack(middlePos);
-        CreateBoosterPack(rightPos);
+        CreateBoosterPack(leftPos, CardPos.LeftPos);
+        CreateBoosterPack(middlePos, CardPos.MiddlePos);
+        CreateBoosterPack(rightPos, CardPos.RightPos);
     }
 
-    private void CreateBoosterPack(Vector3 position)
+    private void CreateBoosterPack(Vector3 position, CardPos cardPos)
     {
         Quaternion rotation = Quaternion.Euler(0, 90, 0);
         GameObject boosterPack = Instantiate(boosterPackPrefab, position, rotation);
@@ -51,6 +59,9 @@ public class ShopLogic : MonoBehaviour
 
         // Keep its local position the same as the given world position
         boosterPack.transform.localPosition = position;
+
+        // Assign the enum value to the booster pack
+        boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
     // Update is called once per frame
