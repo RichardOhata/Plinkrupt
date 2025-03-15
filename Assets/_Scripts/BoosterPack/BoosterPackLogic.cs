@@ -17,7 +17,7 @@ public class BoosterPackLogic : MonoBehaviour
     public void HandleUse()
     {
         animator.SetTrigger("WindowDown");
-        GameManager.Instance.currentMoney -= 300;
+        ScoreManager.Instance.currentMoney -= 300;
         shopWindow.GetComponent<ShopWindow>().ShowElementalCards();
         DragDropManager.RemoveObject(GetComponent<ObjectSettings>());
         Destroy(gameObject);

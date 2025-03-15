@@ -8,11 +8,11 @@ using UnityEngine;
 public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 {
     //cached game manager references
-    private GameManager _currentGameManager;
+    private ScoreManager _currentScoreManager;
 
     //configs
     [SerializeField]private ScoringAreaConfigSO _scoringAreaConfigSo;
-    [SerializeField]private ScoringClass.ElementType _objectElement;
+    [SerializeField]private ElementClass.ElementType _objectElement;
 
     [SerializeField]private Color _elementColor;
     [SerializeField]private float _baseMultiplier;
@@ -22,7 +22,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     public event Action<Color> OnScoreAreaVisualChangeEvent;
 
     void OnEnable(){
-        _currentGameManager = GameManager.Instance;
+        _currentScoreManager = ScoreManager.Instance;
     }
     void Start()
     {
@@ -30,7 +30,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
             Debug.LogWarning("Scoring Trigger So is not set!");
             return;
         }
-        if(!GameManager.Instance){
+        if(!ScoreManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
@@ -68,19 +68,21 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction BallElement)){
 
             //get the multiplier from the lookup table
-            float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
-            Debug.Log($"Score Area: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
+            float multiplier = _currentScoreManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
+            Debug.Log($"Score Area Element: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
 
             //update the score
-            float score = _currentGameManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier);
+            float score = _currentScoreManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier);
 
-            FindFirstObjectByType<ScoringWindow>().AddScore(score);
+            //add the score record
+            _currentScoreManager.UpdateElementMultiplierRecord(BallElement.getElementType(), score);
 
-
+            //play the score effect
             if(collision.gameObject.TryGetComponent<IElementScoreInteractionVFX>(out IElementScoreInteractionVFX effect)){
                 effect.OnScoreInteractionEffect();
             }
 
+            //destroy the ball
             Destroy(collision.gameObject);
         }
     }
@@ -107,7 +109,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         return _baseMultiplier;
     }
 
-    public ScoringClass.ElementType getElementType()
+    public ElementClass.ElementType getElementType()
     {
         return _objectElement;
     }

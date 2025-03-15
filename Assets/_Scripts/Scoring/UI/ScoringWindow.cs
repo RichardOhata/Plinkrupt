@@ -10,7 +10,7 @@ public class ScoringWindow : MonoBehaviour
     private Queue<GameObject> scoreQueue = new Queue<GameObject>(); // Queue to manage score images
     private float spacing = 120f; // Vertical spacing between score entries
 
-    public void AddScore(float score)
+    public void AddScore(Color elementColor, float score)
     {
         // If queue is full, remove the oldest image
         if (scoreQueue.Count >= maxScores)
@@ -32,7 +32,7 @@ public class ScoringWindow : MonoBehaviour
 
         // Add Image component and set it to white
         Image img = scoreObject.AddComponent<Image>();
-        img.color = Color.white; // Set to white
+        img.color = elementColor; // Set to white
         RectTransform imgRect = img.rectTransform;
         imgRect.sizeDelta = new Vector2(100, 100); // Set size
         imgRect.anchorMin = new Vector2(0.5f, 1); // Center top

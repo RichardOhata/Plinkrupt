@@ -5,7 +5,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 {
     public BallConfigSO ballConfig;
 
-    private ScoringClass.ElementType _objectElement;
+    private ElementClass.ElementType _objectElement;
     private float _baseMultiplier;
 
     private float _currentBidValue;
@@ -28,7 +28,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
         return _currentBidValue;
     }
 
-    public ScoringClass.ElementType getElementType()
+    public ElementClass.ElementType getElementType()
     {
         return _objectElement;
     }
