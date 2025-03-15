@@ -54,10 +54,6 @@ public class ElementMultiplierManager: MonoBehaviour
         premanentMultipliers = new List<ElementMultiplier>();
         if(_saveFile.HasData("PermanentMultipliers")){
             premanentMultipliers = _saveFile.GetData<List<ElementMultiplier>>("PermanentMultipliers");
-            foreach (var multipliers in premanentMultipliers)
-            {
-                OnMultiplierAddedEvent(multipliers.elementType, multipliers.multiplier);
-            }
         }
     }
 /// <summary>
@@ -72,7 +68,7 @@ public class ElementMultiplierManager: MonoBehaviour
         MultiplierAddedEvent?.Invoke(element);
     }
 
-    public void OnMultiplierAddedEvent(ScoringClass.ElementType elementType, float multiplier)
+    public void OnMultiplierAddedEvent(ElementClass.ElementType elementType, float multiplier)
     {
         ElementMultiplier existingElement = premanentMultipliers.Find(e => e.elementType == elementType);
 
@@ -111,7 +107,7 @@ public class ElementMultiplierManager: MonoBehaviour
         saveElementMultipliers();
     }
 
-    public void OnMultiplierRemovedEvent(ScoringClass.ElementType elementType, float multiplierModifier)
+    public void OnMultiplierRemovedEvent(ElementClass.ElementType elementType, float multiplierModifier)
     {
         //remove element multiplier by deducting the multiplier with the given modifier
         ElementMultiplier element = new ElementMultiplier(elementType, multiplierModifier);
