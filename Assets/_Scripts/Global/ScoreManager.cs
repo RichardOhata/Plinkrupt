@@ -23,8 +23,12 @@ public class ScoreManager : MonoBehaviour
     private SaveFile _saveFile; // save
 
     // Element Records tracking
-    private List<ElementScoreRecord> _storedScoringRecord;
-    public SerializableDictionary<ElementClass.ElementType, float> _elementTotals = new SerializableDictionary<ElementClass.ElementType, float>();
+    private List<ElementScoreRecord> _storedScoringRecord; //keep track of the scoring record
+
+    //keep track of total score for each element 
+    public SerializableDictionary<ElementClass.ElementType, float> _elementTotals = new SerializableDictionary<ElementClass.ElementType, float>(); 
+
+    //keep track of the current leading element
     private ElementScoreRecord _currentLeadingElement;
 
     //Events
