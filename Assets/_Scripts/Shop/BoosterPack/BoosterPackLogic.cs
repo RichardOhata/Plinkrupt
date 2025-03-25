@@ -24,7 +24,7 @@ public class BoosterPackLogic : MonoBehaviour
                 shopWindow.GetComponent<ShopLogic>().HideUseButton();
                 isSelected = false;
                 shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null;
-                CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
+                ReverseAnimation();
             }
         }
     }
@@ -37,14 +37,13 @@ public class BoosterPackLogic : MonoBehaviour
         string triggerName = cardPos switch
         {
             CardPos.MiddlePos => "CardMiddleUp",
-            CardPos.RightPos => "CardLeftUp",
-            CardPos.LeftPos => "CardRightUp",
+            CardPos.RightPos => "CardRightUp",
+            CardPos.LeftPos => "CardLeftUp",
             _ => "CardMiddleUp" // Default case (failsafe)
         };
 
         // Set the animation trigger
         animator.SetTrigger(triggerName);
-        animator.SetFloat("PlaySpeed", 1f);
         isSelected = true;
         shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
         shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
@@ -67,6 +66,21 @@ public class BoosterPackLogic : MonoBehaviour
         screenPosition.z = 0f; // Adjust this if your collider is at a different depth
         return screenPosition;
     }
+    private void ReverseAnimation()
+    {
+        Debug.Log("123");
+        CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
 
- 
+        // Determine the correct trigger for the "down" animation
+        string triggerName = cardPos switch
+        {
+            CardPos.MiddlePos => "CardMiddleDown",
+            CardPos.RightPos => "CardRightDown",
+            CardPos.LeftPos => "CardLeftDown",
+            _ => "CardMiddleDown" // Default failsafe
+        };
+
+        animator.SetTrigger(triggerName);
+    }
+
 }

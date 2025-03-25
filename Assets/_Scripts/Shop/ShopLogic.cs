@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ShopLogic : MonoBehaviour
 {
-    private Vector3 leftPos = new Vector3(-3f, 0.2f, 0.2f);
-    private Vector3 middlePos = new Vector3(0f, 0.2f, 0.2f);
-    private Vector3 rightPos = new Vector3(3f, 0.2f, 0.2f);
+    private Vector3 leftPos = new Vector3(-3f, 0.2f, -0.2f);
+    private Vector3 middlePos = new Vector3(0f, 0.2f, -0.2f);
+    private Vector3 rightPos = new Vector3(3f, 0.2f, -0.2f);
 
     [SerializeField]
     private GameObject boosterPackPrefab;
