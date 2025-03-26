@@ -69,7 +69,6 @@ public class BoosterPackLogic : MonoBehaviour
     }
     private void ReverseAnimation()
     {
-        Debug.Log("123");
         CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
 
         // Determine the correct trigger for the "down" animation

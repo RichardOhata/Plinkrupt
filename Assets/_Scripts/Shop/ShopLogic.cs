@@ -109,12 +109,14 @@ public class ShopLogic : MonoBehaviour
         }
 
         // Spawn three elemental cards at the same positions
-        CreateElementalCard(leftPos);
-        CreateElementalCard(middlePos);
-        CreateElementalCard(rightPos);
+        CreateElementalCard(leftPos, CardPos.LeftPos);
+        CreateElementalCard(middlePos, CardPos.MiddlePos);
+        CreateElementalCard(rightPos, CardPos.RightPos);
+
+     
     }
 
-    private void CreateElementalCard(Vector3 position)
+    private void CreateElementalCard(Vector3 position, CardPos cardPos)
     {
         GameObject elementalCard = Instantiate(elementalCardPrefab, position, Quaternion.identity);
         elementalCard.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)], 0);
@@ -123,6 +125,7 @@ public class ShopLogic : MonoBehaviour
 
         // Keep its local position the same as the given world position
         elementalCard.transform.localPosition = position;
+        elementalCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
     public void HandleElementCardUse(ElementPack element)
@@ -148,7 +151,8 @@ public class ShopLogic : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
+        currentSelectedCard = null;
+        HideUseButton();
         InstantiateBoosterPacks();
 
         GameManager.Instance.currentMoney -= 3;
