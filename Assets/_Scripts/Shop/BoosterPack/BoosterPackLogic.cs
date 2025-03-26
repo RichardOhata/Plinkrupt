@@ -1,22 +1,14 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using static ShopLogic;
 
-
-public class ElementCardUI : MonoBehaviour
+public class BoosterPackLogic : MonoBehaviour
 {
     private GameObject shopWindow;
-    public Animator animator;
-    public TextMeshProUGUI elementText;
-    public ElementPack element;
-    private int index;
-    public Collider objectCollider;
     private bool isSelected;
-    
+    public Collider objectCollider;
+    public Animator animator;
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
@@ -29,42 +21,34 @@ public class ElementCardUI : MonoBehaviour
 
             if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
             {
-                DeselectCard();
+              DeselectCard();
             }
         }
-    }
-
-    public void SetData(ElementPack element, int index)
-    {
-        this.index = index;
-        this.element = element;
-        
     }
 
     public void HandleUse()
     {
         if (shopWindow.GetComponent<ShopLogic>().currentSelectedCard != null && shopWindow.GetComponent<ShopLogic>().currentSelectedCard != gameObject)
         {
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<ElementCardUI>().DeselectCard();
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<BoosterPackLogic>().DeselectCard();
         }
-        if (!isSelected)
+        if (!isSelected) { 
+        CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
+        // Determine the correct trigger based on position
+        string triggerName = cardPos switch
         {
-            CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
-            // Determine the correct trigger based on position
-            string triggerName = cardPos switch
-            {
-                CardPos.MiddlePos => "CardMiddleUp",
-                CardPos.RightPos => "CardRightUp",
-                CardPos.LeftPos => "CardLeftUp",
-                _ => "CardMiddleUp" // Default case (failsafe)
-            };
+            CardPos.MiddlePos => "CardMiddleUp",
+            CardPos.RightPos => "CardRightUp",
+            CardPos.LeftPos => "CardLeftUp",
+            _ => "CardMiddleUp" // Default case (failsafe)
+        };
 
-            // Set the animation trigger
-            animator.SetTrigger(triggerName);
-            isSelected = true;
-            shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
-        }
+        // Set the animation trigger
+        animator.SetTrigger(triggerName);
+        isSelected = true;
+        shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
+        shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
+    }
     }
 
     private bool IsPointerOverGameObject()
@@ -100,13 +84,14 @@ public class ElementCardUI : MonoBehaviour
     }
 
     public void DeselectCard()
+    {
+        if (isSelected)
         {
-            if (isSelected)
-            {
-                ReverseAnimation();
-                shopWindow.GetComponent<ShopLogic>().HideUseButton();
-                isSelected = false;
-                shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
-            }
+            ReverseAnimation();
+            shopWindow.GetComponent<ShopLogic>().HideUseButton();
+            isSelected = false;
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
         }
     }
+
+}
