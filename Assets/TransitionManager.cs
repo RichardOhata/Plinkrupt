@@ -9,6 +9,8 @@ public class TransitionManager : MonoBehaviour
     public GameObject gameUIMenu;
     public GameObject mainGameCamera;
 
+    [SerializeField]
+    private int round;
     private void Awake()
     {
         if (instance == null)
@@ -20,6 +22,7 @@ public class TransitionManager : MonoBehaviour
             Destroy(gameObject); 
             return;
         }
+        round = 0;
     }
 
     // Call when all balls have been used
@@ -47,5 +50,10 @@ public class TransitionManager : MonoBehaviour
         gameUIMenu.SetActive(true);
         endOfRoundMenu.SetActive(false);
         mainGameCamera.SetActive(true);
+    }
+
+    public void IncreaseRound()
+    {
+        round++;
     }
 }
