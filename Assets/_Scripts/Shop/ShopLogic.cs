@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -166,6 +167,6 @@ public class ShopLogic : MonoBehaviour
         HideUseButton();
         InstantiateBoosterPacks();
 
-        GameManager.Instance.currentMoney -= 3;
+        ScoreManager.Instance.currentMoney -= 300;
     }
 }
