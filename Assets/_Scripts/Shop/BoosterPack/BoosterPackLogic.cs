@@ -21,16 +21,17 @@ public class BoosterPackLogic : MonoBehaviour
 
             if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
             {
-                shopWindow.GetComponent<ShopLogic>().HideUseButton();
-                isSelected = false;
-                shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null;
-                ReverseAnimation();
+              DeselectCard();
             }
         }
     }
 
     public void HandleUse()
     {
+        if (shopWindow.GetComponent<ShopLogic>().currentSelectedCard != null && shopWindow.GetComponent<ShopLogic>().currentSelectedCard != gameObject)
+        {
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<BoosterPackLogic>().DeselectCard();
+        }
         if (!isSelected) { 
         CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
         // Determine the correct trigger based on position
@@ -81,6 +82,17 @@ public class BoosterPackLogic : MonoBehaviour
         };
 
         animator.SetTrigger(triggerName);
+    }
+
+    public void DeselectCard()
+    {
+        if (isSelected)
+        {
+            ReverseAnimation();
+            shopWindow.GetComponent<ShopLogic>().HideUseButton();
+            isSelected = false;
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
+        }
     }
 
 }
