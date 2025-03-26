@@ -22,6 +22,12 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private Button useButton;
 
+    [SerializeField]
+    private Button rerollButton;
+
+    [SerializeField]
+    private Button nextRoundButton;
+
     public enum ConsumableType{
         ElementalBoosterPack,
         ElementalCard
@@ -88,9 +94,13 @@ public class ShopLogic : MonoBehaviour
         {
             case ConsumableType.ElementalBoosterPack:
                 ReplaceContent();
+                rerollButton.interactable = false;
+                nextRoundButton.interactable = false;
                 break;
             case ConsumableType.ElementalCard:
                 HandleElementCardUse(currentSelectedCard.GetComponent<ElementCardUI>().element);
+                rerollButton.interactable = true;
+                nextRoundButton.interactable = true;
                 break;
             default: 
                 break;
@@ -102,6 +112,7 @@ public class ShopLogic : MonoBehaviour
     public void ReplaceContent()
     {
         HideUseButton();
+        rerollButton.interactable = false;
         // Remove all children under 'content'
         foreach (Transform child in content.transform)
         {
