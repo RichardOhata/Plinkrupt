@@ -15,7 +15,9 @@ public class ShopLogic : MonoBehaviour
     private GameObject boosterPackPrefab;
     [SerializeField]
     private GameObject elementalCardPrefab;
-
+    [SerializeField]
+    private GameObject oracleCardPrefab;
+    
     public BoosterPack[] boosterPacks;
 
     public ElementPack[] elements;
@@ -33,9 +35,17 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private Button nextRoundButton;
 
+
+    [SerializeField]
+    private GameObject gameBoard;
+
+    [SerializeField]
+    private ScoringAreaConfigSO[] scoringAreaConfigSOs;
     public enum ConsumableType{
         ElementalBoosterPack,
-        ElementalCard
+        ElementalCard,
+        OracleBoosterPack,
+        OracleCard
     }
 
     public enum CardPos
@@ -84,13 +94,6 @@ public class ShopLogic : MonoBehaviour
         boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-  
-
     public void DisplayUseButton()
     {
         useButton.gameObject.SetActive(true);
@@ -108,12 +111,22 @@ public class ShopLogic : MonoBehaviour
         switch (type)
         {
             case ConsumableType.ElementalBoosterPack:
-                ReplaceContent();
+                ReplaceContent(true);
                 rerollButton.interactable = false;
                 nextRoundButton.interactable = false;
                 break;
             case ConsumableType.ElementalCard:
                 HandleElementCardUse(currentSelectedCard.GetComponent<ElementCardUI>().element);
+                rerollButton.interactable = true;
+                nextRoundButton.interactable = true;
+                break;
+            case ConsumableType.OracleBoosterPack:
+                ReplaceContent(false);
+                rerollButton.interactable = false;
+                nextRoundButton.interactable = false;
+                break;
+            case ConsumableType.OracleCard:
+                HandleOracleCardUse(currentSelectedCard.GetComponent<OracleCardUI>().scoringAreaElement);
                 rerollButton.interactable = true;
                 nextRoundButton.interactable = true;
                 break;
@@ -124,7 +137,7 @@ public class ShopLogic : MonoBehaviour
         currentSelectedCard = null;
     }
 
-    public void ReplaceContent()
+    public void ReplaceContent(bool isElement)
     {
         HideUseButton();
         rerollButton.interactable = false;
@@ -133,12 +146,18 @@ public class ShopLogic : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-
-        // Spawn three elemental cards at the same positions
-        CreateElementalCard(leftPos, CardPos.LeftPos);
-        CreateElementalCard(middlePos, CardPos.MiddlePos);
-        CreateElementalCard(rightPos, CardPos.RightPos);
-
+        if (isElement)
+        {
+            // Spawn three elemental cards at the same positions
+            CreateElementalCard(leftPos, CardPos.LeftPos);
+            CreateElementalCard(middlePos, CardPos.MiddlePos);
+            CreateElementalCard(rightPos, CardPos.RightPos);
+        }else
+        {
+            CreateOracleCard(leftPos, CardPos.LeftPos);
+            CreateOracleCard(middlePos, CardPos.MiddlePos);
+            CreateOracleCard(rightPos, CardPos.RightPos);
+        }
      
     }
 
@@ -154,6 +173,19 @@ public class ShopLogic : MonoBehaviour
         elementalCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
+    private void CreateOracleCard(Vector3 position, CardPos cardPos)
+    {
+        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
+        GameObject oracleCard = Instantiate(oracleCardPrefab, position, Quaternion.identity);
+        oracleCard.GetComponent<OracleCardUI>().SetData(scoringAreaConfigSOs[UnityEngine.Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig());
+        // Set it as a child of 'content'
+        oracleCard.transform.SetParent(content.transform, false);
+
+        // Keep its local position the same as the given world position
+        oracleCard.transform.localPosition = position;
+        oracleCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
+    }
+
     public void HandleElementCardUse(ElementPack element)
     {
         element.IncrementMult();
@@ -167,6 +199,30 @@ public class ShopLogic : MonoBehaviour
                 child.gameObject.SetActive(true);
             }
          
+        }
+        HideUseButton();
+    }
+
+    public void HandleOracleCardUse(ElementMultiplierConfig scoringAreaConfig)
+    {
+        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
+        GameObject randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
+        while (randomScoringArea.GetComponent<ScoringTriggerZone>().getElementType() == scoringAreaConfig.elementType)
+        {
+           randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
+        }
+        randomScoringArea.GetComponent<ScoringTriggerZone>().UpdateSetting(scoringAreaConfig);
+        
+        foreach (Transform child in content.transform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                Destroy(child.gameObject);
+            }
+            else
+            {
+                child.gameObject.SetActive(true);
+            }
         }
         HideUseButton();
     }

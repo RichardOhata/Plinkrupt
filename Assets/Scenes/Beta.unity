@@ -1843,6 +1843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boosterPackPrefab: {fileID: 5110971326303105135, guid: 7aa0d0dcc738f054eb0d8718ea1bd306, type: 3}
   elementalCardPrefab: {fileID: 6450712573119885430, guid: ec5c599229d9af44fa0627c5f8a14c03, type: 3}
+  oracleCardPrefab: {fileID: 6450712573119885430, guid: 9849d3568bbc4784194b13c44434ca23, type: 3}
   boosterPacks:
   - {fileID: 11400000, guid: 115ee3b9a037a974e87caed851aff006, type: 2}
   - {fileID: 11400000, guid: ef741536262e001409199d0b19f15066, type: 2}
@@ -1856,6 +1857,13 @@ MonoBehaviour:
   useButton: {fileID: 40522065}
   rerollButton: {fileID: 988358469}
   nextRoundButton: {fileID: 1760270128}
+  gameBoard: {fileID: 883416089}
+  scoringAreaConfigSOs:
+  - {fileID: 11400000, guid: 7c092ce7f8f67df4aa9282acf16c9ee5, type: 2}
+  - {fileID: 11400000, guid: 35a289ff6345a974ab9339a91b8738d2, type: 2}
+  - {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
+  - {fileID: 11400000, guid: c6c32f3554f6d1e449914ef89a1c2579, type: 2}
+  - {fileID: 11400000, guid: a01e74b3b69a9554183b6524fb140f7e, type: 2}
   currentSelectedCard: {fileID: 0}
 --- !u!1 &639760572
 GameObject:

@@ -22,16 +22,6 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     public event Action<Color> OnScoreAreaVisualChangeEvent;
     public ScoringAreaConfigSO[] scoringAreaConfigSOs;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Debug.Log("here");
-            ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[UnityEngine.Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
-            UpdateSetting(scoringAreaConfig);
-
-        }
-    }
     void OnEnable(){
         _currentScoreManager = ScoreManager.Instance;
     }

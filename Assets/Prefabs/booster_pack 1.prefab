@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833282c197782fd42b8caee426e763c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableType: 0
+  consumableType: 2
   cardpos: 0
 --- !u!95 &4841167674968535455
 Animator:
