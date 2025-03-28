@@ -103,6 +103,7 @@ public class ShopLogic : MonoBehaviour
 
     public void HandleUseButton()
     {
+        ScoreManager.Instance.UpdateMoney(-300);
         ConsumableType type = currentSelectedCard.GetComponent<ConsumableConfig>().GetConsumableType();
         switch (type)
         {
@@ -186,7 +187,7 @@ public class ShopLogic : MonoBehaviour
         HideUseButton();
         InstantiateBoosterPacks();
 
-        ScoreManager.Instance.currentMoney -= 300;
+        ScoreManager.Instance.UpdateMoney(-300);
         rerollCost = rerollCost * 2;
         rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
