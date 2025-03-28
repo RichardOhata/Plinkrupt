@@ -20,8 +20,6 @@ public class HexMountainGenerator : MonoBehaviour
     public int numOfScoringAreasPerSide = 2; // Number of scoring areas to generate
     public int HeightOffset = -6; // Height offset for scoring areas
 
-
-
     private void Start()
     {
         GenerateMountain();

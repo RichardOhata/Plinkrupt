@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class ShopLogic : MonoBehaviour
 
     [SerializeField]
     private Button rerollButton;
+    private int rerollCost = 300;
 
     [SerializeField]
     private Button nextRoundButton;
@@ -49,6 +51,12 @@ public class ShopLogic : MonoBehaviour
     void Start()
     {
         InstantiateBoosterPacks();
+    }
+
+    private void OnEnable()
+    {
+        rerollCost = 300;
+        rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
 
     private void InstantiateBoosterPacks()
@@ -76,11 +84,11 @@ public class ShopLogic : MonoBehaviour
         boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
   
 
     public void DisplayUseButton()
@@ -164,6 +172,12 @@ public class ShopLogic : MonoBehaviour
 
     public void Reroll()
     {
+        if (ScoreManager.Instance.currentMoney < 300)
+        {
+            Debug.Log("Not enough money to reroll!");
+            return;  
+        }
+
         foreach (Transform child in content.transform)
         {
             Destroy(child.gameObject);
@@ -173,5 +187,7 @@ public class ShopLogic : MonoBehaviour
         InstantiateBoosterPacks();
 
         ScoreManager.Instance.currentMoney -= 300;
+        rerollCost = rerollCost * 2;
+        rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
 }

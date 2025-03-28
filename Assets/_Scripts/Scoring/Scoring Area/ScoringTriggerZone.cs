@@ -20,7 +20,18 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 
 
     public event Action<Color> OnScoreAreaVisualChangeEvent;
+    public ScoringAreaConfigSO[] scoringAreaConfigSOs;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("here");
+            ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[UnityEngine.Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
+            UpdateSetting(scoringAreaConfig);
+
+        }
+    }
     void OnEnable(){
         _currentScoreManager = ScoreManager.Instance;
     }
@@ -43,6 +54,19 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     public void LoadSetting(ElementMultiplierConfig scoringAreaConfig){
 
         if(_isLoaded) return;
+        //set configs
+        _isLoaded = true;
+        _objectElement = scoringAreaConfig.elementType;
+        _baseMultiplier = scoringAreaConfig.multiplier;
+        _elementColor = scoringAreaConfig.elementColor;
+
+        OnScoreAreaVisualChangeEvent?.Invoke(_elementColor);
+        ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
+        ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
+    }
+
+    public void UpdateSetting(ElementMultiplierConfig scoringAreaConfig)
+    {
         //set configs
         _isLoaded = true;
         _objectElement = scoringAreaConfig.elementType;
