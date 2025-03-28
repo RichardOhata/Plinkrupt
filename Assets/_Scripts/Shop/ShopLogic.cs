@@ -15,6 +15,8 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private GameObject elementalCardPrefab;
 
+    public BoosterPack[] boosterPacks;
+
     public ElementPack[] elements;
 
     [SerializeField]
@@ -58,8 +60,11 @@ public class ShopLogic : MonoBehaviour
 
     private void CreateBoosterPack(Vector3 position, CardPos cardPos)
     {
+        // Pick a random booster pack from the array
+        GameObject randomBoosterPackPrefab = boosterPacks[UnityEngine.Random.Range(0, boosterPacks.Length)].boosterPackPrefab;
+
         Quaternion rotation = Quaternion.Euler(0, 90, 0);
-        GameObject boosterPack = Instantiate(boosterPackPrefab, position, rotation);
+        GameObject boosterPack = Instantiate(randomBoosterPackPrefab, position, rotation);
 
         // Set the booster pack as a child of 'content'
         boosterPack.transform.SetParent(content.transform, false);
