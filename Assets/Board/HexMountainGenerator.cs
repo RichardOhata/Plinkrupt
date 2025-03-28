@@ -16,6 +16,7 @@ public class HexMountainGenerator : MonoBehaviour
 
     [Header("Scoring Area Generation")]
     public GameObject scoringAreaPrefab; //placeholder prefab
+    public List<GameObject> scoringAreaGameObject;
     public ScoringAreaConfigSO[] scoringAreaConfigSOs; // Array of scoring area configurations
     public int numOfScoringAreasPerSide = 2; // Number of scoring areas to generate
     public int HeightOffset = -6; // Height offset for scoring areas
@@ -54,6 +55,7 @@ public class HexMountainGenerator : MonoBehaviour
             // Load a random scoring area configuration
             ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
             scoringArea.LoadSetting(scoringAreaConfig);
+            scoringAreaGameObject.Add(scoreAreaPrefab);
         }
     }
     List<Vector2> GenerateHexGridScoring(float radius, float offsets)
