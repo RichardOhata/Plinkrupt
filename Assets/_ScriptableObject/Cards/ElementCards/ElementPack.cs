@@ -11,7 +11,22 @@ public class ElementPack : BoosterPackItem
         ElementMultiplierManager.Instance.OnMultiplierAddedEvent(elementType, multiplierInc);
     }
 
+    private float GetCurrentMultiplier(ElementClass.ElementType element)
+    {
+        // Search through permanent multipliers to find the matching element
+        ElementMultiplier currentMultiplier = ElementMultiplierManager.Instance.premanentMultipliers
+            .Find(multiplier => multiplier.elementType == element);
+
+        // If not found, return 1.0 (default multiplier)
+        if (currentMultiplier != null)
+        {
+            return currentMultiplier.multiplier;
+        }
+
+        return 1.0f; // Default multiplier if the element is not found
+    }
+
     public override string Description =>
-      $"Increases <color=#{ColorUtility.ToHtmlStringRGB(color)}>{elementType}</color> element mult by {multiplierInc}x";
+      $"Increases <color=#{ColorUtility.ToHtmlStringRGB(color)}>{elementType}</color> Element Mult by {multiplierInc}x \n(Current Total Mult: {GetCurrentMultiplier(this.elementType)})";
 
 }

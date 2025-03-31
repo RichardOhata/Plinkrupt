@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e351213b2f6f424f84b9c1704c6a29c, type: 3}
-  m_Name: WaterElement
+  m_Script: {fileID: 11500000, guid: fbbfafdf1576a124793293d27c1ad644, type: 3}
+  m_Name: ConvertToHoly
   m_EditorClassIdentifier: 
   itemName: 
-  elementType: 3
-  multiplierInc: 1.2
-  color: {r: 0.004494493, g: 0.20000798, b: 0.9528302, a: 1}
+  targetScoringConfig: {fileID: 11400000, guid: c6c32f3554f6d1e449914ef89a1c2579, type: 2}

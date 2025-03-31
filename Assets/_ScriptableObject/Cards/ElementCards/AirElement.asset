@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e351213b2f6f424f84b9c1704c6a29c, type: 3}
   m_Name: AirElement
   m_EditorClassIdentifier: 
+  itemName: 
   elementType: 0
-  multiplierInc: 0.2
+  multiplierInc: 1.2
   color: {r: 0.7122642, g: 1, b: 0.9778129, a: 1}

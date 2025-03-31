@@ -58,7 +58,17 @@ public class ShopLogic : MonoBehaviour
         rerollCost = 300;
         rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
+    private void Update()
+    {
+        if (ScoreManager.Instance.currentMoney < rerollCost)
+        {
 
+            rerollButton.interactable = false;
+        } else
+        {
+            rerollButton.interactable = true;
+        }
+    }
     private void InstantiateBoosterPacks()
     {
         CreateBoosterPack(leftPos, CardPos.LeftPos);
@@ -146,7 +156,7 @@ public class ShopLogic : MonoBehaviour
         GameObject card = Instantiate(cardPrefab, position, Quaternion.identity);
         CardLogic cardUI = card.GetComponent<CardLogic>();   
            
-               cardUI.SetData(selectedItem);
+        cardUI.SetData(selectedItem);
 
         card.transform.SetParent(content.transform, false);
         card.transform.localPosition = position;
@@ -174,12 +184,6 @@ public class ShopLogic : MonoBehaviour
 
     public void Reroll()
     {
-        if (ScoreManager.Instance.currentMoney < rerollCost)
-        {
-            Debug.Log("Not enough money to reroll!");
-            return;  
-        }
-
         foreach (Transform child in content.transform)
         {
             Destroy(child.gameObject);

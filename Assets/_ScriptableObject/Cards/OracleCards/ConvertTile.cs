@@ -3,21 +3,42 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConvertTile", menuName = "Scriptable Objects/Oracle Actions/OracleAction1")]
 public class ConvertTile : OraclePack
 {
-
     [SerializeField]
-    private ScoringAreaConfigSO[] scoringAreaConfigSOs;
+    private ScoringAreaConfigSO targetScoringConfig;
     public override void PerformAction()
     {
         GameObject gameBoard = GameObject.Find("Board Generator");
-        var scoringAreaConfig = scoringAreaConfigSOs[UnityEngine.Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
-        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
-        GameObject randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
-        while (randomScoringArea.GetComponent<ScoringTriggerZone>().getElementType() == scoringAreaConfig.elementType)
+        if (gameBoard == null)
         {
-            randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
+            Debug.LogError("GameBoard not found!");
+            return;
         }
-        randomScoringArea.GetComponent<ScoringTriggerZone>().UpdateSetting(scoringAreaConfig);
-    }
 
-    public override string Description => "Converts a scoring tile to a random different element.";
+        var scoringAreaConfig = targetScoringConfig.getScoringAreaConfig();
+        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
+
+        // Find all areas that aren't already this element type
+        var validAreas = new System.Collections.Generic.List<GameObject>();
+        foreach (var area in scoringAreas)
+        {
+            if (area.GetComponent<ScoringTriggerZone>().getElementType() != scoringAreaConfig.elementType)
+            {
+                validAreas.Add(area);
+            }
+        }
+
+        if (validAreas.Count == 0)
+        {
+            Debug.LogWarning("No valid areas to convert!");
+            return;
+        }
+
+        // Convert a random valid area
+        GameObject randomScoringArea = validAreas[UnityEngine.Random.Range(0, validAreas.Count)];
+        randomScoringArea.GetComponent<ScoringTriggerZone>().UpdateSetting(scoringAreaConfig);
+    
+}
+
+    public override string Description => $"Converts a scoring tile to <color=#{ColorUtility.ToHtmlStringRGB(targetScoringConfig.getColor())}>" +
+        $"{targetScoringConfig.elementType}</color> element";
 }
