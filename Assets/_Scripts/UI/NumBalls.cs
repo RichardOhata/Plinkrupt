@@ -9,12 +9,17 @@ public class NumBalls : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+        ballSpawner = GameManager.Instance.ballSpawner;
+        if (ballSpawner == null)
+        {
+            Debug.LogWarning("Ball Spawner is not set!");
+            return;
+        }
         total = gameObject.GetComponent<TMP_Text>();
     }
 
     void Update()
     {
-        total.text = ballSpawner.numBalls.ToString();
+        total.text = GameManager.Instance.currentBalls.ToString();
     }
 }

@@ -46,14 +46,12 @@ public class HexMountainGenerator : MonoBehaviour
 
             // Instantiate scoring area prefab
             GameObject scoreAreaPrefab = Instantiate(scoringAreaPrefab, worldPos, Quaternion.identity, transform);
+            ScoringTriggerZone scoringArea = new ScoringTriggerZone.Builder()
+                .WithConfig(scoringAreaConfigSOs[Random.Range(0, scoringAreaConfigSOs.Length)])
+                .Build(scoreAreaPrefab);
 
             // Scale scoring area prefab
             scoreAreaPrefab.transform.localScale = new Vector3(scoreAreaSizeOffset, scoreAreaSizeOffset, scoreAreaSizeOffset);
-            scoreAreaPrefab.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction scoringArea);
-
-            // Load a random scoring area configuration
-            ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
-            scoringArea.LoadSetting(scoringAreaConfig);
         }
     }
     List<Vector2> GenerateHexGridScoring(float radius, float offsets)

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a336e98e79383e49ad305744bf89dda, type: 3}
   m_Name: TestWaterBall_1x
   m_EditorClassIdentifier: 
+  ballVisualPrefab: {fileID: 7040598130567609853, guid: e158991d324c3c641b414ba29b31ef56, type: 3}
   elementType: 3
   baseScoreMultiplier: 1
   tailParticle: {fileID: 6136002747739749652, guid: 8c6dd8943f04db749a61af693119fe0d, type: 3}
-  hitVFX: {fileID: 8926484042661614526, guid: 25600892f02083943ae883fbc821969d, type: 3}
+  hitVFXPrefab: {fileID: 7485187710604726206, guid: 68e9e5d92bf976b498c923af4c586591, type: 3}
+  explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
+  _oneShotCooldown: 0.5

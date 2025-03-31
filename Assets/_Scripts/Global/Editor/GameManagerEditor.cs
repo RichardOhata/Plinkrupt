@@ -1,6 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
 using UnityEditor;
 using Esper.ESave;
 
@@ -11,10 +10,6 @@ public class GameManagerEditor : Editor {
         
         GameManager gameManager = (GameManager)target;
         GameObject currentObject = gameManager.gameObject;
-        if (GUILayout.Button("Clear Money Save Data")) {
-            SaveFile saveFile = currentObject.GetComponent<SaveFileSetup>().GetSaveFile();
-            saveFile.DeleteData("Money");
-        }
         if(GUILayout.Button("Clear All Save Data")) {
             SaveFile saveFile = currentObject.GetComponent<SaveFileSetup>().GetSaveFile();
             saveFile.EmptyFile();

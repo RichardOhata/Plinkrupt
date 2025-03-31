@@ -150,10 +150,8 @@ GameObject:
   - component: {fileID: 7553872221681062419}
   - component: {fileID: 5293730026313395062}
   - component: {fileID: 1645261319662162359}
-  - component: {fileID: 8681444374083914443}
   - component: {fileID: 5286301176529550492}
   - component: {fileID: 8730617817254268647}
-  - component: {fileID: 51646522223197667}
   m_Layer: 0
   m_Name: BallBase
   m_TagString: ball
@@ -192,7 +190,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8410646746323803097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -251,19 +249,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8681444374083914443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8410646746323803097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14992199e780aa241963411c2ad9682e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballConfig: {fileID: 11400000, guid: 1a56875ff0e57934d8a463c40beced07, type: 2}
 --- !u!54 &5286301176529550492
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -304,18 +289,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinForce: 5
---- !u!114 &51646522223197667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8410646746323803097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d237d844c3f67914a8b2ea9d4b8b4885, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ImpactEffect: {fileID: 7740654784184368712}
-  _ScoreEffectObject: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
-  _oneShotCooldown: 0.5

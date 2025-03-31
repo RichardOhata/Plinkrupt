@@ -10,6 +10,11 @@ public class ScoringWindow : MonoBehaviour
     private Queue<GameObject> scoreQueue = new Queue<GameObject>(); // Queue to manage score images
     private float spacing = 120f; // Vertical spacing between score entries
 
+    public void Start()
+    {
+        ScoreManager.Instance.OnScoreUpdatedScoreWithColor += AddScore; // Subscribe to the event
+    }
+
     public void AddScore(Color elementColor, float score)
     {
         // If queue is full, remove the oldest image
