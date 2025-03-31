@@ -2060,29 +2060,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc49de71226b0c744aa5dc6a59255a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boosterPackPrefab: {fileID: 5110971326303105135, guid: 7aa0d0dcc738f054eb0d8718ea1bd306, type: 3}
-  elementalCardPrefab: {fileID: 6450712573119885430, guid: ec5c599229d9af44fa0627c5f8a14c03, type: 3}
-  oracleCardPrefab: {fileID: 6450712573119885430, guid: 9849d3568bbc4784194b13c44434ca23, type: 3}
   boosterPacks:
   - {fileID: 11400000, guid: 115ee3b9a037a974e87caed851aff006, type: 2}
   - {fileID: 11400000, guid: ef741536262e001409199d0b19f15066, type: 2}
-  elements:
-  - {fileID: 11400000, guid: 6e425bf3464a0784d855d896b917275e, type: 2}
-  - {fileID: 11400000, guid: d792c1e145e217a41aebee6da428388e, type: 2}
-  - {fileID: 11400000, guid: 602cd8f58e3b9cc458c9efe8672df07b, type: 2}
-  - {fileID: 11400000, guid: d38febd0e16987746b5c4c7ecab1f8ea, type: 2}
-  - {fileID: 11400000, guid: 41ac999bb8bc1c04faffec2253d62752, type: 2}
   content: {fileID: 639760572}
   useButton: {fileID: 40522065}
   rerollButton: {fileID: 988358469}
   nextRoundButton: {fileID: 1760270128}
   gameBoard: {fileID: 883416089}
-  scoringAreaConfigSOs:
-  - {fileID: 11400000, guid: 7c092ce7f8f67df4aa9282acf16c9ee5, type: 2}
-  - {fileID: 11400000, guid: 35a289ff6345a974ab9339a91b8738d2, type: 2}
-  - {fileID: 11400000, guid: 47ef974ed1d076d41bdf3bb9cbaa0533, type: 2}
-  - {fileID: 11400000, guid: c6c32f3554f6d1e449914ef89a1c2579, type: 2}
-  - {fileID: 11400000, guid: a01e74b3b69a9554183b6524fb140f7e, type: 2}
   currentSelectedCard: {fileID: 0}
 --- !u!1 &639760572
 GameObject:
@@ -2490,6 +2475,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699922934}
   m_CullTransparentMesh: 1
+--- !u!84 &774911536
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &803335876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,7 +4484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1521890248
 Transform:
   m_ObjectHideFlags: 0
@@ -5285,43 +5307,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760270126}
   m_CullTransparentMesh: 1
---- !u!84 &1808083383
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1878774594
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,7 +5417,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 1808083383}
+        m_Texture: {fileID: 774911536}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -5455,7 +5440,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.45349056, g: 0.45349056, b: 0.45349056, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: 0.024129152, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: 0.017218072, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: 5, b: 1, a: 1}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -5467,7 +5452,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 250, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: 0.3213938, g: 0.76604444, b: -0.5566705, a: 0}
-    - _WindDirection: {r: 0.024129152, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: 0.017218072, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1939755607
