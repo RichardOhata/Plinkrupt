@@ -11,5 +11,7 @@ public class ElementPack : BoosterPackItem
         ElementMultiplierManager.Instance.OnMultiplierAddedEvent(elementType, multiplierInc);
     }
 
-    public override string Description => $"Increases {elementType} element mult by {multiplierInc}x";
+    public override string Description =>
+      $"Increases <color=#{ColorUtility.ToHtmlStringRGB(color)}>{elementType}</color> element mult by {multiplierInc}x";
+
 }

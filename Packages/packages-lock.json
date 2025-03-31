@@ -10,6 +10,15 @@
       },
       "hash": "6d0ddff64173193f024638c2de2dbeb8a2525965"
     },
+    "com.qiaozhilei.easy-text-effects": {
+      "version": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "f75130c3713755ecbb29ec7d5caa909e0105d457"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

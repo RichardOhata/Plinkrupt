@@ -174,7 +174,7 @@ public class ShopLogic : MonoBehaviour
 
     public void Reroll()
     {
-        if (ScoreManager.Instance.currentMoney < 300)
+        if (ScoreManager.Instance.currentMoney < rerollCost)
         {
             Debug.Log("Not enough money to reroll!");
             return;  
@@ -188,7 +188,7 @@ public class ShopLogic : MonoBehaviour
         HideUseButton();
         InstantiateBoosterPacks();
 
-        ScoreManager.Instance.UpdateMoney(-300);
+        ScoreManager.Instance.UpdateMoney(-rerollCost);
         rerollCost = rerollCost * 2;
         rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
