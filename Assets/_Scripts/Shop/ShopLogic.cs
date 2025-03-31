@@ -25,6 +25,7 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private Button rerollButton;
     private int rerollCost = 300;
+    private int boosterPackCost = 300;
 
     [SerializeField]
     private Button nextRoundButton;
@@ -33,6 +34,7 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private GameObject gameBoard;
 
+    private bool boosterPackFlag= true;
 
     public enum ConsumableType{
         Boosterpack,
@@ -61,15 +63,17 @@ public class ShopLogic : MonoBehaviour
     }
     private void Update()
     {
-        //if (ScoreManager.Instance.currentMoney < rerollCost)
-        //{
+        if (ScoreManager.Instance.currentMoney < rerollCost)
+        {
 
-        //    rerollButton.interactable = false;
-        //} else
-        //{
-        //    rerollButton.interactable = true;
-        //}
+            rerollButton.interactable = false;
+        }
+        else
+        {
+            rerollButton.interactable = true;
+        }
     }
+
     private void InstantiateBoosterPacks()
     {
         CreateBoosterPack(leftPos, CardPos.LeftPos);
@@ -99,6 +103,12 @@ public class ShopLogic : MonoBehaviour
 
     public void DisplayUseButton()
     {
+        if (boosterPackFlag && (ScoreManager.Instance.currentMoney < boosterPackCost)) {
+            useButton.interactable = false;
+        } else
+        {
+            useButton.interactable = true;
+        }
         useButton.gameObject.SetActive(true);
         description.gameObject.SetActive(true);
         description.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedCard.GetComponent<ConsumableConfig>().description;
@@ -116,15 +126,17 @@ public class ShopLogic : MonoBehaviour
         switch (type)
         {
             case ConsumableType.Boosterpack:
-                ScoreManager.Instance.UpdateMoney(-300);
+                ScoreManager.Instance.UpdateMoney(-boosterPackCost);
                 ReplaceContent(currentSelectedCard.GetComponent<BoosterPackLogic>().items, currentSelectedCard.GetComponent<BoosterPackLogic>().itemCardPrefab);
                 rerollButton.interactable = false;
                 nextRoundButton.interactable = false;
+                boosterPackFlag = false;
                 break;
             case ConsumableType.Card:
                 HandleCardUse(currentSelectedCard.GetComponent<CardLogic>().item);
                 rerollButton.interactable = true;
                 nextRoundButton.interactable = true;
+                boosterPackFlag = true;
                 break;
             default: 
                 break;
@@ -142,7 +154,6 @@ public class ShopLogic : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-       
         // Spawn three elemental cards at the same positions
         CreateCard(leftPos, CardPos.LeftPos, itemCardPrefab, items);
         CreateCard(middlePos, CardPos.MiddlePos, itemCardPrefab, items);
