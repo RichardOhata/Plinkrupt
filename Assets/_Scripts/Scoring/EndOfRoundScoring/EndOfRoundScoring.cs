@@ -35,26 +35,33 @@ public class EndOfRoundScoring : MonoBehaviour
         bonusScoring = _currentGameManager.bonusScoring;
 
         //TOD0: This data is for testing, remove after
+        float Score = 0f;
         fillListWithTestData();
 
-        foreach (BonusScore bonus in bonusScoring.bonuses)
-        {
+        foreach(var scores in _scoreManager.StoredScoringRecord){
+            Debug.Log($"Score: {scores.elementType}, {scores.score}");
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
-            textComponent.text = bonus.ToString();
+            textComponent.text = $"{scores.elementType} {scores.score}";
+            Score += scores.score;
         }
 
-        Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
-        payout.text = $"Payout: $XXXXX";
-        totalBonus.text = $"Total Bonus: ${bonusScoring.getTotalBonus()}";
+        // foreach (BonusScore bonus in bonusScoring.bonuses)
+        // {
+        //     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //     textComponent.text = bonus.ToString();
+        // }
+
+        // Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        // payout.text = $"Payout: $XXXXX";
+        totalBonus.text = $"Total: ${Score}";
     }
 
     void fillListWithTestData()
     {
 
-        foreach(var scores in _scoreManager.StoredScoringRecord){
-            Debug.Log($"Score: {scores.elementType}, {scores.score}");
-        }
+
         bonusScoring.addBonuseByName("Electric Hit", 100);
         bonusScoring.addBonuseByName("Electric Hit", 100);
         bonusScoring.addBonuseByName("Electric Hit", 100);
