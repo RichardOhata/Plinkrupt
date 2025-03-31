@@ -20,6 +20,9 @@ public class ShopLogic : MonoBehaviour
     private Button useButton;
 
     [SerializeField]
+    private GameObject description;
+
+    [SerializeField]
     private Button rerollButton;
     private int rerollCost = 300;
 
@@ -44,11 +47,6 @@ public class ShopLogic : MonoBehaviour
 
 
     public GameObject currentSelectedCard;
-
-    //void Start()
-    //{
-    //    InstantiateBoosterPacks();
-    //}
 
     private void OnEnable()
     {
@@ -78,6 +76,7 @@ public class ShopLogic : MonoBehaviour
         boosterPack.transform.localPosition = position;
 
         boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
+        boosterPack.GetComponent<ConsumableConfig>().description = selectedPack.description;
 
         BoosterPackLogic pack = boosterPack.GetComponent<BoosterPackLogic>();
         if (pack != null)
@@ -90,11 +89,14 @@ public class ShopLogic : MonoBehaviour
     public void DisplayUseButton()
     {
         useButton.gameObject.SetActive(true);
+        description.gameObject.SetActive(true);
+        description.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedCard.GetComponent<ConsumableConfig>().description;
     }
 
     public void HideUseButton()
     {
         useButton.gameObject.SetActive(false);
+        description.gameObject.SetActive(false);
     }
 
     public void HandleUseButton()
@@ -149,6 +151,7 @@ public class ShopLogic : MonoBehaviour
         card.transform.SetParent(content.transform, false);
         card.transform.localPosition = position;
         card.GetComponent<ConsumableConfig>().cardpos = cardPos;
+        card.GetComponent<ConsumableConfig>().description = selectedItem.Description;
     }
 
     public void HandleCardUse(BoosterPackItem card)

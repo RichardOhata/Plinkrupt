@@ -11,4 +11,6 @@ public class BoosterPack : ScriptableObject
 
     [Header("Contained Items In Booster Pack Card Prefab")]
     public GameObject cardPrefab;
+
+    public string description;
 }

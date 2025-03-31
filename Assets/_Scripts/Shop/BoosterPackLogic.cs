@@ -57,8 +57,9 @@ public class BoosterPackLogic : MonoBehaviour
         {
             PlayCardAnimation(true);
             isSelected = true;
-            shopLogic.DisplayUseButton();
             shopLogic.currentSelectedCard = gameObject;
+            shopLogic.DisplayUseButton();
+        
         }
     }
 

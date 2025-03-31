@@ -15,6 +15,7 @@ public class CardLogic : MonoBehaviour
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+
     }
 
     private void Update()
@@ -57,8 +58,8 @@ public class CardLogic : MonoBehaviour
             // Set the animation trigger
             animator.SetTrigger(triggerName);
             isSelected = true;
-            shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
             shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
+            shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
         }
     }
 

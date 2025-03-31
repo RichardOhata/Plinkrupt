@@ -18,4 +18,6 @@ public class ConvertTile : OraclePack
         }
         randomScoringArea.GetComponent<ScoringTriggerZone>().UpdateSetting(scoringAreaConfig);
     }
+
+    public override string Description => "Converts a scoring tile to a random different element.";
 }

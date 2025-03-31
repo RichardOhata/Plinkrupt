@@ -7,4 +7,6 @@ public class OraclePack : BoosterPackItem
     {
         throw new System.NotImplementedException();
     }
+
+    public override string Description => throw new System.NotImplementedException();
 }
