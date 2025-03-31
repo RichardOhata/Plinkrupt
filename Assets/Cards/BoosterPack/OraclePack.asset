@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5832e2733277f604da42e5b56b5c4cde, type: 3}
   m_Name: OraclePack
   m_EditorClassIdentifier: 
-  type: 1
   boosterPackPrefab: {fileID: 5110971326303105135, guid: cf3755ed953778b4fb269f7844131f9d, type: 3}
+  itemPool:
+  - {fileID: 11400000, guid: 07637d4f60ae12d49ba3646fbfb39347, type: 2}
+  cardPrefab: {fileID: 6450712573119885430, guid: 9849d3568bbc4784194b13c44434ca23, type: 3}

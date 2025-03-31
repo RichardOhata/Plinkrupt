@@ -10,17 +10,8 @@ public class ShopLogic : MonoBehaviour
     private Vector3 leftPos = new Vector3(-3f, 0.2f, -0.2f);
     private Vector3 middlePos = new Vector3(0f, 0.2f, -0.2f);
     private Vector3 rightPos = new Vector3(3f, 0.2f, -0.2f);
-
-    [SerializeField]
-    private GameObject boosterPackPrefab;
-    [SerializeField]
-    private GameObject elementalCardPrefab;
-    [SerializeField]
-    private GameObject oracleCardPrefab;
     
     public BoosterPack[] boosterPacks;
-
-    public ElementPack[] elements;
 
     [SerializeField]
     private GameObject content;
@@ -39,13 +30,9 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private GameObject gameBoard;
 
-    [SerializeField]
-    private ScoringAreaConfigSO[] scoringAreaConfigSOs;
     public enum ConsumableType{
-        ElementalBoosterPack,
-        ElementalCard,
-        OracleBoosterPack,
-        OracleCard
+        Boosterpack,
+        Card,
     }
 
     public enum CardPos
@@ -65,6 +52,11 @@ public class ShopLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        foreach (Transform child in content.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        InstantiateBoosterPacks();
         rerollCost = 300;
         rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
@@ -78,20 +70,21 @@ public class ShopLogic : MonoBehaviour
 
     private void CreateBoosterPack(Vector3 position, CardPos cardPos)
     {
-        // Pick a random booster pack from the array
-        GameObject randomBoosterPackPrefab = boosterPacks[UnityEngine.Random.Range(0, boosterPacks.Length)].boosterPackPrefab;
-
+        BoosterPack selectedPack = boosterPacks[UnityEngine.Random.Range(0, boosterPacks.Length)];
         Quaternion rotation = Quaternion.Euler(0, 90, 0);
-        GameObject boosterPack = Instantiate(randomBoosterPackPrefab, position, rotation);
+        GameObject boosterPack = Instantiate(selectedPack.boosterPackPrefab, position, rotation);
 
-        // Set the booster pack as a child of 'content'
         boosterPack.transform.SetParent(content.transform, false);
-
-        // Keep its local position the same as the given world position
         boosterPack.transform.localPosition = position;
 
-        // Assign the enum value to the booster pack
         boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
+
+        BoosterPackLogic pack = boosterPack.GetComponent<BoosterPackLogic>();
+        if (pack != null)
+        {
+            pack.items = selectedPack.itemPool;
+            pack.itemCardPrefab = selectedPack.cardPrefab;
+        }
     }
 
     public void DisplayUseButton()
@@ -106,27 +99,17 @@ public class ShopLogic : MonoBehaviour
 
     public void HandleUseButton()
     {
-        ScoreManager.Instance.UpdateMoney(-300);
         ConsumableType type = currentSelectedCard.GetComponent<ConsumableConfig>().GetConsumableType();
         switch (type)
         {
-            case ConsumableType.ElementalBoosterPack:
-                ReplaceContent(true);
+            case ConsumableType.Boosterpack:
+                ScoreManager.Instance.UpdateMoney(-300);
+                ReplaceContent(currentSelectedCard.GetComponent<BoosterPackLogic>().items, currentSelectedCard.GetComponent<BoosterPackLogic>().itemCardPrefab);
                 rerollButton.interactable = false;
                 nextRoundButton.interactable = false;
                 break;
-            case ConsumableType.ElementalCard:
-                HandleElementCardUse(currentSelectedCard.GetComponent<ElementCardUI>().element);
-                rerollButton.interactable = true;
-                nextRoundButton.interactable = true;
-                break;
-            case ConsumableType.OracleBoosterPack:
-                ReplaceContent(false);
-                rerollButton.interactable = false;
-                nextRoundButton.interactable = false;
-                break;
-            case ConsumableType.OracleCard:
-                HandleOracleCardUse(currentSelectedCard.GetComponent<OracleCardUI>().scoringAreaElement);
+            case ConsumableType.Card:
+                HandleCardUse(currentSelectedCard.GetComponent<CardLogic>().item);
                 rerollButton.interactable = true;
                 nextRoundButton.interactable = true;
                 break;
@@ -137,7 +120,7 @@ public class ShopLogic : MonoBehaviour
         currentSelectedCard = null;
     }
 
-    public void ReplaceContent(bool isElement)
+    public void ReplaceContent(BoosterPackItem[] items, GameObject itemCardPrefab)
     {
         HideUseButton();
         rerollButton.interactable = false;
@@ -146,73 +129,32 @@ public class ShopLogic : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        if (isElement)
-        {
-            // Spawn three elemental cards at the same positions
-            CreateElementalCard(leftPos, CardPos.LeftPos);
-            CreateElementalCard(middlePos, CardPos.MiddlePos);
-            CreateElementalCard(rightPos, CardPos.RightPos);
-        }else
-        {
-            CreateOracleCard(leftPos, CardPos.LeftPos);
-            CreateOracleCard(middlePos, CardPos.MiddlePos);
-            CreateOracleCard(rightPos, CardPos.RightPos);
-        }
-     
+       
+        // Spawn three elemental cards at the same positions
+        CreateCard(leftPos, CardPos.LeftPos, itemCardPrefab, items);
+        CreateCard(middlePos, CardPos.MiddlePos, itemCardPrefab, items);
+        CreateCard(rightPos, CardPos.RightPos, itemCardPrefab, items);
+
     }
 
-    private void CreateElementalCard(Vector3 position, CardPos cardPos)
+    private void CreateCard(Vector3 position, CardPos cardPos, GameObject cardPrefab, BoosterPackItem[] items)
     {
-        GameObject elementalCard = Instantiate(elementalCardPrefab, position, Quaternion.identity);
-        elementalCard.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)], 0);
-        // Set it as a child of 'content'
-        elementalCard.transform.SetParent(content.transform, false);
+        BoosterPackItem selectedItem = items[UnityEngine.Random.Range(0, items.Length)];
 
-        // Keep its local position the same as the given world position
-        elementalCard.transform.localPosition = position;
-        elementalCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
+        GameObject card = Instantiate(cardPrefab, position, Quaternion.identity);
+        CardLogic cardUI = card.GetComponent<CardLogic>();   
+           
+               cardUI.SetData(selectedItem);
+
+        card.transform.SetParent(content.transform, false);
+        card.transform.localPosition = position;
+        card.GetComponent<ConsumableConfig>().cardpos = cardPos;
     }
 
-    private void CreateOracleCard(Vector3 position, CardPos cardPos)
+    public void HandleCardUse(BoosterPackItem card)
     {
-        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
-        GameObject oracleCard = Instantiate(oracleCardPrefab, position, Quaternion.identity);
-        oracleCard.GetComponent<OracleCardUI>().SetData(scoringAreaConfigSOs[UnityEngine.Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig());
-        // Set it as a child of 'content'
-        oracleCard.transform.SetParent(content.transform, false);
+        card.PerformAction();
 
-        // Keep its local position the same as the given world position
-        oracleCard.transform.localPosition = position;
-        oracleCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
-    }
-
-    public void HandleElementCardUse(ElementPack element)
-    {
-        element.IncrementMult();
-        foreach (Transform child in content.transform)
-        {
-            if (child.gameObject.activeSelf)
-            {
-                Destroy(child.gameObject);
-            } else
-            {
-                child.gameObject.SetActive(true);
-            }
-         
-        }
-        HideUseButton();
-    }
-
-    public void HandleOracleCardUse(ElementMultiplierConfig scoringAreaConfig)
-    {
-        var scoringAreas = gameBoard.GetComponent<HexMountainGenerator>().scoringAreaGameObject;
-        GameObject randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
-        while (randomScoringArea.GetComponent<ScoringTriggerZone>().getElementType() == scoringAreaConfig.elementType)
-        {
-           randomScoringArea = scoringAreas[UnityEngine.Random.Range(0, scoringAreas.Count)];
-        }
-        randomScoringArea.GetComponent<ScoringTriggerZone>().UpdateSetting(scoringAreaConfig);
-        
         foreach (Transform child in content.transform)
         {
             if (child.gameObject.activeSelf)

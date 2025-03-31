@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ElementPack", menuName = "Scriptable Objects/ElementPack")]
-public class ElementPack : ScriptableObject
+public class ElementPack : BoosterPackItem
 {
     public ElementClass.ElementType elementType; // Name of element
     public float multiplierInc; // Value to increment the multiplier by
@@ -10,5 +10,10 @@ public class ElementPack : ScriptableObject
     {
        Debug.Log(elementType.ToString());
        ElementMultiplierManager.Instance.OnMultiplierAddedEvent(elementType, multiplierInc);
+    }
+
+    public override void PerformAction()
+    {
+        ElementMultiplierManager.Instance.OnMultiplierAddedEvent(elementType, multiplierInc);
     }
 }

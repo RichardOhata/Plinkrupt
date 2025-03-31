@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: ElementalBoosterPack
   m_EditorClassIdentifier: 
   boosterPackPrefab: {fileID: 5110971326303105135, guid: 7aa0d0dcc738f054eb0d8718ea1bd306, type: 3}
+  itemPool:
+  - {fileID: 11400000, guid: 6e425bf3464a0784d855d896b917275e, type: 2}
+  - {fileID: 11400000, guid: d792c1e145e217a41aebee6da428388e, type: 2}
+  - {fileID: 11400000, guid: 602cd8f58e3b9cc458c9efe8672df07b, type: 2}
+  - {fileID: 11400000, guid: d38febd0e16987746b5c4c7ecab1f8ea, type: 2}
+  - {fileID: 11400000, guid: 41ac999bb8bc1c04faffec2253d62752, type: 2}
+  cardPrefab: {fileID: 6450712573119885430, guid: ec5c599229d9af44fa0627c5f8a14c03, type: 3}

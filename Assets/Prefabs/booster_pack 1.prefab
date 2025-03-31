@@ -112,7 +112,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7657577618727270916}
           m_TargetAssemblyTypeName: BoosterPackLogic, Assembly-CSharp
-          m_MethodName: HandleUse
+          m_MethodName: HandleSelect
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollider: {fileID: 8335373959614607170}
   animator: {fileID: 4841167674968535455}
+  items: []
+  itemCardPrefab: {fileID: 0}
 --- !u!65 &8335373959614607170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -169,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833282c197782fd42b8caee426e763c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableType: 2
+  consumableType: 0
   cardpos: 0
 --- !u!95 &4841167674968535455
 Animator:

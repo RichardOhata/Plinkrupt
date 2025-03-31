@@ -70,7 +70,7 @@ PrefabInstance:
       addedObject: {fileID: 3782159291381274347}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69efcc34b57f01c48b7a5604b42363ab, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3626713373311092902}
+      addedObject: {fileID: -5724060439623238877}
   m_SourcePrefab: {fileID: 100100000, guid: 69efcc34b57f01c48b7a5604b42363ab, type: 3}
 --- !u!1 &6450712573119885430 stripped
 GameObject:
@@ -115,8 +115,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -3626713373311092902}
-          m_TargetAssemblyTypeName: OracleCardUI, Assembly-CSharp
+        - m_Target: {fileID: -5724060439623238877}
+          m_TargetAssemblyTypeName: CardLogic, Assembly-CSharp
           m_MethodName: HandleUse
           m_Mode: 1
           m_Arguments:
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833282c197782fd42b8caee426e763c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableType: 3
+  consumableType: 1
   cardpos: 0
 --- !u!95 &3782159291381274347
 Animator:
@@ -163,7 +163,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3626713373311092902
+--- !u!114 &-5724060439623238877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6450712573119885430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed32ea0f0b266214da5d24a6cc26503a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a40f34b67a783a4bae523597c9179f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3782159291381274347}
-  elementText: {fileID: 0}
   objectCollider: {fileID: 6416278882190156093}
+  item: {fileID: 0}

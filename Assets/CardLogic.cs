@@ -1,22 +1,17 @@
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using static ShopLogic;
+using UnityEngine.EventSystems;
 
-
-public class ElementCardUI : MonoBehaviour
+public class CardLogic : MonoBehaviour
 {
     private GameObject shopWindow;
     public Animator animator;
-    public TextMeshProUGUI elementText;
-    public ElementPack element;
-    private int index;
     public Collider objectCollider;
     private bool isSelected;
-    
+
+    public BoosterPackItem item;
+
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
@@ -26,7 +21,6 @@ public class ElementCardUI : MonoBehaviour
     {
         if (isSelected && Input.GetMouseButtonDown(0))
         {
-
             if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
             {
                 DeselectCard();
@@ -34,18 +28,19 @@ public class ElementCardUI : MonoBehaviour
         }
     }
 
-    public void SetData(ElementPack element, int index)
+
+
+    public void SetData(BoosterPackItem item)
     {
-        this.index = index;
-        this.element = element;
-        
+        this.item = item;
+
     }
 
     public void HandleUse()
     {
         if (shopWindow.GetComponent<ShopLogic>().currentSelectedCard != null && shopWindow.GetComponent<ShopLogic>().currentSelectedCard != gameObject)
         {
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<ElementCardUI>().DeselectCard();
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<CardLogic>().DeselectCard();
         }
         if (!isSelected)
         {
@@ -100,13 +95,13 @@ public class ElementCardUI : MonoBehaviour
     }
 
     public void DeselectCard()
+    {
+        if (isSelected)
         {
-            if (isSelected)
-            {
-                ReverseAnimation();
-                shopWindow.GetComponent<ShopLogic>().HideUseButton();
-                isSelected = false;
-                shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
-            }
+            ReverseAnimation();
+            shopWindow.GetComponent<ShopLogic>().HideUseButton();
+            isSelected = false;
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
         }
     }
+}

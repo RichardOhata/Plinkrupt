@@ -7,50 +7,28 @@ public class BoosterPackLogic : MonoBehaviour
 {
     private GameObject shopWindow;
     private bool isSelected;
+    private ShopLogic shopLogic;
+
     public Collider objectCollider;
     public Animator animator;
+
+    public BoosterPackItem[] items;
+    public GameObject itemCardPrefab;
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+        shopLogic = shopWindow.GetComponent<ShopLogic>();
     }
 
     private void Update()
     {
-        if (isSelected && Input.GetMouseButtonDown(0))
+        if (isSelected && Input.GetMouseButtonDown(0) && !IsPointerOverUIObject() && !IsPointerOverGameObject())
         {
-
-            if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
-            {
-              DeselectCard();
-            }
+            DeselectCard();
         }
     }
 
-    public void HandleUse()
-    {
-        if (shopWindow.GetComponent<ShopLogic>().currentSelectedCard != null && shopWindow.GetComponent<ShopLogic>().currentSelectedCard != gameObject)
-        {
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard.GetComponent<BoosterPackLogic>().DeselectCard();
-        }
-        if (!isSelected) { 
-        CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
-        // Determine the correct trigger based on position
-        string triggerName = cardPos switch
-        {
-            CardPos.MiddlePos => "CardMiddleUp",
-            CardPos.RightPos => "CardRightUp",
-            CardPos.LeftPos => "CardLeftUp",
-            _ => "CardMiddleUp" // Default case (failsafe)
-        };
-
-        // Set the animation trigger
-        animator.SetTrigger(triggerName);
-        isSelected = true;
-        shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
-        shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
-    }
-    }
-
+    // Functions for detecting inputs
     private bool IsPointerOverGameObject()
     {
         Vector3 worldPoint = GetWorldPointFromScreen(Input.mousePosition);
@@ -67,17 +45,31 @@ public class BoosterPackLogic : MonoBehaviour
         screenPosition.z = 0f; // Adjust this if your collider is at a different depth
         return screenPosition;
     }
-    private void ReverseAnimation()
-    {
-        CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
 
-        // Determine the correct trigger for the "down" animation
-        string triggerName = cardPos switch
+    // Handles for when the booster pack is selected
+    public void HandleSelect()
+    {
+        if (shopLogic.currentSelectedCard != null && shopLogic.currentSelectedCard != gameObject)
         {
-            CardPos.MiddlePos => "CardMiddleDown",
-            CardPos.RightPos => "CardRightDown",
-            CardPos.LeftPos => "CardLeftDown",
-            _ => "CardMiddleDown" // Default failsafe
+            shopLogic.currentSelectedCard.GetComponent<BoosterPackLogic>().DeselectCard(); // Unselects any other boosterpack is that currently selected
+        }
+        if (!isSelected)
+        {
+            PlayCardAnimation(true);
+            isSelected = true;
+            shopLogic.DisplayUseButton();
+            shopLogic.currentSelectedCard = gameObject;
+        }
+    }
+
+    private void PlayCardAnimation(bool isUp)
+    {
+        string triggerName = GetComponent<ConsumableConfig>().cardpos switch
+        {
+            CardPos.MiddlePos => isUp ? "CardMiddleUp" : "CardMiddleDown",
+            CardPos.RightPos => isUp ? "CardRightUp" : "CardRightDown",
+            CardPos.LeftPos => isUp ? "CardLeftUp" : "CardLeftDown",
+            _ => "CardMiddleUp" // Default failsafe
         };
 
         animator.SetTrigger(triggerName);
@@ -85,13 +77,11 @@ public class BoosterPackLogic : MonoBehaviour
 
     public void DeselectCard()
     {
-        if (isSelected)
-        {
-            ReverseAnimation();
-            shopWindow.GetComponent<ShopLogic>().HideUseButton();
-            isSelected = false;
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = null; // Reset selected card
-        }
-    }
+        if (!isSelected) return;
 
+        PlayCardAnimation(false);
+        shopLogic.HideUseButton();
+        isSelected = false;
+        shopLogic.currentSelectedCard = null;
+    }
 }

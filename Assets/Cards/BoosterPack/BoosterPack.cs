@@ -4,13 +4,11 @@ using UnityEngine;
 public class BoosterPack : ScriptableObject
 {
 
-    public PackType type;
-    public enum PackType
-    {
-        ElementalBoosterPack,
-        OracleBoosterPack
-
-    }
-
     public GameObject boosterPackPrefab;
+
+    [Header("Contained Items In Booster Pack")]
+    public BoosterPackItem[] itemPool;
+
+    [Header("Contained Items In Booster Pack Card Prefab")]
+    public GameObject cardPrefab;
 }

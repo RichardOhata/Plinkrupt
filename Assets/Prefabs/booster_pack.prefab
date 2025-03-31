@@ -100,7 +100,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7657577618727270916}
           m_TargetAssemblyTypeName: BoosterPackLogic, Assembly-CSharp
-          m_MethodName: HandleUse
+          m_MethodName: HandleSelect
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
