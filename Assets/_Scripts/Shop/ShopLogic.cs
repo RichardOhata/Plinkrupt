@@ -45,10 +45,10 @@ public class ShopLogic : MonoBehaviour
 
     public GameObject currentSelectedCard;
 
-    void Start()
-    {
-        InstantiateBoosterPacks();
-    }
+    //void Start()
+    //{
+    //    InstantiateBoosterPacks();
+    //}
 
     private void OnEnable()
     {

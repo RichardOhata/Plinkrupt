@@ -3,9 +3,6 @@ using static ShopLogic;
 
 public class ConsumableConfig : MonoBehaviour
 {
-
-
-
     public ConsumableType consumableType;
     public CardPos cardpos;
 
