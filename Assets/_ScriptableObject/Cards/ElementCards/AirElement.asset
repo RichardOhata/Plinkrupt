@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: 
   elementType: 0
   multiplierInc: 1.2
-  color: {r: 0.7122642, g: 1, b: 0.9778129, a: 1}
+  color: {r: 0, g: 1, b: 0, a: 1}

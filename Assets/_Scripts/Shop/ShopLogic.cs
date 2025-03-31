@@ -33,6 +33,7 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private GameObject gameBoard;
 
+
     public enum ConsumableType{
         Boosterpack,
         Card,
@@ -60,14 +61,14 @@ public class ShopLogic : MonoBehaviour
     }
     private void Update()
     {
-        if (ScoreManager.Instance.currentMoney < rerollCost)
-        {
+        //if (ScoreManager.Instance.currentMoney < rerollCost)
+        //{
 
-            rerollButton.interactable = false;
-        } else
-        {
-            rerollButton.interactable = true;
-        }
+        //    rerollButton.interactable = false;
+        //} else
+        //{
+        //    rerollButton.interactable = true;
+        //}
     }
     private void InstantiateBoosterPacks()
     {

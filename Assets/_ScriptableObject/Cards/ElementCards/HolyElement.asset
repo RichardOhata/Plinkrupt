@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e351213b2f6f424f84b9c1704c6a29c, type: 3}
   m_Name: HolyElement
   m_EditorClassIdentifier: 
+  itemName: 
   elementType: 4
   multiplierInc: 2
-  color: {r: 1, g: 0.88839287, b: 0, a: 1}
+  color: {r: 1, g: 0.9647059, b: 0, a: 1}
