@@ -41,6 +41,12 @@ public class ScoreAnimation : MonoBehaviour
         ScoreManager.Instance.OnLeadingElementChangedEvent += OnLeadingElementChange;
     }
 
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.OnScoreUpdatedEvent -= UpdateScore;
+        ScoreManager.Instance.OnLeadingElementChangedEvent -= OnLeadingElementChange;
+    }
+
     private void OnLeadingElementChange((Color, float) tuple)
     {   
         //Change color if there is a new leading element

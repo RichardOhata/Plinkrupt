@@ -1,5 +1,8 @@
+using System;
 using Esper.ESave;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,9 +18,15 @@ public class GameManager : MonoBehaviour
     public int currentBalls = 0;
     public int currentBallInstances = 0;
 
+    [Header("Bid value control")]
+    public float currentBidValue = 100;
+
     public bool openEndofRoundFlag = false;
     //TODO: May refactor to a different class
     [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
+
+    public event Action<bool> OnBallDroppingEvent;
+    public UnityEvent OnBallDroppingUnityEvent;
 
     void Awake()
     {
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
         dropButton.interactable = true;
         currentBalls = ballSpawner.numBalls;
         currentBallInstances = ballSpawner.numBalls;
+        ballSpawner.initialBalls(currentBidValue);
     }
     public void ResetBoard() {
         boardSpawner.resetBoard();
@@ -56,17 +66,13 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBall()
     {
-        
-        //check if the ball spawner is set
-        if(ballSpawner == null){
-            Debug.LogWarning("Ball Spawner is not set!");
-            return;
-        }
-        ballSpawner.SpawnBall();
+        OnBallDroppingEvent?.Invoke(true);
+        OnBallDroppingUnityEvent?.Invoke();
     }
 
-
-    
-
-
+    public void EndBallDropping()
+    {
+        OnBallDroppingEvent?.Invoke(false);
+        OnBallDroppingUnityEvent?.Invoke();
+    }
 }
