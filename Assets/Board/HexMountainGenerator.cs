@@ -13,6 +13,7 @@ public class HexMountainGenerator : MonoBehaviour
     public float roughnessFactor = 0.3f; // How chaotic the shape is (0 = smooth, 1 = very rough)
     public float heightVariation = 0.2f; // Random height offsets
     private Dictionary<Vector2Int, int> prefabMap = new Dictionary<Vector2Int, int>(); // Stores prefab types
+    public List<GameObject> generatedBlocks;
 
     [Header("Scoring Area Generation")]
     public GameObject scoringAreaPrefab; //placeholder prefab
@@ -28,8 +29,15 @@ public class HexMountainGenerator : MonoBehaviour
     }
 
     public void resetBoard() {
+        // Destroy existing hexes and scoring areas
+        foreach (GameObject child in generatedBlocks)
+        {
+            Destroy(child);
+        }
+        generatedBlocks.Clear();
+
+        // Regenerate the board
         GenerateMountain();
-        GenerateScoringAreas();
     }
 
     void GenerateScoringAreas(){
@@ -99,7 +107,8 @@ public class HexMountainGenerator : MonoBehaviour
             {
                 Vector3 worldPos = HexToWorldPosition(pos.x, pos.y, y);
                 GameObject selectedPrefab = SelectClusteredPrefab(pos);
-                Instantiate(selectedPrefab, worldPos, Quaternion.identity, transform);
+                GameObject blockCreated = Instantiate(selectedPrefab, worldPos, Quaternion.identity, transform);
+                generatedBlocks.Add(blockCreated);
             }
         }
     }
