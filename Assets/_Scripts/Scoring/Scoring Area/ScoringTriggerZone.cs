@@ -41,7 +41,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     public void UpdateSetting(ElementMultiplierConfig scoringAreaConfig)
     {
         //set configs
-        _isLoaded = true;
+        //_isLoaded = true;
         _objectElement = scoringAreaConfig.elementType;
         _baseMultiplier = scoringAreaConfig.multiplier;
         _elementColor = scoringAreaConfig.elementColor;

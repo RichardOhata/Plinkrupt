@@ -51,11 +51,11 @@ public class HexMountainGenerator : MonoBehaviour
 
             // Scale scoring area prefab
             scoreAreaPrefab.transform.localScale = new Vector3(scoreAreaSizeOffset, scoreAreaSizeOffset, scoreAreaSizeOffset);
-            scoreAreaPrefab.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction scoringArea);
+            //scoreAreaPrefab.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction scoringArea);
 
             // Load a random scoring area configuration
             ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
-            scoringArea.LoadSetting(scoringAreaConfig);
+            //scoringArea.LoadSetting(scoringAreaConfig);
             scoringAreaGameObject.Add(scoreAreaPrefab);
         }
     }

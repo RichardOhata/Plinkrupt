@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int currentBalls = 0;
     public int currentBallInstances = 0;
 
+    public bool openEndofRoundFlag = false;
     //TODO: May refactor to a different class
     [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
 
@@ -26,22 +27,27 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Game Manager instance already exists, destroying this one.");
             Destroy(this.gameObject);
         }
-        
-        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentBalls = ballSpawner.numBalls;
-        currentBallInstances = ballSpawner.numBalls;
+        ResetBalls();
     }
 
     void Update()
     {
         //all the ball instances are destroyed, open the end of round menu
-        if(currentBallInstances <= 0){
+        if(currentBallInstances <= 0 && !openEndofRoundFlag){
             TransitionManager.instance.OpenEndOfRoundMenu();
+            openEndofRoundFlag = true;
         }
+    }
+
+    public void ResetBalls()
+    {
+        dropButton.interactable = true;
+        currentBalls = ballSpawner.numBalls;
+        currentBallInstances = ballSpawner.numBalls;
     }
 
     public void SpawnBall()
