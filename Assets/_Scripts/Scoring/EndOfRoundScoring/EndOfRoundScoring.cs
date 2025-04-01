@@ -28,11 +28,51 @@ public class EndOfRoundScoring : MonoBehaviour
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        
+        FillData();
     }
 
+    private void OnDisable()
+    {
+        _scoreManager.StoredScoringRecord.Clear();
+    }
     void Start()
     {
+<<<<<<< HEAD
+=======
+
+        //bonusScoring = _currentGameManager.bonusScoring;
+
+        ////TOD0: This data is for testing, remove after
+        //float Score = 0f;
+        //fillListWithTestData();
+
+        //foreach(var scores in _scoreManager.StoredScoringRecord){
+        //    Debug.Log($"Score: {scores.elementType}, {scores.score}");
+        //    GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //    TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //    textComponent.text = $"{scores.elementType} {scores.score}";
+        //    Score += scores.score;
+        //}
+
+        //// foreach (BonusScore bonus in bonusScoring.bonuses)
+        //// {
+        ////     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        ////     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        ////     textComponent.text = bonus.ToString();
+        //// }
+
+        //// Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        //// payout.text = $"Payout: $XXXXX";
+        //totalBonus.text = $"Total: ${Score}";
+    }
+
+    private void FillData()
+    {
+        foreach (Transform child in bonusScrollViewContent)
+        {
+            Destroy(child.gameObject);
+        }
+>>>>>>> 23e5b9ea78eb74f14333cb5376340f3f665b7725
         bonusScoring = _currentGameManager.bonusScoring;
         totalBonus.text = "";
         StartCoroutine(displayBonus(0.25f));
@@ -42,6 +82,7 @@ public class EndOfRoundScoring : MonoBehaviour
     {
         float Score = _scoreManager.StoredScoringRecord.ToList().Sum(s => s.score);
 
+<<<<<<< HEAD
         yield return new WaitForSeconds(delay);
         payout.text = $"Payout: ${Score}";
         StartCoroutine(bounceText(payout.gameObject));
@@ -49,13 +90,23 @@ public class EndOfRoundScoring : MonoBehaviour
         foreach(var scores in _scoreManager.StoredScoringRecord){
             yield return new WaitForSeconds(delay);
             Debug.Log($"Score: {scores.elementType}, {scores.score}");
+=======
+        float Score = 0f;
+
+        foreach (var scores in _scoreManager.StoredScoringRecord)
+        {
+            //Debug.Log($"Score: {scores.elementType}, {scores.score}");
+>>>>>>> 23e5b9ea78eb74f14333cb5376340f3f665b7725
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
             textComponent.text = $"{scores.elementType} {scores.score}";
             StartCoroutine(bounceText(newItem));
         }
+<<<<<<< HEAD
 
         yield return new WaitForSeconds(delay);
+=======
+>>>>>>> 23e5b9ea78eb74f14333cb5376340f3f665b7725
         totalBonus.text = $"Total: ${Score}";
         StartCoroutine(bounceText(totalBonus.gameObject));
     }

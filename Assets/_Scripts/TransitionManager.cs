@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class TransitionManager : MonoBehaviour
@@ -13,6 +14,14 @@ public class TransitionManager : MonoBehaviour
 
     [SerializeField]
     private int round;
+
+    public bool isBossPhase = false;
+    private float bossRequiredScore = 500f;
+
+    [SerializeField]
+    private GameObject bossUI;
+    [SerializeField]
+    private GameObject gameOverScreen;
     private void Awake()
     {
         if (instance == null)
@@ -35,23 +44,23 @@ public class TransitionManager : MonoBehaviour
     // Call when all balls have been used
     public void OpenEndOfRoundMenu()
     {
-        //board.SetActive(false);
-        //shopMenu.SetActive(true);
         endOfRoundMenu.SetActive(true);
-
-        playMusic.Stop();
-        shopMusic.Play();
+      if (isBossPhase)
+        {
+            CheckBossCondition();
+        }
     }
 
     public void OpenShop()
     {
         mainGameCamera.SetActive(false);
-        //board.SetActive(false);
         gameUIMenu.SetActive(false);
         shopMenu.SetActive(true);
 
 
         endOfRoundMenu.SetActive(false);
+        playMusic.Stop();
+        shopMusic.Play();
     }
     public void CloseShop()
     {
@@ -64,17 +73,46 @@ public class TransitionManager : MonoBehaviour
         GameManager.Instance.ResetBalls();
         ScoreManager.Instance.ResetSideScore();
         GameManager.Instance.ResetBoard();
-
+        round++;
+        if (round % 3 == 0) // Every fourth round
+        {
+            StartBossPhase();
+        }
         shopMusic.Stop();
         playMusic.Play();
     }
 
-    public void IncreaseRound()
-    {
-        round++;
-    }
-
     public int GetRound() {
         return round;
+    }
+
+    private void StartBossPhase()
+    {
+        isBossPhase = true;
+        bossUI.SetActive(true);
+        bossUI.GetComponentInChildren<TextMeshProUGUI>().text = "Boss Requirement: Must achieve a score of " + bossRequiredScore + " to proceed";
+    }
+
+    // Call to check if boss conditon has been met
+    private void CheckBossCondition()
+    {
+        float accScore = 0;
+        foreach (var record in ScoreManager.Instance.StoredScoringRecord)
+        {
+            accScore += record.score;
+            Debug.Log($"Element: {record.elementType}, Score: {record.score}");
+        }
+        if (accScore >= bossRequiredScore)
+        {
+            Debug.Log(accScore);
+            isBossPhase = false;
+            bossUI.SetActive(false);
+            bossRequiredScore *= 1.2f;
+        } else
+        {
+            // Lose
+            gameOverScreen.SetActive(true);
+        }
+       
     }
 }

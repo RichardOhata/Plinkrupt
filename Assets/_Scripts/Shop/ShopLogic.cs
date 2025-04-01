@@ -155,25 +155,49 @@ public class ShopLogic : MonoBehaviour
             child.gameObject.SetActive(false);
         }
         // Spawn three elemental cards at the same positions
-        CreateCard(leftPos, CardPos.LeftPos, itemCardPrefab, items);
-        CreateCard(middlePos, CardPos.MiddlePos, itemCardPrefab, items);
-        CreateCard(rightPos, CardPos.RightPos, itemCardPrefab, items);
+        GenerateUniqueCards(items, itemCardPrefab);
 
     }
-
-    private void CreateCard(Vector3 position, CardPos cardPos, GameObject cardPrefab, BoosterPackItem[] items)
+    private void GenerateUniqueCards(BoosterPackItem[] items, GameObject itemCardPrefab)
     {
-        BoosterPackItem selectedItem = items[UnityEngine.Random.Range(0, items.Length)];
+        if (items.Length < 3)
+        {
+            Debug.LogWarning("Not enough unique items to create three distinct cards!");
+            return;
+        }
 
+        // Ensure we select unique items
+        System.Collections.Generic.List<BoosterPackItem> availableItems = new System.Collections.Generic.List<BoosterPackItem>(items);
+        System.Collections.Generic.List<BoosterPackItem> selectedItems = new System.Collections.Generic.List<BoosterPackItem>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, availableItems.Count);
+            selectedItems.Add(availableItems[randomIndex]);
+            availableItems.RemoveAt(randomIndex); // Prevent duplicates
+        }
+
+        // Define positions
+        Vector3[] positions = { leftPos, middlePos, rightPos };
+        CardPos[] cardPositions = { CardPos.LeftPos, CardPos.MiddlePos, CardPos.RightPos };
+
+        // Instantiate unique cards
+        for (int i = 0; i < 3; i++)
+        {
+            CreateCard(positions[i], cardPositions[i], itemCardPrefab, selectedItems[i]);
+        }
+    }
+
+    private void CreateCard(Vector3 position, CardPos cardPos, GameObject cardPrefab, BoosterPackItem item)
+    {
         GameObject card = Instantiate(cardPrefab, position, Quaternion.identity);
-        CardLogic cardUI = card.GetComponent<CardLogic>();   
-           
-        cardUI.SetData(selectedItem);
+        CardLogic cardUI = card.GetComponent<CardLogic>();
+        cardUI.SetData(item);
 
         card.transform.SetParent(content.transform, false);
         card.transform.localPosition = position;
         card.GetComponent<ConsumableConfig>().cardpos = cardPos;
-        card.GetComponent<ConsumableConfig>().description = selectedItem.Description;
+        card.GetComponent<ConsumableConfig>().description = item.Description;
     }
 
     public void HandleCardUse(BoosterPackItem card)
