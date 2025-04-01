@@ -60,4 +60,8 @@ public class TransitionManager : MonoBehaviour
     {
         round++;
     }
+
+    public int GetRound() {
+        return round;
+    }
 }
