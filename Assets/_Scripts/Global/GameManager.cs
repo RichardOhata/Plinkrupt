@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Ball dropping control")]
     public BallSpawner ballSpawner;
+    public HexMountainGenerator boardSpawner;
     public Button dropButton;
     public int currentBalls = 0;
     public int currentBallInstances = 0;
@@ -48,6 +49,9 @@ public class GameManager : MonoBehaviour
         dropButton.interactable = true;
         currentBalls = ballSpawner.numBalls;
         currentBallInstances = ballSpawner.numBalls;
+    }
+    public void ResetBoard() {
+        boardSpawner.resetBoard();
     }
 
     public void SpawnBall()

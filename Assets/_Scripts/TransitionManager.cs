@@ -53,6 +53,7 @@ public class TransitionManager : MonoBehaviour
         GameManager.Instance.openEndofRoundFlag = false;
         GameManager.Instance.ResetBalls();
         ScoreManager.Instance.ResetSideScore();
+        GameManager.Instance.ResetBoard();
     }
 
     public void IncreaseRound()

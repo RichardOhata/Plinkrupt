@@ -27,6 +27,11 @@ public class HexMountainGenerator : MonoBehaviour
         GenerateScoringAreas();
     }
 
+    public void resetBoard() {
+        GenerateMountain();
+        GenerateScoringAreas();
+    }
+
     void GenerateScoringAreas(){
         if (scoringAreaPrefab == null)
         {
