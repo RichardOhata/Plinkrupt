@@ -26,35 +26,60 @@ public class EndOfRoundScoring : MonoBehaviour
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        
+        FillData();
     }
 
+    private void OnDisable()
+    {
+        _scoreManager.StoredScoringRecord.Clear();
+    }
     void Start()
     {
 
+        //bonusScoring = _currentGameManager.bonusScoring;
+
+        ////TOD0: This data is for testing, remove after
+        //float Score = 0f;
+        //fillListWithTestData();
+
+        //foreach(var scores in _scoreManager.StoredScoringRecord){
+        //    Debug.Log($"Score: {scores.elementType}, {scores.score}");
+        //    GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //    TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //    textComponent.text = $"{scores.elementType} {scores.score}";
+        //    Score += scores.score;
+        //}
+
+        //// foreach (BonusScore bonus in bonusScoring.bonuses)
+        //// {
+        ////     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        ////     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        ////     textComponent.text = bonus.ToString();
+        //// }
+
+        //// Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        //// payout.text = $"Payout: $XXXXX";
+        //totalBonus.text = $"Total: ${Score}";
+    }
+
+    private void FillData()
+    {
+        foreach (Transform child in bonusScrollViewContent)
+        {
+            Destroy(child.gameObject);
+        }
         bonusScoring = _currentGameManager.bonusScoring;
 
-        //TOD0: This data is for testing, remove after
         float Score = 0f;
-        fillListWithTestData();
 
-        foreach(var scores in _scoreManager.StoredScoringRecord){
-            Debug.Log($"Score: {scores.elementType}, {scores.score}");
+        foreach (var scores in _scoreManager.StoredScoringRecord)
+        {
+            //Debug.Log($"Score: {scores.elementType}, {scores.score}");
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
             textComponent.text = $"{scores.elementType} {scores.score}";
             Score += scores.score;
         }
-
-        // foreach (BonusScore bonus in bonusScoring.bonuses)
-        // {
-        //     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
-        //     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
-        //     textComponent.text = bonus.ToString();
-        // }
-
-        // Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
-        // payout.text = $"Payout: $XXXXX";
         totalBonus.text = $"Total: ${Score}";
     }
 
