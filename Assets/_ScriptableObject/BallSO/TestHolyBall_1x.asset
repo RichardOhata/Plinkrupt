@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a336e98e79383e49ad305744bf89dda, type: 3}
   m_Name: TestHolyBall_1x
   m_EditorClassIdentifier: 
+  ballVisualPrefab: {fileID: 3233243413693645915, guid: e2a673b19c3b92b4eb6d59d7dfacbbaf, type: 3}
   elementType: 4
   baseScoreMultiplier: 1
+  tailParticle: {fileID: 0}
+  hitVFXPrefab: {fileID: 7038687783865553515, guid: 154efef9085200742bc8a2d092efa3ef, type: 3}
+  explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
+  _oneShotCooldown: 0.5

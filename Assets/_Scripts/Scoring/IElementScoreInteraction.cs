@@ -9,9 +9,7 @@ public interface IElementScoreInteraction
 
     public float getCurrentBid(); // Get the current bid
     public float setCurrentBid(float bidValue); // Set the current bid
-
-    // Load Setting 
-    public void LoadSetting(ElementMultiplierConfig elementMultiplierConfig);
+    public void DestorySelf();
 }
 
 public class ElementMultiplierConfig{

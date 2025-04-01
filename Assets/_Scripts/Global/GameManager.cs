@@ -1,13 +1,18 @@
 using Esper.ESave;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public bool outOfBalls = false;
+    [Header("Ball dropping control")]
+    public BallSpawner ballSpawner;
+    public Button dropButton;
+    public int currentBalls = 0;
+    public int currentBallInstances = 0;
 
     //TODO: May refactor to a different class
     [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
@@ -27,16 +32,27 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        currentBalls = ballSpawner.numBalls;
+        currentBallInstances = ballSpawner.numBalls;
     }
 
     void Update()
     {
-        if(outOfBalls && GameObject.FindGameObjectsWithTag("ball").Length == 0)
-        {
-            outOfBalls = false;
+        //all the ball instances are destroyed, open the end of round menu
+        if(currentBallInstances <= 0){
             TransitionManager.instance.OpenEndOfRoundMenu();
         }
+    }
+
+    public void SpawnBall()
+    {
+        
+        //check if the ball spawner is set
+        if(ballSpawner == null){
+            Debug.LogWarning("Ball Spawner is not set!");
+            return;
+        }
+        ballSpawner.SpawnBall();
     }
 
 

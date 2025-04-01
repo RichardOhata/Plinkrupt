@@ -6,15 +6,15 @@ public class ScoringAreaConfigSO : ScriptableObject
 {
     public ElementClass.ElementType elementType;
     public float baseScoreMultiplier;
-    public Color ScoreAreaColor;
+    public Color scoreAreaColor;
 
     public ElementMultiplierConfig getScoringAreaConfig()
     {
-        return new ElementMultiplierConfig(elementType, baseScoreMultiplier, ScoreAreaColor);
+        return new ElementMultiplierConfig(elementType, baseScoreMultiplier, scoreAreaColor);
     }
 
     public Color getColor()
     {
-        return ScoreAreaColor;
+        return scoreAreaColor;
     }
 }

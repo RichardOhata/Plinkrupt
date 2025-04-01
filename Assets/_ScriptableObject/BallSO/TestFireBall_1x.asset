@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a336e98e79383e49ad305744bf89dda, type: 3}
   m_Name: TestFireBall_1x
   m_EditorClassIdentifier: 
+  ballVisualPrefab: {fileID: 5758956432692753590, guid: f690c6befaba7e84fbf062cfea809390, type: 3}
   elementType: 2
   baseScoreMultiplier: 1
+  tailParticle: {fileID: 0}
+  hitVFXPrefab: {fileID: 1474916026736393267, guid: 31766b11979ddcf498aa23c0d42f188f, type: 3}
+  explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
+  _oneShotCooldown: 0.5

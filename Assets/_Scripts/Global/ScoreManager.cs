@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Esper.ESave;
-using NUnit.Framework;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 [DefaultExecutionOrder(-100)]
 [RequireComponent(typeof(SaveFileSetup))]
 public class ScoreManager : MonoBehaviour
@@ -18,8 +20,6 @@ public class ScoreManager : MonoBehaviour
     //player default preset if there is no saving data.
     [Header("Player Preset Setting")]
     [SerializeField] private PlayerDefaultPreset _playerDefaultPreset;
-
-    private ScoringWindow _ScoringWindow; //cached Scoring Window
     private SaveFile _saveFile; // save
 
     // Element Records tracking
@@ -32,11 +32,11 @@ public class ScoreManager : MonoBehaviour
     private ElementScoreRecord _currentLeadingElement;
 
     //Events
-    public event System.Action<float> OnScoreUpdatedEvent;
-    public event System.Action<(Color, float)> OnLeadingElementChangedEvent;
+    public event Action<float> OnScoreUpdatedEvent;
+    public event Action<Color, float> OnScoreUpdatedScoreWithColor;
+    public event Action<(Color, float)> OnLeadingElementChangedEvent;
 
     //encapsulated Properties
-    public ScoringWindow ScoringWindow { get => _ScoringWindow; set => _ScoringWindow = value; }
     public List<ElementScoreRecord> StoredScoringRecord { get => _storedScoringRecord; set => _storedScoringRecord = value; }
 
     private void Awake(){
@@ -56,11 +56,6 @@ public class ScoreManager : MonoBehaviour
         if(_playerDefaultPreset != null){
             LoadMoneyData();
         }
-        //cache the scoring window
-        if(_ScoringWindow == null){
-            _ScoringWindow = FindFirstObjectByType<ScoringWindow>();
-        }
-        Assert.IsNotNull(_ScoringWindow, "No Scoring Window Found");
     }
 
     void LoadMoneyData(){
@@ -96,6 +91,7 @@ public class ScoreManager : MonoBehaviour
         this.currentMoney += money;
         OnScoreUpdatedEvent?.Invoke(this.currentMoney);
         SaveMoneyData();
+
         return money;
     }
 
@@ -121,10 +117,9 @@ public class ScoreManager : MonoBehaviour
                 _currentLeadingElement = new ElementScoreRecord(element.Key, element.Value);
             }
         }
-        
+        // Debug.Log($"Element: {ElementType}, Score: {totalScore}, Color: {elementMultiplierTable.GetElementColor(ElementType)}");
 
-        Debug.Log($"Element: {ElementType}, Score: {totalScore}, Color: {elementMultiplierTable.GetElementColor(ElementType)}");
         //update the scoring window
-        ScoringWindow.AddScore(elementMultiplierTable.GetElementColor(ElementType), totalScore);
+        OnScoreUpdatedScoreWithColor.Invoke(elementMultiplierTable.GetElementColor(ElementType), totalScore);
     }
 }

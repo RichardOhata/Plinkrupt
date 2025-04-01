@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using Esper.ESave;
@@ -42,6 +43,14 @@ public class ElementMultiplierManager: MonoBehaviour
         
         //save permanent multipliers
         saveElementMultipliers();
+    }
+
+    public float getElementMultiplier(ElementClass.ElementType elementType){
+        //check if the element type is valid, return multiplier of 1 if not valid
+        ElementMultiplier elementMultiplier = premanentMultipliers.Find(e => e.elementType == elementType);
+        if(elementMultiplier == null) return 1f;
+        return premanentMultipliers.Find(e => e.elementType == elementType).multiplier;
+        
     }
 
     /// <summary>

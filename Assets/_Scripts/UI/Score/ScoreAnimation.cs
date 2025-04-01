@@ -63,7 +63,7 @@ public class ScoreAnimation : MonoBehaviour
     {
         if(_timer < 0f){
             if(_textQueueIndices.Count > 0){
-                Debug.Log(_textQueueIndices.Count);
+                // Debug.Log(_textQueueIndices.Count);
                 _timer = _transitionDuration;
                 int charIndex = _textQueueIndices.Dequeue();
                 AnimateCharacter(charIndex);

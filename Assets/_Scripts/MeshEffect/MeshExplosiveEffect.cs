@@ -30,7 +30,6 @@ public class MeshExplosiveEffect : MonoBehaviour
         
         foreach (Collider hit in colliders)
         {
-            Debug.Log(hit.gameObject.name);
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             // Check if the object has a Rigidbody
             if (rb != null)

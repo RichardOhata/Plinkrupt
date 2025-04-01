@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class EndOfRoundScoring : MonoBehaviour
 {
@@ -9,34 +10,58 @@ public class EndOfRoundScoring : MonoBehaviour
     public TMP_Text payout;
     public TMP_Text totalBonus;
     private GameManager _currentGameManager;
+
+    private ScoreManager _scoreManager;
     private BonusScoring bonusScoring;
 
-    void Start()
+    void OnEnable()
     {
+        _scoreManager = ScoreManager.Instance;
+        if(_scoreManager == null){
+            Debug.LogWarning("Score Manager is not set!");
+            return;
+        }
+        _currentGameManager = GameManager.Instance;
         if(!GameManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.Instance;
+        
+    }
+
+    void Start()
+    {
+
         bonusScoring = _currentGameManager.bonusScoring;
 
         //TOD0: This data is for testing, remove after
+        float Score = 0f;
         fillListWithTestData();
 
-        foreach (BonusScore bonus in bonusScoring.bonuses)
-        {
+        foreach(var scores in _scoreManager.StoredScoringRecord){
+            Debug.Log($"Score: {scores.elementType}, {scores.score}");
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
-            textComponent.text = bonus.ToString();
+            textComponent.text = $"{scores.elementType} {scores.score}";
+            Score += scores.score;
         }
 
-        Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
-        payout.text = $"Payout: $XXXXX";
-        totalBonus.text = $"Total Bonus: ${bonusScoring.getTotalBonus()}";
+        // foreach (BonusScore bonus in bonusScoring.bonuses)
+        // {
+        //     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //     textComponent.text = bonus.ToString();
+        // }
+
+        // Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        // payout.text = $"Payout: $XXXXX";
+        totalBonus.text = $"Total: ${Score}";
     }
 
     void fillListWithTestData()
     {
+
+
         bonusScoring.addBonuseByName("Electric Hit", 100);
         bonusScoring.addBonuseByName("Electric Hit", 100);
         bonusScoring.addBonuseByName("Electric Hit", 100);
