@@ -17,59 +17,89 @@ MonoBehaviour:
     relativeElementsMultiplier:
     - elementType: 0
       multiplier: 1
+      ElementBuffName: 
     - elementType: 1
       multiplier: 2
+      ElementBuffName: 
     - elementType: 2
       multiplier: 1
+      ElementBuffName: 
     - elementType: 3
       multiplier: 1
+      ElementBuffName: 
     - elementType: 4
       multiplier: 1
+      ElementBuffName: 
+    elementColor: {r: 0.061670065, g: 1, b: 0, a: 1}
   - mainElement: 1
     relativeElementsMultiplier:
     - elementType: 0
       multiplier: 1
+      ElementBuffName: 
     - elementType: 1
       multiplier: 1
+      ElementBuffName: 
     - elementType: 2
       multiplier: 2
+      ElementBuffName: 
     - elementType: 3
       multiplier: 1
+      ElementBuffName: 
     - elementType: 4
       multiplier: 1
+      ElementBuffName: 
+    elementColor: {r: 0, g: 0.86478305, b: 1, a: 1}
   - mainElement: 2
     relativeElementsMultiplier:
     - elementType: 0
       multiplier: 0.5
+      ElementBuffName: 
     - elementType: 1
       multiplier: 0.5
+      ElementBuffName: 
     - elementType: 2
       multiplier: 1
+      ElementBuffName: 
     - elementType: 3
       multiplier: 2
+      ElementBuffName: 
     - elementType: 4
       multiplier: 0.5
+      ElementBuffName: 
+    elementColor: {r: 1, g: 0, b: 0, a: 1}
   - mainElement: 3
     relativeElementsMultiplier:
     - elementType: 0
       multiplier: 1
+      ElementBuffName: 
     - elementType: 1
       multiplier: 1
+      ElementBuffName: 
     - elementType: 2
       multiplier: 1
+      ElementBuffName: 
     - elementType: 3
       multiplier: 1
+      ElementBuffName: 
     - elementType: 4
       multiplier: 2
+      ElementBuffName: 
+    elementColor: {r: 0.07392359, g: 0, b: 1, a: 1}
   - mainElement: 4
     relativeElementsMultiplier:
     - elementType: 0
       multiplier: 2
+      ElementBuffName: 
     - elementType: 1
       multiplier: 1
+      ElementBuffName: 
     - elementType: 2
       multiplier: 1
+      ElementBuffName: 
     - elementType: 3
       multiplier: 1
+      ElementBuffName: 
     - elementType: 4
       multiplier: 1
+      ElementBuffName: 
+    elementColor: {r: 0.9314246, g: 1, b: 0, a: 1}

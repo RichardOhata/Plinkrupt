@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 using System.Collections;
+using System.Linq;
 
 public class EndOfRoundScoring : MonoBehaviour
 {
@@ -10,42 +12,52 @@ public class EndOfRoundScoring : MonoBehaviour
     public TMP_Text payout;
     public TMP_Text totalBonus;
     private GameManager _currentGameManager;
+
+    private ScoreManager _scoreManager;
     private BonusScoring bonusScoring;
 
-    void Start()
+    void OnEnable()
     {
+        _scoreManager = ScoreManager.Instance;
+        if(_scoreManager == null){
+            Debug.LogWarning("Score Manager is not set!");
+            return;
+        }
+        _currentGameManager = GameManager.Instance;
         if(!GameManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.Instance;
+        
+    }
+
+    void Start()
+    {
         bonusScoring = _currentGameManager.bonusScoring;
         totalBonus.text = "";
-
-        //TOD0: This data is for testing, remove after
-        fillListWithTestData();
-
         StartCoroutine(displayBonus(0.25f));
     }
 
     IEnumerator displayBonus(float delay)
     {
-        foreach (BonusScore bonus in bonusScoring.bonuses)
-        {
+        float Score = _scoreManager.StoredScoringRecord.ToList().Sum(s => s.score);
+
+        yield return new WaitForSeconds(delay);
+        payout.text = $"Payout: ${Score}";
+        StartCoroutine(bounceText(payout.gameObject));
+
+        foreach(var scores in _scoreManager.StoredScoringRecord){
             yield return new WaitForSeconds(delay);
+            Debug.Log($"Score: {scores.elementType}, {scores.score}");
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
-            textComponent.text = bonus.ToString(); 
+            textComponent.text = $"{scores.elementType} {scores.score}";
             StartCoroutine(bounceText(newItem));
         }
 
         yield return new WaitForSeconds(delay);
-        totalBonus.text = $"Total Bonus: ${bonusScoring.getTotalBonus()}";
+        totalBonus.text = $"Total: ${Score}";
         StartCoroutine(bounceText(totalBonus.gameObject));
-
-        yield return new WaitForSeconds(delay);
-        payout.text = $"Payout: $XXXXX";
-        StartCoroutine(bounceText(payout.gameObject));
     }
 
     IEnumerator bounceText(GameObject textObject)

@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class ShopWindow : MonoBehaviour
 {
@@ -64,6 +63,6 @@ public class ShopWindow : MonoBehaviour
             rectTransform.anchoredPosition = new Vector2(x, yPosition);
         }
 
-        GameManager.Instance.currentMoney -= 3;
+        ScoreManager.Instance.UpdateMoney(-rerollPrice);
     }
     }

@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Richard Ohata.unity
     guid: 7566619b8760f5a47a0de5cab1abdc9b
+  - enabled: 1
+    path: Assets/Scenes/GreyBox/AndrewGreyBox2.unity
+    guid: d26a7d10b0a1765478c3b5e55a4838b5
+  - enabled: 1
+    path: Assets/Scenes/test123.unity
+    guid: b69530b60ffc54449a9686225e48445a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

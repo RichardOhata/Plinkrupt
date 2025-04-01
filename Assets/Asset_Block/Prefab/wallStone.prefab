@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockType: 0
   collisionThreshold: 2
-  explosionForce: 7
+  explosionForce: 4
   explosionRadius: 0.5
   upwardModifier: 1
   contactTimeThreshold: 3

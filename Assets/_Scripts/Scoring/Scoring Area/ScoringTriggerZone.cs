@@ -8,29 +8,30 @@ using UnityEngine;
 public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
 {
     //cached game manager references
-    private GameManager _currentGameManager;
+    private ScoreManager _currentScoreManager;
+    private ElementMultiplierManager _elementMultiplierManager;
+    private GameManager _gameManager;
 
     //configs
-    [SerializeField]private ScoringAreaConfigSO _scoringAreaConfigSo;
-    private ScoringClass.ElementType _objectElement;
+    private ScoringAreaConfigSO _scoringAreaConfigSo;
+    private ElementClass.ElementType _objectElement;
+    private Color _elementColor;
     private float _baseMultiplier;
-    
 
+    public event Action<Color> OnScoreAreaVisualChangeEvent;
 
+    void OnEnable(){
+        _currentScoreManager = ScoreManager.Instance;
+        _elementMultiplierManager = ElementMultiplierManager.Instance;
+        _gameManager = GameManager.Instance;
+    }
     void Start()
     {
-        if(!_scoringAreaConfigSo){
-            Debug.LogWarning("Scoring Trigger So is not set!");
-            return;
-        }
-        if(!GameManager.Instance){
+        if(!ScoreManager.Instance){
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        _currentGameManager = GameManager.Instance;
-        _objectElement = _scoringAreaConfigSo.elementType;
-        _baseMultiplier = _scoringAreaConfigSo.baseScoreMultiplier;
-        
+        OnScoreAreaVisualChangeEvent?.Invoke(_elementColor);
         ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
         ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
@@ -41,26 +42,30 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     /// element multiplier and updates the game manager with the new score.
     /// </summary>
     /// <param name="collision">The collider object that triggered the event.</param>
-
     public void OnTriggerEnter(Collider collision){
-        Debug.Log("Triggered");
         if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction BallElement)){
 
             //get the multiplier from the lookup table
-            float multiplier = _currentGameManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
-            Debug.Log($"Score Area: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
+            float multiplier = _currentScoreManager.elementMultiplierTable.GetMultiplier(_objectElement, BallElement.getElementType());
+            // Debug.Log($"Score Area Element: {_objectElement}, Target Element: {BallElement.getElementType()}, Multiplier: {multiplier}");
+            float elementMultiplier = 0f;
+
+            if(_objectElement == BallElement.getElementType()){
+                elementMultiplier = _elementMultiplierManager.getElementMultiplier(BallElement.getElementType());
+            }
 
             //update the score
-            float score = _currentGameManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier);
+            float score = _currentScoreManager.UpdateMoneyWithMultiplier(_baseMultiplier * multiplier + elementMultiplier);
 
-            FindFirstObjectByType<ScoringWindow>().AddScore(score);
+            //add the score record
+            _currentScoreManager.UpdateElementMultiplierRecord(BallElement.getElementType(), score);
 
-
+            //play the score effect
             if(collision.gameObject.TryGetComponent<IElementScoreInteractionVFX>(out IElementScoreInteractionVFX effect)){
                 effect.OnScoreInteractionEffect();
             }
-
-            Destroy(collision.gameObject);
+            //destroy the ball
+            BallElement.DestorySelf();
         }
     }
 
@@ -81,24 +86,64 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     }
     
     //implementing the interface methods
-    public float getBaseMutiplier()
+    public float getBaseMutiplier() => _baseMultiplier;
+    public ElementClass.ElementType getElementType() => _objectElement;
+    public float getCurrentBid() => throw new NotImplementedException();
+    public float setCurrentBid(float bidValue) => throw new NotImplementedException();
+
+    public void DestorySelf()
     {
-        return _baseMultiplier;
+        throw new NotImplementedException();
     }
 
-    public ScoringClass.ElementType getElementType()
-    {
-        return _objectElement;
-    }
-    //not implemented
+    //implementing the builder pattern for the ScoringTriggerZone class
+    public class Builder{
+        private ScoringAreaConfigSO _scoringAreaConfigSo;
+        private ElementClass.ElementType _objectElement;
+        private Color _elementColor = Color.white; //default color
+        private float _baseMultiplier = 1f; //default multiplier
 
-    public float getCurrentBid()
-    {
-        throw new System.NotImplementedException();
-    }
+        public Builder WithConfig(ScoringAreaConfigSO scoringAreaConfigSo){
+            _scoringAreaConfigSo = scoringAreaConfigSo;
+            return this;
+        }
+        public Builder WithElementType(ElementClass.ElementType elementType){
+            _objectElement = elementType;
+            return this;
+        }
 
-    public float setCurrentBid(float bidValue)
-    {
-        throw new System.NotImplementedException();
+        public Builder WithElementColor(Color elementColor){
+            _elementColor = elementColor;
+            return this;
+
+        }
+        public Builder WithBaseMultiplier(float baseMultiplier){
+            _baseMultiplier = baseMultiplier;
+            return this;
+        }
+
+        public ScoringTriggerZone Build(GameObject gameObject){
+            ScoringTriggerZone scoringTriggerZone = gameObject.AddComponent<ScoringTriggerZone>();
+
+            //if the scoring area config so is not set, use the builder values
+            if(_scoringAreaConfigSo == null){
+                scoringTriggerZone._objectElement = _objectElement;
+                scoringTriggerZone._elementColor = _elementColor;
+                scoringTriggerZone._baseMultiplier = _baseMultiplier;
+            }
+
+            //if the scoring area config so is set
+            else{
+                scoringTriggerZone._scoringAreaConfigSo = _scoringAreaConfigSo;
+                scoringTriggerZone._objectElement = _scoringAreaConfigSo.getScoringAreaConfig().elementType;
+                scoringTriggerZone._elementColor = _scoringAreaConfigSo.getScoringAreaConfig().elementColor; 
+                scoringTriggerZone._baseMultiplier = _scoringAreaConfigSo.getScoringAreaConfig().multiplier;
+            }
+
+            gameObject.AddComponent<ScoringAreaVisualModifier>();
+            scoringTriggerZone.OnScoreAreaVisualChangeEvent?.Invoke(scoringTriggerZone._elementColor);
+            
+            return scoringTriggerZone;
+        }
     }
 }

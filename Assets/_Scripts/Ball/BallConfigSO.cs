@@ -3,11 +3,19 @@ using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "BallConfigSO", menuName = "BallSo/Ball Config")]
 public class BallConfigSO : ScriptableObject
-{
-    public ScoringClass.ElementType elementType;
+{   
+    [Header("Ball Config Settings")]
+    public GameObject ballVisualPrefab;
+    public ElementClass.ElementType elementType;
     public float baseScoreMultiplier;
-
+    
+    [Header("VFX Effect Setting")]
     public ParticleSystem tailParticle;
-    public VisualEffectAsset hitVFX;
+    public GameObject hitVFXPrefab;
+    public float _hitEffectInitialSize = 0.5f;
+    public GameObject explosionVFXPrefab;
+    [Range(0,5)]
+    public float _oneShotCooldown = 0.5f;
+
 
 }
