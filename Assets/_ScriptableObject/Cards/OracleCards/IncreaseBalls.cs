@@ -6,7 +6,6 @@ public class IncreaseBalls : OraclePack
     private int ballIncAmt = 2;
     public override void PerformAction()
     {
-
         GameManager.Instance.ballSpawner.SetNumBalls(GameManager.Instance.ballSpawner.numBalls + ballIncAmt);
     }
 
