@@ -8,6 +8,8 @@ public class TransitionManager : MonoBehaviour
     public GameObject endOfRoundMenu;
     public GameObject gameUIMenu;
     public GameObject mainGameCamera;
+    public AudioSource playMusic;
+    public AudioSource shopMusic;
 
     [SerializeField]
     private int round;
@@ -25,12 +27,20 @@ public class TransitionManager : MonoBehaviour
         round = 0;
     }
 
+    public void Start()
+    {
+        playMusic.Play();
+    }
+
     // Call when all balls have been used
     public void OpenEndOfRoundMenu()
     {
         //board.SetActive(false);
         //shopMenu.SetActive(true);
         endOfRoundMenu.SetActive(true);
+
+        playMusic.Stop();
+        shopMusic.Play();
     }
 
     public void OpenShop()
@@ -54,6 +64,9 @@ public class TransitionManager : MonoBehaviour
         GameManager.Instance.ResetBalls();
         ScoreManager.Instance.ResetSideScore();
         GameManager.Instance.ResetBoard();
+
+        shopMusic.Stop();
+        playMusic.Play();
     }
 
     public void IncreaseRound()
