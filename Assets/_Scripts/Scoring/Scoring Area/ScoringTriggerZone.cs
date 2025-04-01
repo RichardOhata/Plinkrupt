@@ -19,6 +19,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     private float _baseMultiplier;
 
     public event Action<Color> OnScoreAreaVisualChangeEvent;
+    public ScoringAreaConfigSO[] scoringAreaConfigSOs;
 
     void OnEnable(){
         _currentScoreManager = ScoreManager.Instance;
@@ -36,6 +37,19 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
 
+
+    public void UpdateSetting(ElementMultiplierConfig scoringAreaConfig)
+    {
+        //set configs
+        //_isLoaded = true;
+        _objectElement = scoringAreaConfig.elementType;
+        _baseMultiplier = scoringAreaConfig.multiplier;
+        _elementColor = scoringAreaConfig.elementColor;
+
+        OnScoreAreaVisualChangeEvent?.Invoke(_elementColor);
+        ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
+        ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
+    }
     /// <summary>
     /// Handles the trigger enter event. When a collision occurs, it checks if the colliding object 
     /// implements the IElementScoreInteraction interface. If so, calculates the score using the 

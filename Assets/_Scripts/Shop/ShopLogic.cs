@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,13 +10,8 @@ public class ShopLogic : MonoBehaviour
     private Vector3 leftPos = new Vector3(-3f, 0.2f, -0.2f);
     private Vector3 middlePos = new Vector3(0f, 0.2f, -0.2f);
     private Vector3 rightPos = new Vector3(3f, 0.2f, -0.2f);
-
-    [SerializeField]
-    private GameObject boosterPackPrefab;
-    [SerializeField]
-    private GameObject elementalCardPrefab;
-
-    public ElementPack[] elements;
+    
+    public BoosterPack[] boosterPacks;
 
     [SerializeField]
     private GameObject content;
@@ -24,14 +20,25 @@ public class ShopLogic : MonoBehaviour
     private Button useButton;
 
     [SerializeField]
+    private GameObject description;
+
+    [SerializeField]
     private Button rerollButton;
+    private int rerollCost = 300;
+    private int boosterPackCost = 300;
 
     [SerializeField]
     private Button nextRoundButton;
 
+
+    [SerializeField]
+    private GameObject gameBoard;
+
+    private bool boosterPackFlag= true;
+
     public enum ConsumableType{
-        ElementalBoosterPack,
-        ElementalCard
+        Boosterpack,
+        Card,
     }
 
     public enum CardPos
@@ -44,9 +51,27 @@ public class ShopLogic : MonoBehaviour
 
     public GameObject currentSelectedCard;
 
-    void Start()
+    private void OnEnable()
     {
+        foreach (Transform child in content.transform)
+        {
+            Destroy(child.gameObject);
+        }
         InstantiateBoosterPacks();
+        rerollCost = 300;
+        rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
+    }
+    private void Update()
+    {
+        if (ScoreManager.Instance.currentMoney < rerollCost)
+        {
+
+            rerollButton.interactable = false;
+        }
+        else
+        {
+            rerollButton.interactable = true;
+        }
     }
 
     private void InstantiateBoosterPacks()
@@ -58,34 +83,41 @@ public class ShopLogic : MonoBehaviour
 
     private void CreateBoosterPack(Vector3 position, CardPos cardPos)
     {
+        BoosterPack selectedPack = boosterPacks[UnityEngine.Random.Range(0, boosterPacks.Length)];
         Quaternion rotation = Quaternion.Euler(0, 90, 0);
-        GameObject boosterPack = Instantiate(boosterPackPrefab, position, rotation);
+        GameObject boosterPack = Instantiate(selectedPack.boosterPackPrefab, position, rotation);
 
-        // Set the booster pack as a child of 'content'
         boosterPack.transform.SetParent(content.transform, false);
-
-        // Keep its local position the same as the given world position
         boosterPack.transform.localPosition = position;
 
-        // Assign the enum value to the booster pack
         boosterPack.GetComponent<ConsumableConfig>().cardpos = cardPos;
-    }
+        boosterPack.GetComponent<ConsumableConfig>().description = selectedPack.description;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BoosterPackLogic pack = boosterPack.GetComponent<BoosterPackLogic>();
+        if (pack != null)
+        {
+            pack.items = selectedPack.itemPool;
+            pack.itemCardPrefab = selectedPack.cardPrefab;
+        }
     }
-  
 
     public void DisplayUseButton()
     {
+        if (boosterPackFlag && (ScoreManager.Instance.currentMoney < boosterPackCost)) {
+            useButton.interactable = false;
+        } else
+        {
+            useButton.interactable = true;
+        }
         useButton.gameObject.SetActive(true);
+        description.gameObject.SetActive(true);
+        description.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedCard.GetComponent<ConsumableConfig>().description;
     }
 
     public void HideUseButton()
     {
         useButton.gameObject.SetActive(false);
+        description.gameObject.SetActive(false);
     }
 
     public void HandleUseButton()
@@ -93,15 +125,18 @@ public class ShopLogic : MonoBehaviour
         ConsumableType type = currentSelectedCard.GetComponent<ConsumableConfig>().GetConsumableType();
         switch (type)
         {
-            case ConsumableType.ElementalBoosterPack:
-                ReplaceContent();
+            case ConsumableType.Boosterpack:
+                ScoreManager.Instance.UpdateMoney(-boosterPackCost);
+                ReplaceContent(currentSelectedCard.GetComponent<BoosterPackLogic>().items, currentSelectedCard.GetComponent<BoosterPackLogic>().itemCardPrefab);
                 rerollButton.interactable = false;
                 nextRoundButton.interactable = false;
+                boosterPackFlag = false;
                 break;
-            case ConsumableType.ElementalCard:
-                HandleElementCardUse(currentSelectedCard.GetComponent<ElementCardUI>().element);
+            case ConsumableType.Card:
+                HandleCardUse(currentSelectedCard.GetComponent<CardLogic>().item);
                 rerollButton.interactable = true;
                 nextRoundButton.interactable = true;
+                boosterPackFlag = true;
                 break;
             default: 
                 break;
@@ -110,7 +145,7 @@ public class ShopLogic : MonoBehaviour
         currentSelectedCard = null;
     }
 
-    public void ReplaceContent()
+    public void ReplaceContent(BoosterPackItem[] items, GameObject itemCardPrefab)
     {
         HideUseButton();
         rerollButton.interactable = false;
@@ -119,40 +154,42 @@ public class ShopLogic : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-
         // Spawn three elemental cards at the same positions
-        CreateElementalCard(leftPos, CardPos.LeftPos);
-        CreateElementalCard(middlePos, CardPos.MiddlePos);
-        CreateElementalCard(rightPos, CardPos.RightPos);
+        CreateCard(leftPos, CardPos.LeftPos, itemCardPrefab, items);
+        CreateCard(middlePos, CardPos.MiddlePos, itemCardPrefab, items);
+        CreateCard(rightPos, CardPos.RightPos, itemCardPrefab, items);
 
-     
     }
 
-    private void CreateElementalCard(Vector3 position, CardPos cardPos)
+    private void CreateCard(Vector3 position, CardPos cardPos, GameObject cardPrefab, BoosterPackItem[] items)
     {
-        GameObject elementalCard = Instantiate(elementalCardPrefab, position, Quaternion.identity);
-        elementalCard.GetComponent<ElementCardUI>().SetData(elements[UnityEngine.Random.Range(0, elements.Length)], 0);
-        // Set it as a child of 'content'
-        elementalCard.transform.SetParent(content.transform, false);
+        BoosterPackItem selectedItem = items[UnityEngine.Random.Range(0, items.Length)];
 
-        // Keep its local position the same as the given world position
-        elementalCard.transform.localPosition = position;
-        elementalCard.GetComponent<ConsumableConfig>().cardpos = cardPos;
+        GameObject card = Instantiate(cardPrefab, position, Quaternion.identity);
+        CardLogic cardUI = card.GetComponent<CardLogic>();   
+           
+        cardUI.SetData(selectedItem);
+
+        card.transform.SetParent(content.transform, false);
+        card.transform.localPosition = position;
+        card.GetComponent<ConsumableConfig>().cardpos = cardPos;
+        card.GetComponent<ConsumableConfig>().description = selectedItem.Description;
     }
 
-    public void HandleElementCardUse(ElementPack element)
+    public void HandleCardUse(BoosterPackItem card)
     {
-        element.IncrementMult();
+        card.PerformAction();
+
         foreach (Transform child in content.transform)
         {
             if (child.gameObject.activeSelf)
             {
                 Destroy(child.gameObject);
-            } else
+            }
+            else
             {
                 child.gameObject.SetActive(true);
             }
-         
         }
         HideUseButton();
     }
@@ -167,6 +204,8 @@ public class ShopLogic : MonoBehaviour
         HideUseButton();
         InstantiateBoosterPacks();
 
-        ScoreManager.Instance.currentMoney -= 300;
+        ScoreManager.Instance.UpdateMoney(-rerollCost);
+        rerollCost = rerollCost * 2;
+        rerollButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reroll $" + rerollCost;
     }
 }

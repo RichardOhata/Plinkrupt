@@ -13,19 +13,31 @@ public class HexMountainGenerator : MonoBehaviour
     public float roughnessFactor = 0.3f; // How chaotic the shape is (0 = smooth, 1 = very rough)
     public float heightVariation = 0.2f; // Random height offsets
     private Dictionary<Vector2Int, int> prefabMap = new Dictionary<Vector2Int, int>(); // Stores prefab types
+    public List<GameObject> generatedBlocks;
 
     [Header("Scoring Area Generation")]
     public GameObject scoringAreaPrefab; //placeholder prefab
+    public List<GameObject> scoringAreaGameObject;
     public ScoringAreaConfigSO[] scoringAreaConfigSOs; // Array of scoring area configurations
     public int numOfScoringAreasPerSide = 2; // Number of scoring areas to generate
     public int HeightOffset = -6; // Height offset for scoring areas
-
-
 
     private void Start()
     {
         GenerateMountain();
         GenerateScoringAreas();
+    }
+
+    public void resetBoard() {
+        // Destroy existing hexes and scoring areas
+        foreach (GameObject child in generatedBlocks)
+        {
+            Destroy(child);
+        }
+        generatedBlocks.Clear();
+
+        // Regenerate the board
+        GenerateMountain();
     }
 
     void GenerateScoringAreas(){
@@ -52,6 +64,12 @@ public class HexMountainGenerator : MonoBehaviour
 
             // Scale scoring area prefab
             scoreAreaPrefab.transform.localScale = new Vector3(scoreAreaSizeOffset, scoreAreaSizeOffset, scoreAreaSizeOffset);
+            //scoreAreaPrefab.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction scoringArea);
+
+            // Load a random scoring area configuration
+            ElementMultiplierConfig scoringAreaConfig = scoringAreaConfigSOs[Random.Range(0, scoringAreaConfigSOs.Length)].getScoringAreaConfig();
+            //scoringArea.LoadSetting(scoringAreaConfig);
+            scoringAreaGameObject.Add(scoreAreaPrefab);
         }
     }
     List<Vector2> GenerateHexGridScoring(float radius, float offsets)
@@ -89,7 +107,8 @@ public class HexMountainGenerator : MonoBehaviour
             {
                 Vector3 worldPos = HexToWorldPosition(pos.x, pos.y, y);
                 GameObject selectedPrefab = SelectClusteredPrefab(pos);
-                Instantiate(selectedPrefab, worldPos, Quaternion.identity, transform);
+                GameObject blockCreated = Instantiate(selectedPrefab, worldPos, Quaternion.identity, transform);
+                generatedBlocks.Add(blockCreated);
             }
         }
     }

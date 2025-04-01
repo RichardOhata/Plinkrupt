@@ -27,12 +27,12 @@ public class SceneNavigator : MonoBehaviour
 
     public void LoadSceneWithDelay(float delay)
     {
-        StartCoroutine(LoadSceneWithDelay("Alpha", delay));
+        StartCoroutine(LoadSceneWithDelay("Beta", delay));
     }
 
     public IEnumerator LoadSceneWithDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
-        LoadScene("Alpha");
+        LoadScene(sceneName);
     }
 }

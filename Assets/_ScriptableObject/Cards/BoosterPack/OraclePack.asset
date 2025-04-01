@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832e2733277f604da42e5b56b5c4cde, type: 3}
+  m_Name: OraclePack
+  m_EditorClassIdentifier: 
+  boosterPackPrefab: {fileID: 5110971326303105135, guid: cf3755ed953778b4fb269f7844131f9d, type: 3}
+  itemPool:
+  - {fileID: 11400000, guid: 07637d4f60ae12d49ba3646fbfb39347, type: 2}
+  - {fileID: 11400000, guid: 0d960e3645793614c81229fb2b308785, type: 2}
+  - {fileID: 11400000, guid: 570b26628e18dbd40898aaf8c0a3afce, type: 2}
+  - {fileID: 11400000, guid: f34fa52de2650a644b0d1296f0c7cd6a, type: 2}
+  - {fileID: 11400000, guid: 80453fcf996408944ae8defd4bbe3ef9, type: 2}
+  cardPrefab: {fileID: 6450712573119885430, guid: 9849d3568bbc4784194b13c44434ca23, type: 3}
+  description: Choose 1 of up to 3 Oracle Cards to be used

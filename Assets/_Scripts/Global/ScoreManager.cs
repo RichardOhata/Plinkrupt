@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Esper.ESave;
 using TMPro;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class ScoreManager : MonoBehaviour
     public event Action<float> OnScoreUpdatedEvent;
     public event Action<Color, float> OnScoreUpdatedScoreWithColor;
     public event Action<(Color, float)> OnLeadingElementChangedEvent;
+    public event Action<bool> OnNextRoundReset;
 
     //encapsulated Properties
     public List<ElementScoreRecord> StoredScoringRecord { get => _storedScoringRecord; set => _storedScoringRecord = value; }
@@ -121,5 +123,9 @@ public class ScoreManager : MonoBehaviour
 
         //update the scoring window
         OnScoreUpdatedScoreWithColor.Invoke(elementMultiplierTable.GetElementColor(ElementType), totalScore);
+    }
+
+    public void ResetSideScore() {
+        OnNextRoundReset.Invoke(true);
     }
 }

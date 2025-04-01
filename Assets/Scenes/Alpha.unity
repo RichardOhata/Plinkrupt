@@ -1796,8 +1796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc49de71226b0c744aa5dc6a59255a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boosterPackPrefab: {fileID: 7455548934935685974, guid: 724ab97a59743b8448517114ec0f5de2, type: 3}
+  boosterPackPrefab: {fileID: 5110971326303105135, guid: 7aa0d0dcc738f054eb0d8718ea1bd306, type: 3}
   elementalCardPrefab: {fileID: 6450712573119885430, guid: ec5c599229d9af44fa0627c5f8a14c03, type: 3}
+  boosterPacks:
+  - {fileID: 11400000, guid: 115ee3b9a037a974e87caed851aff006, type: 2}
+  - {fileID: 11400000, guid: ef741536262e001409199d0b19f15066, type: 2}
   elements:
   - {fileID: 11400000, guid: 6e425bf3464a0784d855d896b917275e, type: 2}
   - {fileID: 11400000, guid: d792c1e145e217a41aebee6da428388e, type: 2}
@@ -3961,7 +3964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1533764990
 Transform:
   m_ObjectHideFlags: 0
