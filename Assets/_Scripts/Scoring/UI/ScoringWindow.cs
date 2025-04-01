@@ -13,6 +13,7 @@ public class ScoringWindow : MonoBehaviour
     public void Start()
     {
         ScoreManager.Instance.OnScoreUpdatedScoreWithColor += AddScore; // Subscribe to the event
+        ScoreManager.Instance.OnNextRoundReset += ResetScores;
     }
 
     public void AddScore(Color elementColor, float score)
@@ -64,5 +65,14 @@ public class ScoringWindow : MonoBehaviour
 
         // Add new score entry to queue
         scoreQueue.Enqueue(scoreObject);
+    }
+
+        public void ResetScores(bool status)
+    {
+        while (scoreQueue.Count > 0)
+        {
+            Destroy(scoreQueue.Dequeue());
+        }
+        scoreQueue.Clear();
     }
 }

@@ -52,6 +52,7 @@ public class TransitionManager : MonoBehaviour
         mainGameCamera.SetActive(true);
         GameManager.Instance.openEndofRoundFlag = false;
         GameManager.Instance.ResetBalls();
+        ScoreManager.Instance.ResetSideScore();
     }
 
     public void IncreaseRound()
