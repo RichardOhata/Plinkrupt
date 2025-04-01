@@ -58,7 +58,6 @@ public class ElementMultiplierManager: MonoBehaviour
     /// </summary>
     public void LoadPremanentMultipliters()
     {
-
         //pre-load permanent multipliers
         premanentMultipliers = new List<ElementMultiplier>();
         if(_saveFile.HasData("PermanentMultipliers")){
@@ -75,6 +74,7 @@ public class ElementMultiplierManager: MonoBehaviour
         premanentMultipliers.Add(element);
         Debug.Log(string.Format("Element Multiplier {0} added to the list of permanent multipliers", element.ElementBuffName));
         MultiplierAddedEvent?.Invoke(element);
+        saveElementMultipliers();
     }
 
     public void OnMultiplierAddedEvent(ElementClass.ElementType elementType, float multiplier)
@@ -92,7 +92,7 @@ public class ElementMultiplierManager: MonoBehaviour
             premanentMultipliers.Add(newElement);
             Debug.Log($"Element Multiplier {newElement.ElementBuffName} added to the list of permanent multipliers");
         }
-
+        saveElementMultipliers();
         // Invoke event if needed
         MultiplierAddedEvent?.Invoke(existingElement ?? premanentMultipliers[^1]);
     }
