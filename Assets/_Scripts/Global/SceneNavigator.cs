@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SceneNavigator : MonoBehaviour
 {
@@ -22,5 +23,16 @@ public class SceneNavigator : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Game Quit");
+    }
+
+    public void LoadSceneWithDelay(float delay)
+    {
+        StartCoroutine(LoadSceneWithDelay("Alpha", delay));
+    }
+
+    public IEnumerator LoadSceneWithDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LoadScene("Alpha");
     }
 }
