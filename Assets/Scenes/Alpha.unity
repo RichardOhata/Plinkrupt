@@ -148,7 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a93f616c2fc89b48a41bd7057a550f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outOfBalls: 0
+  ballSpawner: {fileID: 0}
+  dropButton: {fileID: 0}
+  currentBalls: 0
+  currentBallInstances: 0
 --- !u!4 &20423465
 Transform:
   m_ObjectHideFlags: 0
@@ -3187,7 +3190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91b7d8037a67e9d499e362ad0820f28a, type: 2}
+  - {fileID: 2100000, guid: 6db6c9a6fc007eb42a86949ef977e966, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

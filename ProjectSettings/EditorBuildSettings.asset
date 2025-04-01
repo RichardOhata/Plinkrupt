@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Alpha.unity
     guid: d771c732b78c13142a1445ab74893b25
   - enabled: 1
+    path: Assets/Scenes/Beta.unity
+    guid: 688b2fef26dca1e43bba452f1293b8b3
+  - enabled: 1
     path: Assets/Scenes/Richard Ohata.unity
     guid: 7566619b8760f5a47a0de5cab1abdc9b
   - enabled: 1

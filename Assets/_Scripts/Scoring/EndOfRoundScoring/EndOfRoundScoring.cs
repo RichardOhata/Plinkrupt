@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Linq;
 
 public class EndOfRoundScoring : MonoBehaviour
 {
@@ -26,54 +28,111 @@ public class EndOfRoundScoring : MonoBehaviour
             Debug.LogWarning("Game Manager is not set!");
             return;
         }
-        
+        FillData();
     }
 
+    private void OnDisable()
+    {
+        _scoreManager.StoredScoringRecord.Clear();
+    }
     void Start()
     {
 
-        bonusScoring = _currentGameManager.bonusScoring;
+        //bonusScoring = _currentGameManager.bonusScoring;
 
-        //TOD0: This data is for testing, remove after
-        float Score = 0f;
-        fillListWithTestData();
+        ////TOD0: This data is for testing, remove after
+        //float Score = 0f;
+        //fillListWithTestData();
+
+        //foreach(var scores in _scoreManager.StoredScoringRecord){
+        //    Debug.Log($"Score: {scores.elementType}, {scores.score}");
+        //    GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //    TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //    textComponent.text = $"{scores.elementType} {scores.score}";
+        //    Score += scores.score;
+        //}
+
+        //// foreach (BonusScore bonus in bonusScoring.bonuses)
+        //// {
+        ////     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        ////     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        ////     textComponent.text = bonus.ToString();
+        //// }
+
+        //// Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        //// payout.text = $"Payout: $XXXXX";
+        //totalBonus.text = $"Total: ${Score}";
+    }
+
+    private void FillData()
+    {
+        foreach (Transform child in bonusScrollViewContent)
+        {
+            Destroy(child.gameObject);
+        }
+        bonusScoring = _currentGameManager.bonusScoring;
+        totalBonus.text = "";
+        StartCoroutine(displayBonus(0.25f));
+    }
+
+    IEnumerator displayBonus(float delay)
+    {
+        float Score = _scoreManager.StoredScoringRecord.ToList().Sum(s => s.score);
+
+        yield return new WaitForSeconds(delay);
+        payout.text = $"Payout: ${Score}";
+        StartCoroutine(bounceText(payout.gameObject));
 
         foreach(var scores in _scoreManager.StoredScoringRecord){
+            yield return new WaitForSeconds(delay);
             Debug.Log($"Score: {scores.elementType}, {scores.score}");
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
             textComponent.text = $"{scores.elementType} {scores.score}";
-            Score += scores.score;
+            StartCoroutine(bounceText(newItem));
         }
 
-        // foreach (BonusScore bonus in bonusScoring.bonuses)
-        // {
-        //     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
-        //     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
-        //     textComponent.text = bonus.ToString();
-        // }
+        yield return new WaitForSeconds(delay);
+        totalBonus.text = $"Total: ${_scoreManager.currentMoney}";
+        StartCoroutine(bounceText(totalBonus.gameObject));
+    }
 
-        // Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
-        // payout.text = $"Payout: $XXXXX";
-        totalBonus.text = $"Total: ${Score}";
+    IEnumerator bounceText(GameObject textObject)
+    {
+        Vector3 originalScale = textObject.transform.localScale;
+
+        // Shrink effect
+        for (float t = 0; t < 0.1f; t += Time.deltaTime)
+        {
+            textObject.transform.localScale = Vector3.Lerp(originalScale, originalScale * 0.8f, t / 0.1f);
+            yield return null;
+        }
+
+        // Expand with bounce
+        for (float t = 0; t < 0.2f; t += Time.deltaTime)
+        {
+            float bounce = Mathf.Sin(t / 0.2f * Mathf.PI); // Simulates a bounce effect
+            textObject.transform.localScale = originalScale * (1 + bounce * 0.2f);
+            yield return null;
+        }
+
+        textObject.transform.localScale = originalScale; // Reset scale
     }
 
     void fillListWithTestData()
     {
-
-
-        bonusScoring.addBonuseByName("Electric Hit", 100);
-        bonusScoring.addBonuseByName("Electric Hit", 100);
-        bonusScoring.addBonuseByName("Electric Hit", 100);
-        bonusScoring.addBonuseByName("Electric Hit", 100);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Fire Hit", 200);
-        bonusScoring.addBonuseByName("Holy Hit", 500);
-        bonusScoring.addBonuseByName("Holy Hit", 500);
-        bonusScoring.addBonuseByName("Holy Hit", 500);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Holy Hit", 500);
+        bonusScoring.addBonusByName("Holy Hit", 500);
+        bonusScoring.addBonusByName("Holy Hit", 500);
     }
 }
