@@ -5,7 +5,7 @@ public class BonusScoring
 {
     public ArrayList bonuses = new ArrayList();
 
-    public void addBonuseByName(string name, int value)
+    public void addBonusByName(string name, int value)
     {
         int index = getBonusIndexByName(name);
 
