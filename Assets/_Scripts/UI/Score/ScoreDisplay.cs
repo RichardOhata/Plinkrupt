@@ -21,6 +21,10 @@ public class ScoreDisplay : MonoBehaviour
         UpdateScore(ScoreManager.Instance.currentMoney);
     }
 
+    private void OnDestroy(){
+        ScoreManager.Instance.OnScoreUpdatedEvent -= UpdateScore;
+    }
+
 
     private void UpdateScore(float money)
     {
