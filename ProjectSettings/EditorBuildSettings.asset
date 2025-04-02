@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainCasinoScene.unity
     guid: f6f8863732864684890e6dc7c631c4be
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ee4e9a662c4585b469ed638e5c6421f2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
