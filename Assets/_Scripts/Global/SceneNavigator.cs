@@ -6,12 +6,7 @@ using System;
 public class SceneNavigator : MonoBehaviour
 {
     public GameObject objectToActivate; // Assign this in the Inspector
-    public String CasinoSceneOnLoad;
 
-    void Start()
-    {
-        SceneManager.LoadSceneAsync(CasinoSceneOnLoad, LoadSceneMode.Additive);
-    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
