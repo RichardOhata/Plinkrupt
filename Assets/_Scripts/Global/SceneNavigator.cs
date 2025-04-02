@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class SceneNavigator : MonoBehaviour
 {
     public GameObject objectToActivate; // Assign this in the Inspector
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

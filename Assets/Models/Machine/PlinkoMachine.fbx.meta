@@ -3,7 +3,32 @@ guid: cddb23e353df30542a0226ae6251e47f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission
+    second: {fileID: 2100000, guid: 819ce9c6488d8b64b90194e719032f72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedButton
+    second: {fileID: 2100000, guid: be4de2d3d04149d45aff2c505094ed5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TransparentGlass
+    second: {fileID: 2100000, guid: e9dbf74faa344b14ca3a689f4fc14c8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fakeTransparent
+    second: {fileID: 2100000, guid: 6d1d0f5948ce92a408c38b30c24a719c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mainMachine
+    second: {fileID: 2100000, guid: be0491c75edd0eb438172854b29a09d3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +58,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.015
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
