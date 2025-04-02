@@ -7,6 +7,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 {
     public BallConfigSO ballConfig;
     private ElementClass.ElementType _objectElement;
+    private AudioSource _onBounce;
     private float _baseMultiplier;
     private float _currentBidValue;
     private GameManager _gameManager;
@@ -37,6 +38,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     {
         return _objectElement;
     }
+
     void OnEnable()
     {
         //get the game manager instance
@@ -49,6 +51,9 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
         if (collision.gameObject.CompareTag(gameObject.tag)){
             return;
         }
+
+        _onBounce.PlayOneShot(_onBounce.clip);
+
         OnBallCollided?.Invoke();
     }
 
@@ -83,6 +88,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             baseBallController._objectElement = baseBallController.ballConfig.elementType;
             baseBallController._baseMultiplier = baseBallController.ballConfig.baseScoreMultiplier;
             baseBallController._currentBidValue = _currentBid;
+            baseBallController._onBounce = baseBallController.ballConfig.onBounce;
             
 
             float multiplier = ElementMultiplierManager.Instance.getElementMultiplier(baseBallController._objectElement);
