@@ -45,10 +45,12 @@ public class TransitionManager : MonoBehaviour
     public void OpenEndOfRoundMenu()
     {
         endOfRoundMenu.SetActive(true);
-      if (isBossPhase)
+        if (isBossPhase)
         {
             CheckBossCondition();
         }
+        playMusic.Stop();
+        shopMusic.Play();
     }
 
     public void OpenShop()
@@ -59,8 +61,6 @@ public class TransitionManager : MonoBehaviour
 
 
         endOfRoundMenu.SetActive(false);
-        playMusic.Stop();
-        shopMusic.Play();
     }
     public void CloseShop()
     {
