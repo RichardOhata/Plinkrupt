@@ -17,5 +17,7 @@ MonoBehaviour:
   baseScoreMultiplier: 1
   tailParticle: {fileID: 0}
   hitVFXPrefab: {fileID: 1858991840186967302, guid: 907a6d057ac61e742a23d71ceff13780, type: 3}
+  _hitEffectInitialSize: 0.5
   explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
   _oneShotCooldown: 0.5
+  onBounce: {fileID: 2765557700665776655, guid: 2bf1a66fd71bdf0498a60f5f2b03e4df, type: 3}

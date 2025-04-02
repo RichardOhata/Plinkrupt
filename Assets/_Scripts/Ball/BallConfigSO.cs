@@ -17,5 +17,6 @@ public class BallConfigSO : ScriptableObject
     [Range(0,5)]
     public float _oneShotCooldown = 0.5f;
 
-
+    [Header("SFX Settings")]
+    public AudioSource onBounce;
 }
