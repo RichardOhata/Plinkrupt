@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoringWindow : MonoBehaviour
 {
@@ -15,12 +14,6 @@ public class ScoringWindow : MonoBehaviour
     {
         ScoreManager.Instance.OnScoreUpdatedScoreWithColor += AddScore; // Subscribe to the event
         ScoreManager.Instance.OnNextRoundReset += ResetScores;
-    }
-
-    private void OnDestroy()
-    {
-        ScoreManager.Instance.OnScoreUpdatedScoreWithColor -= AddScore; // Unsubscribe from the event
-        ScoreManager.Instance.OnNextRoundReset -= ResetScores;
     }
 
     public void AddScore(Color elementColor, float score)

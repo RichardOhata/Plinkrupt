@@ -89,8 +89,4 @@ public class BallEffectController : MonoBehaviour, IElementScoreInteractionVFX
             return ballEffectController;
         }
     }
-    private void OnDestroy()
-    {
-        _ballController.OnBallCollided -= PlayImpactEffect;
-    }
 }

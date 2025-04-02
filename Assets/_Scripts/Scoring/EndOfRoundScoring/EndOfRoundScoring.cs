@@ -4,7 +4,6 @@ using TMPro;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Linq;
-using DG.Tweening;
 
 public class EndOfRoundScoring : MonoBehaviour
 {
@@ -36,6 +35,34 @@ public class EndOfRoundScoring : MonoBehaviour
     {
         _scoreManager.StoredScoringRecord.Clear();
     }
+    void Start()
+    {
+
+        //bonusScoring = _currentGameManager.bonusScoring;
+
+        ////TOD0: This data is for testing, remove after
+        //float Score = 0f;
+        //fillListWithTestData();
+
+        //foreach(var scores in _scoreManager.StoredScoringRecord){
+        //    Debug.Log($"Score: {scores.elementType}, {scores.score}");
+        //    GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        //    TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        //    textComponent.text = $"{scores.elementType} {scores.score}";
+        //    Score += scores.score;
+        //}
+
+        //// foreach (BonusScore bonus in bonusScoring.bonuses)
+        //// {
+        ////     GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
+        ////     TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
+        ////     textComponent.text = bonus.ToString();
+        //// }
+
+        //// Debug.Log($"Total Bonus: ${bonusScoring.getTotalBonus()}");
+        //// payout.text = $"Payout: $XXXXX";
+        //totalBonus.text = $"Total: ${Score}";
+    }
 
     private void FillData()
     {
@@ -54,7 +81,7 @@ public class EndOfRoundScoring : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
         payout.text = $"Payout: ${Score}";
-        BounceText(payout.gameObject);
+        StartCoroutine(bounceText(payout.gameObject));
 
         foreach(var scores in _scoreManager.StoredScoringRecord){
             yield return new WaitForSeconds(delay);
@@ -62,30 +89,50 @@ public class EndOfRoundScoring : MonoBehaviour
             GameObject newItem = Instantiate(bonusPrefab, bonusScrollViewContent);
             TMP_Text textComponent = newItem.GetComponentInChildren<TMP_Text>();
             textComponent.text = $"{scores.elementType} {scores.score}";
-            BounceText(newItem);
+            StartCoroutine(bounceText(newItem));
         }
 
         yield return new WaitForSeconds(delay);
         totalBonus.text = $"Total: ${_scoreManager.currentMoney}";
-        BounceText(totalBonus.gameObject);
+        StartCoroutine(bounceText(totalBonus.gameObject));
     }
 
-    void BounceText(GameObject textObject)
+    IEnumerator bounceText(GameObject textObject)
     {
-        // Store the original scale
         Vector3 originalScale = textObject.transform.localScale;
 
-        // Create a sequence for the bounce animation
-        Sequence bounceSequence = DOTween.Sequence();
+        // Shrink effect
+        for (float t = 0; t < 0.1f; t += Time.deltaTime)
+        {
+            textObject.transform.localScale = Vector3.Lerp(originalScale, originalScale * 0.8f, t / 0.1f);
+            yield return null;
+        }
 
-        // First shrink
-        bounceSequence.Append(textObject.transform.DOScale(originalScale * 0.8f, 0.1f))
-                     // Then bounce back with overshoot
-                     .Append(textObject.transform.DOScale(originalScale * 1.2f, 0.2f).SetEase(Ease.OutBounce))
-                     // Finally return to original scale
-                     .Append(textObject.transform.DOScale(originalScale, 0.1f));
+        // Expand with bounce
+        for (float t = 0; t < 0.2f; t += Time.deltaTime)
+        {
+            float bounce = Mathf.Sin(t / 0.2f * Mathf.PI); // Simulates a bounce effect
+            textObject.transform.localScale = originalScale * (1 + bounce * 0.2f);
+            yield return null;
+        }
 
-        // Play the sequence
-        bounceSequence.Play();
+        textObject.transform.localScale = originalScale; // Reset scale
+    }
+
+    void fillListWithTestData()
+    {
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Electric Hit", 100);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Fire Hit", 200);
+        bonusScoring.addBonusByName("Holy Hit", 500);
+        bonusScoring.addBonusByName("Holy Hit", 500);
+        bonusScoring.addBonusByName("Holy Hit", 500);
     }
 }

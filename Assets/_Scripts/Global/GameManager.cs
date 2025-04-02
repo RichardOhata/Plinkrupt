@@ -1,8 +1,5 @@
-using System;
 using Esper.ESave;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,21 +11,13 @@ public class GameManager : MonoBehaviour
     [Header("Ball dropping control")]
     public BallSpawner ballSpawner;
     public HexMountainGenerator boardSpawner;
+    public Button dropButton;
     public int currentBalls = 0;
     public int currentBallInstances = 0;
-
-    [Header("Bid value control")]
-    public float currentBidValue = 100;
-
-    [Header("End of Round control")]
-    [SerializeField] private Button EndOfRoundButton;
 
     public bool openEndofRoundFlag = false;
     //TODO: May refactor to a different class
     [HideInInspector] public BonusScoring bonusScoring = new BonusScoring();
-
-    public event Action<bool> OnBallDroppingEvent;
-    public UnityEvent OnBallDroppingUnityEvent;
 
     void Awake()
     {
@@ -48,14 +37,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //interactable only all the instances of the balls are destroyed
-        if(currentBallInstances == currentBalls){
-            EndOfRoundButton.interactable = true;
-        }
-        else{
-            EndOfRoundButton.interactable = false;
-        }
-        
         //all the ball instances are destroyed, open the end of round menu
         if(currentBallInstances <= 0 && !openEndofRoundFlag){
             TransitionManager.instance.OpenEndOfRoundMenu();
@@ -63,15 +44,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TriggerEndOfRound() {
-        TransitionManager.instance.OpenEndOfRoundMenu();
-    }
-
     public void ResetBalls()
     {
+        dropButton.interactable = true;
         currentBalls = ballSpawner.numBalls;
         currentBallInstances = ballSpawner.numBalls;
-        ballSpawner.initialBalls(currentBidValue);
     }
     public void ResetBoard() {
         boardSpawner.resetBoard();
@@ -79,14 +56,17 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBall()
     {
-        OnBallDroppingEvent?.Invoke(true);
-        OnBallDroppingUnityEvent?.Invoke();
-        EndOfRoundButton.gameObject.SetActive(true);
+        
+        //check if the ball spawner is set
+        if(ballSpawner == null){
+            Debug.LogWarning("Ball Spawner is not set!");
+            return;
+        }
+        ballSpawner.SpawnBall();
     }
 
-    public void EndBallDropping()
-    {
-        OnBallDroppingEvent?.Invoke(false);
-        OnBallDroppingUnityEvent?.Invoke();
-    }
+
+    
+
+
 }
