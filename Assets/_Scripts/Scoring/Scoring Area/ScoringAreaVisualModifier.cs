@@ -18,6 +18,10 @@ public class ScoringAreaVisualModifier : MonoBehaviour
     {
         _meshRenderer.material.SetColor("_BaseColor", color);
     }
+    private void OnDestroy()
+    {
+     _scoringTriggerZone.OnScoreAreaVisualChangeEvent -= onVisualChange;   
+    }
 
 
 }

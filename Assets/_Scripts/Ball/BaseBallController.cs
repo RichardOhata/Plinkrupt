@@ -108,7 +108,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             if(baseBallController.ballConfig.ballVisualPrefab){
                 GameObject ballVisualPrefab = Instantiate(baseBallController.ballConfig.ballVisualPrefab, gameObject.transform.position, Quaternion.identity);
                 ballVisualPrefab.transform.SetParent(gameObject.transform);
-                ballVisualPrefab.transform.localScale = Vector3.one * multiplier;
+                ballVisualPrefab.transform.localScale = Vector3.one * multiplier * baseBallController.ballConfig._hitEffectInitialSize;
             }
 
 

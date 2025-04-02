@@ -36,6 +36,10 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
         ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
+    private void OnDestroy(){
+        ElementMultiplierManager.Instance.MultiplierAddedEvent -= AddElementMultiplier;
+        ElementMultiplierManager.Instance.MultiplierRemovedEvent -= RemoveElementMultiplier;
+    }
 
 
     public void UpdateSetting(ElementMultiplierConfig scoringAreaConfig)
@@ -47,8 +51,6 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
         _elementColor = scoringAreaConfig.elementColor;
 
         OnScoreAreaVisualChangeEvent?.Invoke(_elementColor);
-        ElementMultiplierManager.Instance.MultiplierAddedEvent += AddElementMultiplier;
-        ElementMultiplierManager.Instance.MultiplierRemovedEvent += RemoveElementMultiplier;
     }
     /// <summary>
     /// Handles the trigger enter event. When a collision occurs, it checks if the colliding object 
