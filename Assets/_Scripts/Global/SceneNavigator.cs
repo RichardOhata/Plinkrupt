@@ -4,6 +4,7 @@ using System.Collections;
 
 public class SceneNavigator : MonoBehaviour
 {
+    public GameObject objectToActivate; // Assign this in the Inspector
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -34,5 +35,12 @@ public class SceneNavigator : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         LoadScene(sceneName);
+    }
+
+    public void TransitionToGame() {
+            if (objectToActivate != null)
+            {
+                objectToActivate.SetActive(true); // Activate the target object
+            }
     }
 }
