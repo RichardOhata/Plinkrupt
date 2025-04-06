@@ -74,6 +74,15 @@ public class BallSpawner : MonoBehaviour
         _ballQueueTimer += Time.deltaTime;
     }
 
+    public void ClearBallQueue(){
+        //clear the ball queue
+        foreach (GameObject ball in _ballQueue)
+        {
+            Destroy(ball);
+        }
+        _ballQueue.Clear();
+    }
+
 
     //spawn ball toggle
     public void SpawnBall(bool isDropping){

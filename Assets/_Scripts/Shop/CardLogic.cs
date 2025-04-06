@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using static ShopLogic;
 using UnityEngine.EventSystems;
+using System;
 
 public class CardLogic : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CardLogic : MonoBehaviour
     private bool isSelected;
 
     public BoosterPackItem item;
+
+    public Action<Boolean> OnCardSelectedEvent;
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class CardLogic : MonoBehaviour
             if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
             {
                 DeselectCard();
+                OnCardSelectedEvent?.Invoke(false); // Notify that the card is deselected
             }
         }
     }
@@ -54,6 +58,8 @@ public class CardLogic : MonoBehaviour
                 CardPos.LeftPos => "CardLeftUp",
                 _ => "CardMiddleUp" // Default case (failsafe)
             };
+
+            OnCardSelectedEvent?.Invoke(true); // Notify that the card is selected
 
             // Set the animation trigger
             animator.SetTrigger(triggerName);

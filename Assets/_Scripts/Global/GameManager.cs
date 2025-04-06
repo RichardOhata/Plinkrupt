@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void TriggerEndOfRound() {
+        ballSpawner.ClearBallQueue();
         TransitionManager.instance.OpenEndOfRoundMenu();
     }
 
