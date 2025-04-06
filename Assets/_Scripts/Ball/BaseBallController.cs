@@ -16,6 +16,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     private VisualEffect _explosionEffect;
     public VisualEffect ImpactEffect { get => _ImpactEffect; set => _ImpactEffect = value; }
 
+    private bool isDestroyed = false;
     public event Action OnBallCollided;
 
     // Implementing the interface methods
@@ -59,6 +60,11 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 
     public void DestorySelf()
     {
+        //prevent double destruction
+        if(isDestroyed) return;
+
+
+        isDestroyed = true;
         //update the ball count in the game manager and destroy the ball
         _gameManager.currentBallInstances -= 1;
         Debug.Log("Destroying ball: " + gameObject.name);
@@ -88,8 +94,10 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             baseBallController._objectElement = baseBallController.ballConfig.elementType;
             baseBallController._baseMultiplier = baseBallController.ballConfig.baseScoreMultiplier;
             baseBallController._currentBidValue = _currentBid;
-            baseBallController._onBounce = baseBallController.ballConfig.onBounce;
-            
+
+            //Inistantiate the Audio source and set the clip
+            baseBallController._onBounce = Instantiate(baseBallController.ballConfig.onBounce, gameObject.transform.position, Quaternion.identity);
+            baseBallController._onBounce.transform.SetParent(gameObject.transform);
 
             float multiplier = ElementMultiplierManager.Instance.getElementMultiplier(baseBallController._objectElement);
 
