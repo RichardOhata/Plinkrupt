@@ -1,6 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8669921140620073703
+--- !u!114 &-8749355820582657952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: PlinkruptFMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638797994060269220
+  FileSizes:
+  - Name: Desktop
+    Value: 1074
+  Exists: 1
+--- !u!114 &-7808702290614096034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bounce SFX
+  m_EditorClassIdentifier: 
+  Path: event:/Bounce SFX
+  Guid:
+    Data1: 1694852420
+    Data2: 1332448259
+    Data3: -192019324
+    Data4: 475499202
+  Banks:
+  - {fileID: -7806793985461409051}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 470
+--- !u!114 &-7806793985461409051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: PlinkruptFMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638797994060279215
+  FileSizes:
+  - Name: Desktop
+    Value: 53248
+  Exists: 1
+--- !u!114 &-5102778184383628210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,15 +79,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/BGM.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Documents/FMOD Studio/Plinkrupt/Build/Desktop/BGM.bank
+  Path: PlinkruptFMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638795695766274416
+  lastModified: 638797994060259225
   FileSizes:
   - Name: Desktop
     Value: 3362368
   Exists: 1
---- !u!114 &-6031120613694827994
+--- !u!114 &-501421158709912762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +106,7 @@ MonoBehaviour:
     Data3: -741384525
     Data4: 455727898
   Banks:
-  - {fileID: -8669921140620073703}
+  - {fileID: -5102778184383628210}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -60,32 +127,23 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2861235387469093070}
-  - {fileID: -8669921140620073703}
-  - {fileID: 8153768712009757189}
-  - {fileID: 2697698264958277260}
+  - {fileID: 9208267774410023763}
+  - {fileID: -5102778184383628210}
+  - {fileID: -8749355820582657952}
+  - {fileID: -7806793985461409051}
   EditorEvents:
-  - {fileID: -6031120613694827994}
-  - {fileID: 7670100617814471124}
-  - {fileID: 1026159848447204928}
-  - {fileID: 8238617533456319817}
+  - {fileID: -501421158709912762}
+  - {fileID: 4854981873369644097}
+  - {fileID: 4645313273599413567}
+  - {fileID: -7808702290614096034}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8153768712009757189}
+  - {fileID: -8749355820582657952}
   StringsBanks:
-  - {fileID: 2861235387469093070}
-  cacheVersion: 131847
-  cacheTime: 638796553293395224
-  SerializableEventsDict:
-  - key: event:/Gameplay BGM
-    index: 0
-  - key: event:/Casino BGM
-    index: 1
-  - key: event:/Shop BGM
-    index: 2
-  - key: event:/Bounce SFX
-    index: 3
---- !u!114 &1026159848447204928
+  - {fileID: 9208267774410023763}
+  cacheTime: 638797994060279215
+  cacheVersion: 131846
+--- !u!114 &4645313273599413567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +162,7 @@ MonoBehaviour:
     Data3: -1387100267
     Data4: -1020157968
   Banks:
-  - {fileID: -8669921140620073703}
+  - {fileID: -5102778184383628210}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -112,47 +170,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 44062
---- !u!114 &2697698264958277260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Documents/FMOD Studio/Plinkrupt/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638796553293395224
-  FileSizes:
-  - Name: Desktop
-    Value: 53248
-  Exists: 1
---- !u!114 &2861235387469093070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Documents/FMOD Studio/Plinkrupt/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638795695809349284
-  FileSizes:
-  - Name: Desktop
-    Value: 986
-  Exists: 1
---- !u!114 &7670100617814471124
+--- !u!114 &4854981873369644097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +189,7 @@ MonoBehaviour:
     Data3: 1507844522
     Data4: 1443595619
   Banks:
-  - {fileID: -8669921140620073703}
+  - {fileID: -5102778184383628210}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -179,7 +197,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 195100
---- !u!114 &8153768712009757189
+--- !u!114 &9208267774410023763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,40 +207,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Documents/FMOD Studio/Plinkrupt/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638795695809339198
+  Path: PlinkruptFMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638797994060269220
   FileSizes:
   - Name: Desktop
-    Value: 1074
+    Value: 986
   Exists: 1
---- !u!114 &8238617533456319817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Bounce SFX
-  m_EditorClassIdentifier: 
-  Path: event:/Bounce SFX
-  Guid:
-    Data1: 1694852420
-    Data2: 1332448259
-    Data3: -192019324
-    Data4: 475499202
-  Banks:
-  - {fileID: 2697698264958277260}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 470
