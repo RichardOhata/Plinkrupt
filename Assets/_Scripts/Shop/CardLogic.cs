@@ -3,6 +3,8 @@ using UnityEngine;
 using static ShopLogic;
 using UnityEngine.EventSystems;
 using System;
+using System.Collections;
+using UnityEngine.UIElements;
 
 public class CardLogic : MonoBehaviour
 {
@@ -14,21 +16,25 @@ public class CardLogic : MonoBehaviour
     public BoosterPackItem item;
 
     public Action<Boolean> OnCardSelectedEvent;
-
+    private float selectionTime = -1f;
+    private float selectionCooldown = 1.0f;
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
-
+        objectCollider = GetComponentInChildren<Collider>();
     }
 
     private void Update()
     {
         if (isSelected && Input.GetMouseButtonDown(0))
         {
-            if (!IsPointerOverUIObject() && !IsPointerOverGameObject())
+            if ((Time.time - selectionTime) >= selectionCooldown &&  // Wait before allowing deselect
+            !IsPointerOverUIObject() &&
+            !IsPointerOverGameObject())
             {
+                //OnCardSelectedEvent?.Invoke(false); // Notify that the card is deselected
                 DeselectCard();
-                OnCardSelectedEvent?.Invoke(false); // Notify that the card is deselected
+
             }
         }
     }
@@ -49,6 +55,7 @@ public class CardLogic : MonoBehaviour
         }
         if (!isSelected)
         {
+            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
             CardPos cardPos = GetComponent<ConsumableConfig>().cardpos;
             // Determine the correct trigger based on position
             string triggerName = cardPos switch
@@ -59,12 +66,16 @@ public class CardLogic : MonoBehaviour
                 _ => "CardMiddleUp" // Default case (failsafe)
             };
 
-            OnCardSelectedEvent?.Invoke(true); // Notify that the card is selected
+            //OnCardSelectedEvent?.Invoke(true); // Notify that the card is selected
 
             // Set the animation trigger
             animator.SetTrigger(triggerName);
+       
+            animator.SetBool("isCardRotating", true);
+        
             isSelected = true;
-            shopWindow.GetComponent<ShopLogic>().currentSelectedCard = gameObject;
+            selectionTime = Time.time;
+           
             shopWindow.GetComponent<ShopLogic>().DisplayUseButton();
         }
     }
@@ -99,6 +110,7 @@ public class CardLogic : MonoBehaviour
         };
 
         animator.SetTrigger(triggerName);
+        animator.SetBool("isCardRotating", false);
     }
 
     public void DeselectCard()

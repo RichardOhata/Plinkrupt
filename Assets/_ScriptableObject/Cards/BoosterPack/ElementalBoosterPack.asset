@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 602cd8f58e3b9cc458c9efe8672df07b, type: 2}
   - {fileID: 11400000, guid: d38febd0e16987746b5c4c7ecab1f8ea, type: 2}
   - {fileID: 11400000, guid: 41ac999bb8bc1c04faffec2253d62752, type: 2}
-  cardPrefab: {fileID: 6450712573119885430, guid: ec5c599229d9af44fa0627c5f8a14c03, type: 3}
+  cardPrefab: {fileID: 824380047460549547, guid: e972422a4c6484843a09488f7d387d84, type: 3}
   description: Choose 1 of up to 3 Elemental Cards to be used

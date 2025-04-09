@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class ShopLogic : MonoBehaviour
 {
-    private Vector3 leftPos = new Vector3(-3f, 0.2f, -0.2f);
-    private Vector3 middlePos = new Vector3(0f, 0.2f, -0.2f);
-    private Vector3 rightPos = new Vector3(3f, 0.2f, -0.2f);
+    private Vector3 leftPos = new Vector3(-3f, 0f, 0f);
+    private Vector3 middlePos = new Vector3(0f, 0f, 0f);
+    private Vector3 rightPos = new Vector3(3f, 0f, 0f);
     
     public BoosterPack[] boosterPacks;
 
@@ -34,7 +34,7 @@ public class ShopLogic : MonoBehaviour
     [SerializeField]
     private GameObject gameBoard;
 
-    private bool boosterPackFlag= true;
+    private bool boosterPackFlag = true;
 
     public enum ConsumableType{
         Boosterpack,

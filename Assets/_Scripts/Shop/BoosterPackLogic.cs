@@ -14,6 +14,9 @@ public class BoosterPackLogic : MonoBehaviour
 
     public BoosterPackItem[] items;
     public GameObject itemCardPrefab;
+
+    private float selectionTime = -1f;
+    private float selectionCooldown = 1.0f;
     private void Start()
     {
         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
@@ -22,9 +25,13 @@ public class BoosterPackLogic : MonoBehaviour
 
     private void Update()
     {
-        if (isSelected && Input.GetMouseButtonDown(0) && !IsPointerOverUIObject() && !IsPointerOverGameObject())
+        if (isSelected && Input.GetMouseButtonDown(0))
         {
-            DeselectCard();
+            if ((Time.time - selectionTime) >= selectionCooldown &&
+                !IsPointerOverUIObject() && !IsPointerOverGameObject())
+            {
+                DeselectCard();
+            }
         }
     }
 
@@ -55,9 +62,10 @@ public class BoosterPackLogic : MonoBehaviour
         }
         if (!isSelected)
         {
+            shopLogic.currentSelectedCard = gameObject;
             PlayCardAnimation(true);
             isSelected = true;
-            shopLogic.currentSelectedCard = gameObject;
+            selectionTime = Time.time;
             shopLogic.DisplayUseButton();
         
         }
