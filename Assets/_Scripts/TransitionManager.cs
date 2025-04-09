@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using FMODUnity;
 
 public class TransitionManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class TransitionManager : MonoBehaviour
     public GameObject endOfRoundMenu;
     public GameObject gameUIMenu;
     public GameObject mainGameCamera;
-    public AudioSource playMusic;
-    public AudioSource shopMusic;
+    public EventReference playMusic;
+    public EventReference shopMusic;
 
     [SerializeField]
     private int round;
@@ -38,7 +39,7 @@ public class TransitionManager : MonoBehaviour
 
     public void Start()
     {
-        playMusic.Play();
+        AudioManager.instance.PlayMusic(playMusic);
     }
 
     // Call when all balls have been used
@@ -49,8 +50,7 @@ public class TransitionManager : MonoBehaviour
         {
             CheckBossCondition();
         }
-        playMusic.Stop();
-        shopMusic.Play();
+        AudioManager.instance.PlayMusic(shopMusic);
     }
 
     public void OpenShop()
@@ -78,8 +78,7 @@ public class TransitionManager : MonoBehaviour
         {
             StartBossPhase();
         }
-        shopMusic.Stop();
-        playMusic.Play();
+        AudioManager.instance.PlayMusic(playMusic);
     }
 
     public int GetRound() {

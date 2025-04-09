@@ -20,4 +20,10 @@ MonoBehaviour:
   _hitEffectInitialSize: 0.5
   explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
   _oneShotCooldown: 0.5
-  onBounce: {fileID: 2765557700665776655, guid: 2bf1a66fd71bdf0498a60f5f2b03e4df, type: 3}
+  _onBounce:
+    Guid:
+      Data1: 1694852420
+      Data2: 1332448259
+      Data3: -192019324
+      Data4: 475499202
+    Path: event:/Bounce SFX

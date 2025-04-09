@@ -2,12 +2,13 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
+using FMODUnity;
 
 public class BaseBallController : MonoBehaviour, IElementScoreInteraction
 {
     public BallConfigSO ballConfig;
     private ElementClass.ElementType _objectElement;
-    private AudioSource _onBounce;
+    private EventReference _onBounce;
     private float _baseMultiplier;
     private float _currentBidValue;
     private GameManager _gameManager;
@@ -52,7 +53,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             return;
         }
 
-        _onBounce.PlayOneShot(_onBounce.clip);
+        AudioManager.instance.OneShot(_onBounce, this.transform.position);
 
         OnBallCollided?.Invoke();
     }
@@ -88,7 +89,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             baseBallController._objectElement = baseBallController.ballConfig.elementType;
             baseBallController._baseMultiplier = baseBallController.ballConfig.baseScoreMultiplier;
             baseBallController._currentBidValue = _currentBid;
-            baseBallController._onBounce = baseBallController.ballConfig.onBounce;
+            baseBallController._onBounce = baseBallController.ballConfig._onBounce;
             
 
             float multiplier = ElementMultiplierManager.Instance.getElementMultiplier(baseBallController._objectElement);

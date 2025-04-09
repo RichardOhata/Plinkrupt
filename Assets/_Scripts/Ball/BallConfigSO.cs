@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using FMODUnity;
 
 [CreateAssetMenu(fileName = "BallConfigSO", menuName = "BallSo/Ball Config")]
 public class BallConfigSO : ScriptableObject
@@ -18,5 +19,5 @@ public class BallConfigSO : ScriptableObject
     public float _oneShotCooldown = 0.5f;
 
     [Header("SFX Settings")]
-    public AudioSource onBounce;
+    public EventReference _onBounce;
 }
