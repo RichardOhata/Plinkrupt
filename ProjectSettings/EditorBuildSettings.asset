@@ -8,34 +8,34 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldScene/MainMenu_Old.unity
     guid: 31a64e5047f289442868f26304ae0426
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DiegoEndOfRound.unity
     guid: 04c900e1d62e3844eab4dbbe648e5a39
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Alpha.unity
     guid: d771c732b78c13142a1445ab74893b25
   - enabled: 1
     path: Assets/Scenes/Beta.unity
     guid: 688b2fef26dca1e43bba452f1293b8b3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Richard Ohata.unity
     guid: 7566619b8760f5a47a0de5cab1abdc9b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GreyBox/AndrewGreyBox2.unity
     guid: d26a7d10b0a1765478c3b5e55a4838b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test123.unity
     guid: b69530b60ffc54449a9686225e48445a
-  - enabled: 1
+  - enabled: 0
     path: Assets/TransitionsPlus/Demos/Scene Loading/Main Scene.unity
     guid: 66fe5cf05ff1d4725a553058aa61e45a
-  - enabled: 1
+  - enabled: 0
     path: Assets/TransitionsPlus/Demos/Scene Loading/Second Scene.unity
     guid: 446755d44cff44f1495d039b060ea905
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Casino.unity
     guid: 12ea70d4b7ee8c246882941350c0197e
   - enabled: 1
@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ee4e9a662c4585b469ed638e5c6421f2
+  - enabled: 0
+    path: Assets/Scenes/OldScene/AndrewTest.unity
+    guid: d7ff62347bf677440b79f2ba06fb147a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
