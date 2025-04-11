@@ -20,4 +20,4 @@ MonoBehaviour:
   _hitEffectInitialSize: 0.5
   explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
   _oneShotCooldown: 0.5
-  onBounce: {fileID: 3225586183816920137, guid: a690811baa076af4f8a506d42e07dd3c, type: 3}
+  onBounce: {fileID: 1504344313279163101, guid: 9388b4e8877ec95479bf7e77d3713d84, type: 3}
