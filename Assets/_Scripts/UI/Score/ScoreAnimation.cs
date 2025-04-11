@@ -40,6 +40,11 @@ public class ScoreAnimation : MonoBehaviour
         ScoreManager.Instance.OnScoreUpdatedEvent += UpdateScore;
         ScoreManager.Instance.OnLeadingElementChangedEvent += OnLeadingElementChange;
     }
+    void Start()
+    {
+        // Initialize the score text with the current score
+        UpdateScore(ScoreManager.Instance.currentMoney);
+    }
 
     private void OnDestroy()
     {
@@ -55,13 +60,6 @@ public class ScoreAnimation : MonoBehaviour
             _isColorAnimationEnabled = true;
             _scoreText.DOColor(tuple.Item1, _colorTransitionDuration).SetEase(Ease.OutSine).OnComplete(() => _isColorAnimationEnabled = false);
         }
-    }
-
-    void Start()
-    {
-        // _scoreText.ForceMeshUpdate();
-        // //add character to queue
-        // QueueAllCharacter();
     }
 
     // Update is called once per frame
