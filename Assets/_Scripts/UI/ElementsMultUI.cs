@@ -20,7 +20,7 @@ public class ElementsMultUI : MonoBehaviour
     {
         for (int i = 0; i < multList.Count; i++)
         {
-            textComponents[i].text = multList[i].multiplier.ToString();
+            textComponents[i].text = multList[i].multiplier.ToString() + "x";
         }
     }
 }
