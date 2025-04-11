@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class ShopLogic : MonoBehaviour
 {
+    public PostProcessingShop postProcessingShop;
+    public int heavenEffectTriggerMoneyAmount = 20000;
     private Vector3 leftPos = new Vector3(-3f, 0f, 0f);
     private Vector3 middlePos = new Vector3(0f, 0f, 0f);
     private Vector3 rightPos = new Vector3(3f, 0f, 0f);
@@ -67,10 +69,16 @@ public class ShopLogic : MonoBehaviour
         {
 
             rerollButton.interactable = false;
+            postProcessingShop.reverseColorTrigger = -1;
         }
         else
         {
             rerollButton.interactable = true;
+            if (ScoreManager.Instance.currentMoney > heavenEffectTriggerMoneyAmount) {
+                postProcessingShop.reverseColorTrigger = 1;
+            } else {
+                postProcessingShop.reverseColorTrigger = 0;
+            }
         }
     }
 
