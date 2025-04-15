@@ -13,6 +13,7 @@ public class EndOfRoundScoring : MonoBehaviour
     public TMP_Text payout;
     public TMP_Text totalBonus;
     private GameManager _currentGameManager;
+    public AudioSource cashoutSound;
 
     private ScoreManager _scoreManager;
     private BonusScoring bonusScoring;
@@ -50,6 +51,8 @@ public class EndOfRoundScoring : MonoBehaviour
 
     IEnumerator displayBonus(float delay)
     {
+        cashoutSound.PlayOneShot(cashoutSound.clip, 0.75f);
+
         float Score = _scoreManager.StoredScoringRecord.ToList().Sum(s => s.score);
 
         yield return new WaitForSeconds(delay);

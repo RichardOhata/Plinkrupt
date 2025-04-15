@@ -19,4 +19,5 @@ public class BallConfigSO : ScriptableObject
 
     [Header("SFX Settings")]
     public AudioSource onBounce;
+    public AudioSource onDestroy;
 }

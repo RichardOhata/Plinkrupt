@@ -21,3 +21,4 @@ MonoBehaviour:
   explosionVFXPrefab: {fileID: 5928616456086084918, guid: b328fbf8c2bad9747814e26eecb8d5f4, type: 3}
   _oneShotCooldown: 0.5
   onBounce: {fileID: 1162900862705919721, guid: 0b19135bb73ae174fbe6cba2363353ff, type: 3}
+  onDestroy: {fileID: 5023796648979893230, guid: e14a9133c267d48439e510687a66f8d7, type: 3}

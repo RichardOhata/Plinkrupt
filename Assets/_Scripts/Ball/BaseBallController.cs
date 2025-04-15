@@ -8,6 +8,7 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     public BallConfigSO ballConfig;
     private ElementClass.ElementType _objectElement;
     private AudioSource _onBounce;
+    private AudioSource _onDestroy;
     private float _baseMultiplier;
     private float _currentBidValue;
     private GameManager _gameManager;
@@ -15,6 +16,8 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
     [SerializeField] private VisualEffect _ImpactEffect;
     private VisualEffect _explosionEffect;
     public VisualEffect ImpactEffect { get => _ImpactEffect; set => _ImpactEffect = value; }
+
+    [HideInInspector] public bool isBeingCleared = false;
 
     private bool isDestroyed = false;
     public event Action OnBallCollided;
@@ -72,6 +75,21 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
         Destroy(this.gameObject);
     }
 
+    void OnDestroy()
+    {
+        if(_onDestroy != null && !isBeingCleared)
+        {
+            GameObject audioGO = new GameObject("DestructionSound");
+            audioGO.hideFlags = HideFlags.DontSave;
+            AudioSource audioSource = audioGO.AddComponent<AudioSource>();
+            audioSource.clip = _onDestroy.clip;
+            audioSource.volume = 0.6f;
+            audioSource.Play();
+
+            // Destroy the temporary GameObject after the clip finishes
+            Destroy(audioGO, _onDestroy.clip.length);
+        }
+    }
 
     //builder pattern for the BaseBallController class
     public class Builder{
@@ -98,6 +116,9 @@ public class BaseBallController : MonoBehaviour, IElementScoreInteraction
             //Inistantiate the Audio source and set the clip
             baseBallController._onBounce = Instantiate(baseBallController.ballConfig.onBounce, gameObject.transform.position, Quaternion.identity);
             baseBallController._onBounce.transform.SetParent(gameObject.transform);
+
+            baseBallController._onDestroy = Instantiate(baseBallController.ballConfig.onDestroy, gameObject.transform.position, Quaternion.identity);
+            baseBallController._onDestroy.transform.SetParent(gameObject.transform);
 
             float multiplier = ElementMultiplierManager.Instance.getElementMultiplier(baseBallController._objectElement);
 

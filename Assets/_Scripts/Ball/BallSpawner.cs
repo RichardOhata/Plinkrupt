@@ -78,6 +78,14 @@ public class BallSpawner : MonoBehaviour
         //clear the ball queue
         foreach (GameObject ball in _ballQueue)
         {
+            BaseBallController controller = ball.GetComponent<BaseBallController>();
+            if (controller != null)
+            {
+                controller.isBeingCleared = true;
+            }
+
+            Debug.Log("Destroying");
+
             Destroy(ball);
         }
         _ballQueue.Clear();
