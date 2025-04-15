@@ -11,6 +11,9 @@ public class ScoringWindow : MonoBehaviour
     private Queue<GameObject> scoreQueue = new Queue<GameObject>(); // Queue to manage score images
     private float spacing = 120f; // Vertical spacing between score entries
 
+    public Sprite frame;
+    public TMP_FontAsset customFont;
+
     public void Start()
     {
         ScoreManager.Instance.OnScoreUpdatedScoreWithColor += AddScore; // Subscribe to the event
@@ -46,22 +49,25 @@ public class ScoringWindow : MonoBehaviour
         // Add Image component and set it to white
         Image img = scoreObject.AddComponent<Image>();
         img.color = elementColor; // Set to white
+        img.sprite = frame; // Set frame
         RectTransform imgRect = img.rectTransform;
         imgRect.sizeDelta = new Vector2(100, 100); // Set size
         imgRect.anchorMin = new Vector2(0.5f, 1); // Center top
         imgRect.anchorMax = new Vector2(0.5f, 1);
         imgRect.pivot = new Vector2(0.5f, 1); // Align to top center
-        imgRect.anchoredPosition = new Vector2(0, -3 * spacing - 20); // Start at bottom
+        imgRect.anchoredPosition = new Vector2(50, -3 * spacing - 70); // Start at bottom
+        imgRect.localEulerAngles = new Vector3(0, 0, -90);
 
         // Create TextMeshPro text inside the image
         GameObject textObject = new GameObject("ScoreText");
         textObject.transform.SetParent(scoreObject.transform, false);
 
         TextMeshProUGUI tmp = textObject.AddComponent<TextMeshProUGUI>();
-        tmp.text = "Score: " + score;
-        tmp.fontSize = 24;
+        tmp.text = score.ToString();
+        tmp.fontSize = 40;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = Color.black; // Set text color to black for visibility
+        tmp.font = customFont;
 
         // Stretch text to fit inside the white image
         RectTransform textRT = tmp.rectTransform;
