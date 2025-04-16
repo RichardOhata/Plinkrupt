@@ -58,6 +58,7 @@ public class ScoringTriggerZone : MonoBehaviour, IElementScoreInteraction
     /// element multiplier and updates the game manager with the new score.
     /// </summary>
     /// <param name="collision">The collider object that triggered the event.</param>
+    /// 
     public void OnTriggerEnter(Collider collision){
         if(collision.gameObject.TryGetComponent<IElementScoreInteraction>(out IElementScoreInteraction BallElement)){
 
